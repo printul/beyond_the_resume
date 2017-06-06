@@ -21,6 +21,7 @@ class User < ApplicationRecord
     identity = Identity.find_for_oauth(auth)
 
     user = signed_in_resource ? signed_in_resource : identity.user
+    binding.pry
 
     if user.nil?
       # Get the existing user by email if the provider gives us a verified email.
@@ -30,7 +31,6 @@ class User < ApplicationRecord
       # email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
       email = auth.info.email# if email_is_verified
       user = User.where(:email => email).first if email
-
       # Create the user if it's a new registration
       if user.nil?
         user = User.new(
