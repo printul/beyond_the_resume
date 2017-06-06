@@ -11,11 +11,25 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+ActiveRecord::Schema.define(version: 20170605214338) do
+
 ActiveRecord::Schema.define(version: 20170605180345) do
 
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+
+  create_table "applications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "video_id"
+    t.integer  "posting_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["posting_id"], name: "index_applications_on_posting_id", using: :btree
+    t.index ["user_id"], name: "index_applications_on_user_id", using: :btree
+    t.index ["video_id"], name: "index_applications_on_video_id", using: :btree
+  end
 
   create_table "professions", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170605180345) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["profession_id"], name: "index_skills_on_profession_id", using: :btree
+
   create_table "businesses", force: :cascade do |t|
     t.string   "name",         null: false
     t.string   "address"
@@ -41,6 +56,32 @@ ActiveRecord::Schema.define(version: 20170605180345) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["user_id"], name: "index_businesses_on_user_id", using: :btree
+  end
+
+  create_table "postings", force: :cascade do |t|
+    t.text     "description"
+    t.integer  "business_id"
+    t.integer  "video_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["business_id"], name: "index_postings_on_business_id", using: :btree
+    t.index ["video_id"], name: "index_postings_on_video_id", using: :btree
+  end
+
+  create_table "professions", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_professions_on_user_id", using: :btree
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "profession_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["profession_id"], name: "index_skills_on_profession_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,7 +122,14 @@ ActiveRecord::Schema.define(version: 20170605180345) do
     t.index ["user_id"], name: "index_videos_on_user_id", using: :btree
   end
 
+  add_foreign_key "applications", "postings"
+  add_foreign_key "applications", "users"
+  add_foreign_key "applications", "videos"
   add_foreign_key "businesses", "users"
+  add_foreign_key "postings", "businesses"
+  add_foreign_key "postings", "videos"
+  add_foreign_key "professions", "users"
+  add_foreign_key "skills", "professions"
   add_foreign_key "videos", "businesses"
   add_foreign_key "videos", "users"
 end
