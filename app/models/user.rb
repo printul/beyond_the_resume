@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :videos
   has_many :applications
   has_many :professions
+  has_many :skills, through: :profession
+  has_many :postings, through: :business
 end
