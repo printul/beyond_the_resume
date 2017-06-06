@@ -1,0 +1,6 @@
+<h1>Your videos</h1>
+<% @videos.each do |video| %>
+  <p><%= current_user.first_name  %> <%= current_user.last_name %></p>
+  <p><%= video.title %></p>
+  <p><%= video.description %></p>
+<% end %>
