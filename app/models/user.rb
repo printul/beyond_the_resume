@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
   has_many :businesses
-  has_many :videos, as: :videoable
+  has_many :videos, as: :videoable, dependent: :destroy
   has_many :applications
   has_many :professions
   has_many :skills, through: :profession
