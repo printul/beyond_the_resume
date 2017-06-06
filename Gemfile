@@ -17,9 +17,11 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+gem 'omniauth'
 # facebook connect
 gem 'omniauth-facebook'
 # linked-in connect
+gem 'omniauth-linkedin'
 
 
 group :development, :test do

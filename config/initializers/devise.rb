@@ -2,17 +2,11 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
-  config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
-    scope: 'email',
-    info_fields: 'email, first_name, last_name',
-    image_size: 'square',  # 50x50, guaranteed ratio
-    secure_image_url: true
+  config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"]
 
-  # config.omniauth :linkedin, ENV["LINKEDIN_KEY"], ENV["LINKEDIN_SECRET"],
-  #   :scope => 'r_fullprofile r_emailaddress r_network',
-  #   info_fields: 'email, first_name, last_name',
-  #   image_size: 'square',
-  #   secure_image_url: true
+
+  config.omniauth :linkedin, ENV["LINKEDIN_KEY"], ENV["LINKEDIN_SECRET"]
+
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
