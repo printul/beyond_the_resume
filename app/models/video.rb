@@ -1,4 +1,5 @@
 class Video < ApplicationRecord
-  belongs_to :user
-  belongs_to :business
+  belongs_to :videoable, polymorphic: true
+  has_many :applications
+  has_many :postings, through: :business
 end

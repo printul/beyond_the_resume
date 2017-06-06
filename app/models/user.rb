@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :businesses
-  has_many :videos
+  has_many :videos, as: :videoable
   has_many :applications
   has_many :professions
   has_many :skills, through: :profession
