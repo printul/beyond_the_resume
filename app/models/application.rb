@@ -1,5 +1,5 @@
 class Application < ApplicationRecord
-  belongs_to :user
-  belongs_to :posting
-  has_one :video
+  belongs_to :user, dependent: :destroy
+  belongs_to :posting, dependent: :destroy
+  belongs_to :video, dependent: :destroy
 end
