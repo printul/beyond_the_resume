@@ -8,10 +8,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :businesses
-  has_many :videos
+  has_many :videos, as: :videoable
   has_many :applications
   has_many :professions
+
   has_many :identities
+
+  has_many :skills, through: :profession
+  has_many :postings, through: :business
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)
@@ -50,8 +54,8 @@ class User < ApplicationRecord
     user
   end
 
+
   # def email_verified?
   #   self.email && self.email !~ TEMP_EMAIL_REGEX
   # end
-
 end
