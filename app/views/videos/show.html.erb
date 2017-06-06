@@ -1,0 +1,7 @@
+<h1>Your video</h1>
+<%= @video.title %>
+<%= @video.url %>
+<%= @video.description %>
+
+<p><%= link_to "Go to all videos", videos_path %></p>
+<p><%= link_to "Delete video", video_path(@video), method: :delete %></p>
