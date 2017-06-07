@@ -1,0 +1,6 @@
+<h1>All businesses</h1>
+<%= @businesses.each do |biz| %>
+  <p><%=  link_to biz.name, business_path(biz) %></p>
+  <p><%= biz.industry %></p>
+<% end %>
+
