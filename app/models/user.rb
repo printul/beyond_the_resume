@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
     user = signed_in_resource ? signed_in_resource : identity.user
 
-    binding.pry
+
 
     if user.nil?
       # Get the existing user by email if the provider gives us a verified email.
