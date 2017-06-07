@@ -18,6 +18,7 @@ user_seed_data = [
     phone_number: "+417520983938",
     business?: true,
     searchable?: true,
+    admin: true,
     resume: "http://bullshit.shit"
   },
   {
