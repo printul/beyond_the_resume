@@ -1,0 +1,6 @@
+<h1>All the postings</h1>
+
+<% @postings.each do |posting| %>
+  <p><%= link_to posting.title, posting_path(posting) %></p>
+  <p><%= posting.description %></p>
+<% end %>
