@@ -57,7 +57,7 @@ class ApplicationsController < ApplicationController
   end
 
   def application_params
-    params.require(:application).permit(:video_id)
+    params.require(:application).permit(:video_id, :title, :description)
   end
 
 end
