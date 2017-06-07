@@ -1,4 +1,4 @@
-<h1><%= application.user.first_name %> <%= application.user.last_name %>'s applications</h1>
+applications</h1>
 <% @applications.each do |application| %>
   <p><%= link_to application.posting.title, application_path(application) %></p>
   <p><%= application.posting.business.name %></p>
