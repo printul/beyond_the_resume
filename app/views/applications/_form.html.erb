@@ -1,0 +1,6 @@
+<%= simple_form_for [@posting, @application] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.association :video, collection: @user.videos %>
+  <%= f.submit %>
+<% end %>

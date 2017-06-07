@@ -5,10 +5,14 @@ Rails.application.routes.draw do
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :videos, only: [:index, :show, :new, :create, :destroy]
-  resources :applications
+  resources :postings, only: [:index, :show] do
+    resources :applications, only: [:new, :create]
+  end
 
-  namespace :business do
+  resources :applications, only: [:index, :show, :edit, :update, :destroy]
+
+  resources :businesses do
     resources :videos, only: [:index, :show, :new, :create, :destroy]
-    resources :postings
+    resources :postings, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 end
