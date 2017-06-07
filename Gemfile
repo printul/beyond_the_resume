@@ -23,6 +23,14 @@ gem 'omniauth-facebook'
 # linked-in connect
 gem 'omniauth-linkedin'
 
+#Admin panel Active Admin
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+#Admin panel Rails Admin
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
+
+
 
 group :development, :test do
   gem 'binding_of_caller'
