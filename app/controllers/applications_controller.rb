@@ -1,8 +1,10 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
-  before_action :set_posting, only: [:create]
+  before_action :set_posting, only: [:new, :create]
+  before_action :set_user, only: [:new, :create]
+
   def index
-    @applications = curent_user.applications
+    @applications = current_user.applications
   end
 
   def show
@@ -15,6 +17,7 @@ class ApplicationsController < ApplicationController
   def create
     @application = Application.new(application_params)
     @application.posting = @posting
+    @application.user = @user
     if @application.save
       redirect_to application_path(@application)
     else
@@ -34,10 +37,10 @@ class ApplicationsController < ApplicationController
     end
   end
 
-  def destroy
-    @application.destroy
-    redirect_to applications_path
-  end
+  # def destroy
+  #   @application.destroy
+  #   redirect_to applications_path
+  # end
 
   private
 
@@ -49,8 +52,12 @@ class ApplicationsController < ApplicationController
     @posting = Posting.find(params[:posting_id])
   end
 
+  def set_user
+    @user = current_user
+  end
+
   def application_params
-    params.require(:application).permit(:video_id)
+    params.require(:application).permit(:video_id, :title, :description)
   end
 
 end
