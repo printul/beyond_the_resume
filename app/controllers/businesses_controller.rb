@@ -1,8 +1,8 @@
 class BusinessesController < ApplicationController
+    before_action :set_user, only: [:index, :create, :show, :edit, :update]
     before_action :set_business, only: [:show, :edit, :update, :destroy]
-
   def index
-    @businesses = current_user.businesses
+    @businesses = @user.businesses
   end
 
   def show
@@ -14,7 +14,7 @@ class BusinessesController < ApplicationController
 
   def create
     @business = Business.new(business_params)
-    @business.user = current_user
+    @business.user = @user
     if @business.save
       redirect_to business_path(@business)
     else
@@ -36,7 +36,7 @@ class BusinessesController < ApplicationController
 
   def destroy
     @business.destroy
-    redirect_to business_index_path
+    redirect_to businesses_path
   end
 
   private
@@ -47,6 +47,10 @@ class BusinessesController < ApplicationController
 
   def business_params
     params.require(:business).permit(:name, :address, :phone_number, :email, :industry)
+  end
+
+  def set_user
+    @user = current_user
   end
 
 end
