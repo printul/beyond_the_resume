@@ -1,7 +1,16 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<p><%= link_to "index", videos_path %></p>
-<p><%= link_to "my biz", businesses_path %></p>
-<p><%= link_to "All the postings", postings_path %></p>
-<p><%= link_to "All my applications", applications_path %></p>
+<% if user_signed_in?  %>
+  <% if current_user.business? %>
+    <p><%= link_to "My videos", videos_path %></p>
+    <p><%= link_to "My businesses", businesses_path %></p>
+    <p><%= link_to "All job postings", postings_path %></p>
+  <% else %>
+    <p><%= link_to "My videos", videos_path %></p>
+    <p><%= link_to "All my applications", applications_path %></p>
+  <% end %>
+<% else %>
+  <h1>Welcome to our landing page</h1>
+  <%= link_to "All job postings", postings_path %>
+<% end %>
