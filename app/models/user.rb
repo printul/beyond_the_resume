@@ -14,8 +14,8 @@ class User < ApplicationRecord
 
   has_many :identities, dependent: :destroy
 
-  has_many :skills, through: :profession
-  has_many :postings, through: :business
+  has_many :skills, through: :professions
+  has_many :postings, through: :businesses
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)
