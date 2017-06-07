@@ -1,0 +1,12 @@
+<h1>All businesses</h1>
+<% @businesses.each do |biz| %>
+  <p><%= link_to biz.name, business_path(biz) %>, industry: <%= biz.industry %></p>
+  <p><%= link_to "edit", edit_business_path(biz) %></p>
+  <p><%= link_to "delete", business_path(biz), method: :delete %></p>
+  <p><%= link_to "see postings for this business", business_postings_path(biz) %></p>
+  <p><%= link_to "create a posting", new_business_posting_path(biz) %></p>
+<% end %>
+
+<br>
+<p><%= link_to "add new business", new_business_path %></p>
+<p><%= link_to "home", root_path %></p>

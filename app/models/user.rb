@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :businesses
-  has_many :videos, as: :videoable
+  has_many :videos, as: :videoable, dependent: :destroy
   has_many :applications
   has_many :professions
 
@@ -32,7 +32,6 @@ class User < ApplicationRecord
       # email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
       email = auth.info.email# if email_is_verified
       user = User.where(:email => email).first if email
-
       # Create the user if it's a new registration
       if user.nil?
         if auth.provider == "linkedin"

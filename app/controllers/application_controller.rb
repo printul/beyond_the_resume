@@ -11,4 +11,10 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  before_action :better_errors_hack, if: -> { Rails.env.development? }
+
+  def better_errors_hack
+    request.env['puma.config'].options.user_options.delete :app
+  end
 end

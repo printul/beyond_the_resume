@@ -1,0 +1,6 @@
+<h1>Posting <%= @posting.id %></h1>
+<h3><%= @posting.title %></h3>
+<p><%= @posting.description %></p>
+<br>
+<p><%= link_to "Back", postings_path %></p>
+<p><%= link_to "Apply to this posting", new_posting_application_path(@posting) %></p>

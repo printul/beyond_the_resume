@@ -142,6 +142,65 @@ video_seed_data = [
   },
 ]
 
+posting_seed_data = [
+  {
+    title: "This a posting",
+    description: "description of the posting",
+    business_id: 1,
+    video_id: 2,
+
+  },
+  {
+    title: "This a posting 2",
+    description: "description of the posting",
+    business_id: 2,
+    video_id: 2,
+
+  },
+  {
+    title: "This a posting 3",
+    description: "description of the posting",
+    business_id: 1,
+    video_id: 2,
+
+  },
+  {
+    title: "This a posting 4",
+    description: "description of the posting",
+    business_id: 1,
+    video_id: 2,
+
+  },
+  {
+    title: "This a posting 5",
+    description: "description of the posting",
+    business_id: 2,
+    video_id: 1,
+
+  },
+  {
+    title: "This a posting 6",
+    description: "description of the posting",
+    business_id: 1,
+    video_id: 2,
+
+  },
+  {
+    title: "This a posting 7",
+    description: "description of the posting",
+    business_id: 2,
+    video_id: 2,
+
+  },
+  {
+    title: "This a posting 8",
+    description: "description of the posting",
+    business_id: 1,
+    video_id: 1,
+
+  }
+]
+
 user_seed_data.each do |user|
   User.create(user)
 end
@@ -152,6 +211,10 @@ end
 
 video_seed_data.each do |video|
   Video.create(video)
+end
+
+posting_seed_data.each do |post|
+  Posting.create(post)
 end
 
 p "finished seeding"
