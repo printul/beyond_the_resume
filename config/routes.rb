@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :applications, only: [:index, :show, :edit, :update, :destroy]
 
-  resources :business
+  resources :businesses
 
   namespace :business do
     resources :videos, only: [:index, :show, :new, :create, :destroy]

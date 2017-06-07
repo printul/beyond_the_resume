@@ -1,6 +1,11 @@
 <h1>All businesses</h1>
-<%= @businesses.each do |biz| %>
+<% @businesses.each do |biz| %>
   <p><%=  link_to biz.name, business_path(biz) %></p>
   <p><%= biz.industry %></p>
+  <%= link_to "edit", edit_business_path(biz) %>
+  <%= link_to "delete", business_path(biz), method: :delete %>
 <% end %>
 
+
+<%= link_to "add new business", new_business_path %>
+<%= link_to "home", root_path %>
