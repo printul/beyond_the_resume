@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :applications
   has_many :professions
 
-  has_many :identities
+  has_many :identities, dependent: :destroy
 
   has_many :skills, through: :profession
   has_many :postings, through: :business
@@ -21,6 +21,8 @@ class User < ApplicationRecord
     identity = Identity.find_for_oauth(auth)
 
     user = signed_in_resource ? signed_in_resource : identity.user
+
+
 
     if user.nil?
       # Get the existing user by email if the provider gives us a verified email.
@@ -32,12 +34,21 @@ class User < ApplicationRecord
       user = User.where(:email => email).first if email
       # Create the user if it's a new registration
       if user.nil?
-        user = User.new(
-          first_name: auth.extra.raw_info.first_name,
-          last_name: auth.extra.raw_info.last_name,
-          email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-          password: Devise.friendly_token[0,20]
-        )
+        if auth.provider == "linkedin"
+          user = User.new(
+            first_name: auth.info.first_name,
+            last_name: auth.info.last_name,
+            email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+            password: Devise.friendly_token[0,20]
+            )
+        elsif auth.provider == "facebook"
+          user = User.new(
+            first_name: auth.extra.raw_info.first_name,
+            last_name: auth.extra.raw_info.last_name,
+            email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+            password: Devise.friendly_token[0,20]
+          )
+        end
 
         # check if confirmable is enabled
         user.skip_confirmation! if user.respond_to?(:skip_confirmation)
