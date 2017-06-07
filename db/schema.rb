@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
 ActiveRecord::Schema.define(version: 20170607143755) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170607143755) do
   end
 
   create_table "businesses", force: :cascade do |t|
-    t.string   "name",         null: false
+    t.string   "name"
     t.string   "address"
     t.string   "phone_number"
     t.string   "email"
@@ -103,15 +100,14 @@ ActiveRecord::Schema.define(version: 20170607143755) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.string   "url",         null: false
+    t.string   "title"
+    t.string   "url"
     t.text     "description"
-    t.integer  "user_id"
-    t.integer  "business_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["business_id"], name: "index_videos_on_business_id", using: :btree
-    t.index ["user_id"], name: "index_videos_on_user_id", using: :btree
+    t.string   "videoable_type"
+    t.integer  "videoable_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["videoable_type", "videoable_id"], name: "index_videos_on_videoable_type_and_videoable_id", using: :btree
   end
 
   add_foreign_key "applications", "postings"
@@ -123,6 +119,4 @@ ActiveRecord::Schema.define(version: 20170607143755) do
   add_foreign_key "postings", "videos"
   add_foreign_key "professions", "users"
   add_foreign_key "skills", "professions"
-  add_foreign_key "videos", "businesses"
-  add_foreign_key "videos", "users"
 end
