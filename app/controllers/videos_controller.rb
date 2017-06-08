@@ -15,8 +15,12 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.new(video_params)
-    @video.videoable = current_user
+    @info = JSON.parse(params['payload'])
+    @url = @info['data']['url']
+    @user = User.find(@info['data']['payload'])
+    @thumbnail = @info['data']['snapshotUrl']
+    @video = Video.new(url: @url, title: @thumbnail)
+    @video.videoable = @user
     if @video.save
       redirect_to video_path(@video)
     else

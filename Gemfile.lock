@@ -144,7 +144,6 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
-    json (2.1.0)
     jwt (1.5.6)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
@@ -299,8 +298,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
-    ultrahook (0.1.4)
-      json (>= 1.8.0)
     warden (1.2.7)
       rack (>= 1.0)
     websocket-driver (0.6.5)
@@ -340,7 +337,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier
-  ultrahook
 
 RUBY VERSION
    ruby 2.3.3p222

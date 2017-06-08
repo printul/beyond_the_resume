@@ -1,7 +1,6 @@
 <h1>Your video</h1>
-<p><%= @video.title %></p>
-<p><%= @video.url %></p>
-<p><%= @video.description %></p>
+<video poster="<%= @video.title %>" width="400" height="300" controls><source src="<%= @video.url %>" type="video/mp4">Your browser does not support the video tag.</video>
+
 
 <p><%= link_to "Go to all videos", videos_path %></p>
 <p><%= link_to "Delete video", video_path(@video), method: :delete %></p>
