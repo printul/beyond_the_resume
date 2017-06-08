@@ -1,4 +1,16 @@
 <h1>New video for <%= current_user.first_name %> <%= current_user.last_name %></h1>
 <%= render 'form' %>
+<div id="ziggeo_element"></div>
+
+<script>
+  var embedding = ZiggeoApi.Embed.embed(
+        "#ziggeo_element", {
+            width: 640,
+            height: 480,
+            countdown: 0,
+            perms: ['allowupload'],
+            data: { user_id: <%= current_user.id  %> }
+    });
+</script>
 
 

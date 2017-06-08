@@ -2,6 +2,7 @@ class VideosController < ApplicationController
   before_action :set_video, only: [:show, :destroy]
   #before_action :video_params, only: [:create]
 
+
   def index
     @videos = current_user.videos
   end
@@ -14,8 +15,9 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.new(video_params)
-    @video.videoable = current_user
+    # @video = Video.new(video_params)
+    p params
+    # @video.videoable = current_user
     if @video.save
       redirect_to video_path(@video)
     else
