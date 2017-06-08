@@ -3,5 +3,17 @@
 <p><%= @video.url %></p>
 <p><%= @video.description %></p>
 
+<!-- Replaces ziggeo_player with player -->
+<div id="ziggeo_player"></div>
+<script>
+var embedding = ZiggeoApi.Embed.embed(
+        "#ziggeo_player", {
+            width: 640,
+            height: 480,
+            video: "<%= @video.url %>" //video token
+    });
+</script>
+
+
 <p><%= link_to "Go to all videos", videos_path %></p>
 <p><%= link_to "Delete video", video_path(@video), method: :delete %></p>

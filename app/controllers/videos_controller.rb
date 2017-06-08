@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :destroy]
   #before_action :video_params, only: [:create]
+  skip_before_action :verify_authenticity_token, :authenticate_user!
 
   def index
     @videos = current_user.videos
@@ -14,8 +15,12 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.new(video_params)
-    @video.videoable = current_user
+    @user = User.find(params[:data][:video][:data][:user_id])
+    @url = params[:data][:video][:token]
+    @title = params[:data][:video][:embed_image_url]
+    @video = Video.new(url: @url, title: @title)
+    @video.videoable = @user
+    p @video
     if @video.save
       redirect_to video_path(@video)
     else
