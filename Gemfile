@@ -28,6 +28,9 @@ gem 'omniauth-linkedin'
 #qr encoder gem
 gem 'qrencoder'
 
+#Charts
+gem 'chart-js-rails'
+
 # receiving webhooks for local development
 #gem 'ultrahook'
 
