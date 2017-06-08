@@ -11,6 +11,18 @@ require 'faker'
 
 puts "start seeding"
 
+User.create({
+    email: "user1@gmail.com",
+    password: "123456789",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    business?: Faker::Boolean.boolean,
+    searchable?: Faker::Boolean.boolean,
+    resume: Faker::Internet.url,
+    admin: true
+  })
+
 puts "users"
 
 User.create!({
@@ -60,12 +72,15 @@ User.create!({
     videoable_id: 1
   })
 
+
   Posting.create!({
     title: Faker::Job.title,
     description: Faker::Lorem.sentence,
     business_id: 1,
     video_id: 2
+
   })
+
 
   Application.create!({
     title: Faker::Job.title,
@@ -73,12 +88,16 @@ User.create!({
     user_id: 2,
     posting_id: 1,
     video_id: 1
+
   })
+
 
   Profession.create!({
     name: Faker::Job.title,
     user_id: 2
+
   })
+
 
   Skill.create!({
     name: Faker::Job.key_skill,

@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :destroy]
   #before_action :video_params, only: [:create]
+  skip_before_action :verify_authenticity_token, :authenticate_user!
 
   def index
     @videos = current_user.videos

@@ -5,3 +5,8 @@
 
 <p><%= link_to "Go to all videos", videos_path %></p>
 <p><%= link_to "Delete video", video_path(@video), method: :delete %></p>
+
+<%= url = 'https://addpipe.com/downloadVideo.php?key=59a1a7c38b89153b75010ffcf46750337c9e27c1&video=https://addpipevideos.s3.amazonaws.com/a456378d86f52b421fde92da590bbc0c/vsrtc1496931343_208.mp4' %>
+<%= image_tag(qrcode_path(data: url), id: 'qr_code') %>
+
+<%= link_to('download', qrcode_path(data: url), download: 'download' ) %>

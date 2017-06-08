@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/qrcode' => 'qrcode#show', as: :qrcode
+
   mount RailsAdmin::Engine => '/super_admin', as: 'rails_admin'
   ActiveAdmin.routes(self)
   devise_for :users,
