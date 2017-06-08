@@ -1,22 +1,2 @@
 <h1>New video for <%= current_user.first_name %> <%= current_user.last_name %></h1>
 <%= render 'form' %>
-
-<!-- Replaces ziggeo_element with uploader/recorder -->
-<div id="ziggeo_element"></div>
-<script>
-  var embedding = ZiggeoApi.Embed.embed(
-        "#ziggeo_element", {
-            width: 640,
-            height: 480,
-            countdown: 0, //removed countdown before recording
-            perms: ['allowupload'], //allows custom file uploading
-            data: { user_id: <%= current_user.id  %> } //sets user_id
-    });
-</script>
-
-<!-- Displays successful submission -->
-<script>
-ZiggeoApi.Events.on("submitted", function (data) {
-    alert("The video with token " + data.video.token + " has been submitted!");
-});
-</script>
