@@ -1,0 +1,21 @@
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li class="active"><%= link_to "Home", root_path %></li>
+    <li><%= link_to "My Videos", videos_path %></li>
+    <li><a href="#">Profile</a></li>
+    <li><%= link_to "My Applications", applications_path %></li>
+  </ul>
+  <ul class="nav nav-sidebar">CREATE
+    <li><%= link_to "Upload Video", new_business_video_path(@video) %></li>
+    <li><%= link_to "Record", new_business_video_path(@video) %></li>
+  </ul>
+  <ul class="nav nav-sidebar">POSTINGS
+    <li><%= link_to "All Postings", postings_path %></li>
+    <li><%= link_to "Search Postings", postings_path %></li>
+  </ul>
+  <ul class="nav nav-sidebar">JOB WATCHLIST
+    <li><a href="">Farming Producer</a></li>
+  </ul>
+</div>
+
+
