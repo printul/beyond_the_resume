@@ -23,16 +23,6 @@
     <% end %>
     <% end %>
     <%= yield %>
-    <ziggeo ziggeo-limit=15
-      ziggeo-width=320
-      ziggeo-height=240>
-  </ziggeo>
-    <ziggeorecorder ziggeo-timelimit=15
-      ziggeo-width=320
-      ziggeo-height=240
-      ziggeo-theme='modern'
-      id="myRecorder">
-    </ziggeorecorder>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
