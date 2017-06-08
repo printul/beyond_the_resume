@@ -1,6 +1,47 @@
-<h1> <%= @business.name %></h1>
-<p><%= @business.address %></p>
-<p><%= @business.phone_number %></p>
-<p><%= @business.email %></p>
+<div class="container">
+  <div class="profile">
+    <h1> <%= @business.name %></h1>
+    <p><%= @business.address %></p>
+    <p><%= @business.phone_number %></p>
+    <p><%= @business.email %></p>
+
+    <p><%= link_to "Edit Business Profile", edit_business_path(@business) %></p>
+  </div>
+
+  <div class="total_views">
+    <h3>Job posting views</h3>
+      <% total_views = [] %>
+      <% @postings.each do |posting| %>
+        <% total_views << posting.views %>
+      <% end %>
+      <%= total_views.reduce(:+) %> views
+  </div>
+
+  <div class="current_postings">
+    <h3> <%= @postings.count %> Posting(s)</h3>
+    <ul>
+      <% @postings.each do |posting| %>
+        <li><%= link_to posting.title, posting_path(posting) %> - <%= posting.views %> views - <%= posting.applications.count %> applications</li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="applications">
+    <h3>
+
+      <!-- posting.applications.count -->
+
+    </h3>
+
+
+
+
+
+  </div>
+
+</div>
+
+
+
 
 <%= link_to "Index", businesses_path %>
