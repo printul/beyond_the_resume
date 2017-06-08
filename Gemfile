@@ -28,11 +28,10 @@ gem 'omniauth-linkedin'
 #qr encoder gem
 gem 'qrencoder'
 
+
 #Charts
 gem 'chart-js-rails'
 
-# receiving webhooks for local development
-#gem 'ultrahook'
 
 #Admin panel Active Admin
 gem 'activeadmin', github: 'activeadmin/activeadmin'

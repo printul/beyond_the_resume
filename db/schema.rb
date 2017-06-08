@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20170608131943) do
     t.integer  "videoable_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "image"
     t.index ["videoable_type", "videoable_id"], name: "index_videos_on_videoable_type_and_videoable_id", using: :btree
   end
 

@@ -15,8 +15,11 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.new(video_params)
-    @video.videoable = current_user
+    @url = params[:data][:video][:token]
+    @title = params[:data][:video][:embed_image_url]
+    @user = User.find(params[:data][:video][:key])
+    @video = Video.new(url: @url, title: @title)
+    @video.videoable = @user
     if @video.save
       redirect_to video_path(@video)
     else
