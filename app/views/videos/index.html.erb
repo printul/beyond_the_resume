@@ -1,31 +1,27 @@
 <h1>Your videos</h1>
-<% @videos.each do |video| %>
-  <p><%= link_to video.title, video_path(video) %></p>
-  <p><%= video.description %></p>
-<% end %>
-<p><%= link_to "Add new video", new_video_path %></p>
+
+<p><%= link_to("New video", new_video_path) %></p>
+
+<table class="Videos">
+    <tr class="header">
+      <th>Title</th>
+      <th>Description</th>
+      <th>URL</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+    <% @videos.each do |video| %>
+    <tr>
+      <td><%= video.title %></td>
+      <td><%= video.description %></td>
+      <td><%= video.url %></td>
+      <td><%= video.created_at %></td>
+      <td class="actions">
+        <%= link_to("Show", video_path(video)) %>
+        <%= link_to("Delete", video_path(video), method: :delete ) %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+
 <p><%= link_to "home", root_path %></p>
-
-
-<!--     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">My Dashboard</h1>
-
-            <div class="row">
-              <%# @videos.each do |video| %>
-              <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                  <img src="..." alt="...">
-                    <div class="caption">
-                    <p><%# link_to video.title, video_path(video) %></p>
-                    <p><%# video.description %></p>
-                    </div>
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
-    </div> -->
-
-
