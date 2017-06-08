@@ -1,7 +1,17 @@
-applications</h1>
-<% @applications.each do |application| %>
-  <p><%= link_to application.posting.title, application_path(application) %></p>
-  <p><%= application.posting.business.name %></p>
-<% end %>
-
-<%= link_to "Home", root_path %>
+<div class="container-fluid">
+  <p>filter applications?</p>
+  <div class="row">
+    <h1>Your Applications</h1>
+  <% @applications.each do |application| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <p><%= link_to application.posting.title, application_path(application) %></p>
+        <p><%= application.posting.business.name %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>

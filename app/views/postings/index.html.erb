@@ -1,6 +1,17 @@
-<h1>All the postings</h1>
-
-<% @postings.each do |posting| %>
-  <p><%= link_to posting.title, posting_path(posting) %></p>
-  <p><%= posting.description %></p>
-<% end %>
+<div class="container-fluid">
+  <p>filter/sort postings?</p>
+  <div class="row">
+    <h1>All job postings</h1>
+  <% @postings.each do |posting| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <p><%= link_to posting.title, posting_path(posting) %></p>
+        <p><%= posting.description %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
