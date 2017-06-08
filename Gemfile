@@ -26,7 +26,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
 #qr encoder gem
-gem 'qrencoder'
+gem 'qrencode'
 
 
 #Charts
