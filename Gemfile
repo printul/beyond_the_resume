@@ -28,9 +28,6 @@ gem 'omniauth-linkedin'
 #qr encoder gem
 gem 'qrencoder'
 
-# receiving webhooks for local development
-#gem 'ultrahook'
-
 #Admin panel Active Admin
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
