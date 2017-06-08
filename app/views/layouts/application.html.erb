@@ -13,8 +13,10 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <% if user_signed_in?  %>
     <% unless current_user.business? %>
       <%= render 'shared/sidebar' %>
+    <% end %>
     <% end %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
