@@ -8,87 +8,87 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 videoables = ["User", "Business"]
 
-# puts "start seeding"
+puts "start seeding"
 
-# puts "users"
+puts "users"
 
-# 100.times do
-#   User.create({
-#     email: Faker::Internet.email,
-#     password: "123456789",
-#     first_name: Faker::Name.first_name,
-#     last_name: Faker::Name.last_name,
-#     phone_number: Faker::PhoneNumber.phone_number,
-#     business?: Faker::Boolean.boolean,
-#     searchable?: Faker::Boolean.boolean,
-#     resume: Faker::Internet.url
-#   })
-# end
+20.times do
+  User.create({
+    email: Faker::Internet.email,
+    password: "123456789",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    business?: Faker::Boolean.boolean,
+    searchable?: Faker::Boolean.boolean,
+    resume: Faker::Internet.url
+  })
+end
 
-# puts "users done"
+puts "users done"
 
-# puts "businesses"
+puts "businesses"
 
-# 200.times do
-#   Business.create({
-#     name: Faker::Company.name,
-#     address: Faker::Address.street_address,
-#     phone_number: Faker::PhoneNumber.phone_number,
-#     email: Faker::Internet.email,
-#     industry: Faker::Job.field,
-#     user_id: rand(500)
-#   })
-# end
+10.times do
+  Business.create({
+    name: Faker::Company.name,
+    address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.email,
+    industry: Faker::Job.field,
+    user_id: rand(20)
+  })
+end
 
-# puts "businesses done"
+puts "businesses done"
 
-# puts "videos"
+puts "videos"
 
-# 200.times do
-#   Video.create({
-#     title: Faker::Hipster.word,
-#     url: Faker::Internet.url('example.com'),
-#     description: Faker::Lorem.sentence,
-#     videoable_type: videoables[rand(0..1)],
-#     videoable_id: rand(50),
-#   })
-# end
+50.times do
+  Video.create({
+    title: Faker::Hipster.word,
+    url: Faker::Internet.url('example.com'),
+    description: Faker::Lorem.sentence,
+    videoable_type: videoables[rand(0..1)],
+    videoable_id: rand(10),
+  })
+end
 
-# puts "videos done"
+puts "videos done"
 
 puts "postings"
 
-# 300.times do
-#   Posting.create({
-#     title: Faker::Job.title,
-#     description: Faker::Lorem.sentence,
-#     business_id: rand(200),
-#     video_id: rand(500)
-#   })
-# end
+30.times do
+  Posting.create({
+    title: Faker::Job.title,
+    description: Faker::Lorem.sentence,
+    business_id: rand(10),
+    video_id: rand(50)
+  })
+end
 
-# puts "postings done"
+puts "postings done"
 
-# puts "applications"
+puts "applications"
 
-# 300.times do
-#   Application.create({
-#     title: Faker::Job.title,
-#     description: Faker::Lorem.sentence,
-#     user_id: rand(1000),
-#     posting_id: rand(58),
-#     video_id: rand(500)
-#   })
-# end
+50.times do
+  Application.create({
+    title: Faker::Job.title,
+    description: Faker::Lorem.sentence,
+    user_id: rand(1000),
+    posting_id: rand(30),
+    video_id: rand(50)
+  })
+end
 
-# puts "applications done"
+puts "applications done"
 
 puts "professions"
 
-300.times do
+50.times do
   Profession.create({
     name: Faker::Job.title,
-    user_id: rand(1000),
+    user_id: rand(20),
   })
 end
 
@@ -96,10 +96,10 @@ end
 
 puts "skills"
 
-500.times do
+60.times do
   Skill.create({
-    name: Faker::Job.title,
-    profession_id: rand(300),
+    name: Faker::Job.key_skill,
+    profession_id: rand(50),
   })
 end
 
