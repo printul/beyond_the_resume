@@ -20,7 +20,7 @@
   <div class="current_postings">
     <h3> <%= @postings.count %> Posting(s)</h3>
     <ul>
-      <% @postings.each do |posting| %>
+      <% @postings.newest_first.first(5).each do |posting| %>
         <li><%= link_to posting.title, posting_path(posting) %> - <%= posting.views %> views - <%= posting.applications.count %> applications</li>
       <% end %>
     </ul>
@@ -36,6 +36,14 @@
       <% end %>
     </ul>
   </div>
+
+  <div>
+    <canvas id="myChart" width="100" height="100"></canvas>
+    <%= render "shared/chart" %>
+  </div>
+
+
+
 
   <div>
     <%= link_to "Index", businesses_path %>
