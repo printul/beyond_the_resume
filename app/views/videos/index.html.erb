@@ -1,31 +1,20 @@
-<h1>Your videos</h1>
-<% @videos.each do |video| %>
-  <p><%= link_to video.title, video_path(video) %></p>
-  <p><%= video.description %></p>
-<% end %>
-<p><%= link_to "Add new video", new_video_path %></p>
-<p><%= link_to "home", root_path %></p>
-
-
-<!--     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">My Dashboard</h1>
-
-            <div class="row">
-              <%# @videos.each do |video| %>
-              <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                  <img src="..." alt="...">
-                    <div class="caption">
-                    <p><%# link_to video.title, video_path(video) %></p>
-                    <p><%# video.description %></p>
-                    </div>
-                </div>
-              </div>
-            </div>
-        </div>
+<div class="container-fluid">
+  <p>My videos  My applications  Discover postings</p>
+  <p>Sort by date?</p>
+  <div class="row">
+    <h1>Your Videos</h1>
+  <% @videos.each do |video| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <p><%= link_to video.title, video_path(video) %></p>
+        <p><%= video.description %></p>
       </div>
-    </div> -->
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
 
 
