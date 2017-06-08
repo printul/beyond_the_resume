@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link rel="stylesheet" href="//assets-cdn.ziggeo.com/v1-stable/ziggeo.css" />
+    <script src="//assets-cdn.ziggeo.com/v1-stable/ziggeo.js"></script>
+    <script>ZiggeoApi.token = "r17f8d61d50e0795659099b07b0fab0e";
+    ZiggeoApi.Config.webrtc = true;</script>
 
   </head>
   <body>
@@ -17,6 +21,16 @@
       <%= render 'shared/sidebar' %>
     <% end %>
     <%= yield %>
+    <ziggeo ziggeo-limit=15
+      ziggeo-width=320
+      ziggeo-height=240>
+  </ziggeo>
+    <ziggeorecorder ziggeo-timelimit=15
+      ziggeo-width=320
+      ziggeo-height=240
+      ziggeo-theme='modern'
+      id="myRecorder">
+    </ziggeorecorder>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
