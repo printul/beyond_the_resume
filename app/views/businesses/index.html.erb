@@ -19,6 +19,7 @@
       <td class="actions">
         <%= link_to("Show", business_path(business)) %>
         <%= link_to("Edit", edit_business_path(business)) %>
+        <%= link_to "New_Post", new_business_posting_path(business) %>
         <%= link_to("Delete", business_path(business), method: :delete ) %>
       </td>
     </tr>
