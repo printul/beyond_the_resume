@@ -21,9 +21,9 @@ class VideosController < ApplicationController
     @video = Video.new(url: @url, title: @title)
     @video.videoable = @user
     if @video.save
-      redirect_to video_path(@video)
+      head :ok
     else
-      render 'new'
+      p "ERROR: UNABLE TO SAVE INTO DB"
     end
   end
 
