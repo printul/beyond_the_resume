@@ -1,0 +1,30 @@
+.box {
+  margin: 20px 0;
+  border: 1px #ddd solid;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.box h3{
+  margin-top: 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.box li{
+  margin-bottom: 11px;
+}
+
+.box select .filterStatus{
+  width: 100%;
+}
+
+.box .btn{
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.box #status-change{
+  margin-top: 30px;
+}
