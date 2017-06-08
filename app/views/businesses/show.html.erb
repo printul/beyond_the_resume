@@ -27,21 +27,21 @@
   </div>
 
   <div class="applications">
-    <h3>
-
-      <!-- posting.applications.count -->
-
-    </h3>
-
-
-
-
-
+    <h3><%= @business.applications.count %> application(s)</h3>
+    <ul>
+      <% @business.applications.newest_first.first(5).each do |application|  %>
+            <%= link_to application_path(application) do %>
+              <li><%= application.video.title %> - <%= application.title %></li>
+            <% end %>
+      <% end %>
+    </ul>
   </div>
 
+  <div>
+    <%= link_to "Index", businesses_path %>
+  </div>
 </div>
 
 
 
 
-<%= link_to "Index", businesses_path %>
