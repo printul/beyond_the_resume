@@ -25,8 +25,11 @@ gem 'omniauth-facebook'
 # linked-in connect
 gem 'omniauth-linkedin'
 
+#qr encoder gem
+gem 'qrencoder'
+
 # receiving webhooks for local development
-gem 'ultrahook'
+#gem 'ultrahook'
 
 #Admin panel Active Admin
 gem 'activeadmin', github: 'activeadmin/activeadmin'

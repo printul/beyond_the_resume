@@ -93,6 +93,7 @@ GEM
       thor (~> 0.19)
     builder (3.2.3)
     byebug (9.0.6)
+    chunky_png (1.3.8)
     coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -144,7 +145,6 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
-    json (2.1.0)
     jwt (1.5.6)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
@@ -212,6 +212,8 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     puma (3.9.1)
+    qrencoder (1.4.1)
+      chunky_png (~> 1.1)
     rack (2.0.3)
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
@@ -299,8 +301,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
-    ultrahook (0.1.4)
-      json (>= 1.8.0)
     warden (1.2.7)
       rack (>= 1.0)
     websocket-driver (0.6.5)
@@ -331,6 +331,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma
+  qrencoder
   rails (= 5.0.3)
   rails_admin (>= 1.0.0.rc)
   redis
@@ -340,7 +341,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier
-  ultrahook
 
 RUBY VERSION
    ruby 2.3.3p222

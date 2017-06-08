@@ -5,3 +5,7 @@
 
 <p><%= link_to "Go to all videos", videos_path %></p>
 <p><%= link_to "Delete video", video_path(@video), method: :delete %></p>
+
+<%= image_tag(qrcode_path(data: 'http://www.google.com')) %>
+
+<%= link_to('download', qrcode_path(data: 'http://www.google.com'), download: 'download' ) %>
