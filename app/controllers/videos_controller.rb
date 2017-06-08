@@ -35,7 +35,7 @@ class VideosController < ApplicationController
   private
 
   def set_video
-    @video = Video.find(params[:id])
+    @video = Video.find_by(url: params[:url])
   end
 
   def set_user
