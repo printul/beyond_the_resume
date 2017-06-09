@@ -16,9 +16,10 @@ class VideosController < ApplicationController
 
   def create
     @url = params[:data][:video][:token]
-    @title = params[:data][:video][:embed_image_url]
+    @image = params[:data][:video][:embed_image_url]
+    @title = "Video #{@url}"
     @user = User.find(params[:data][:video][:tags][0])
-    @video = Video.new(url: @url, title: @title)
+    @video = Video.new(title: @title, url: @url, image_url: @image)
     @video.videoable = @user
     if @video.save
       head :ok
