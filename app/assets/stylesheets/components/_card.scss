@@ -7,7 +7,16 @@
   margin-right: auto;
   margin-left: auto;
   box-shadow:  0 1px 3px rgba(0,0,0,.25);
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.card-left {
+
+}
+
+.card-right {
+  text-align: left;
 }
 .card-user {
   position: absolute;
@@ -62,7 +71,7 @@
 #personal_page {
   padding: 20px;
   height: 400px;
-  width: 1300px;
+  width: 1183px;
   margin-bottom: 5px;
   margin-top: 12px;
   margin-left: 10px;
@@ -70,18 +79,19 @@
 
 #settings {
 height: 334px;
-width: 650px;
+width: 530px;
 padding: 20px;
 text-align: left;
 margin-left: 5px;
 margin-right: 5px;
 margin-top: 0px;
 flex-grow: 1;
+list-style-type: none;
 }
 
 #skills {
 height: 334px;
-width: 650px;
+width: 530px;
 padding: 20px;
 text-align: left;
 margin-right: 5px;
@@ -93,12 +103,12 @@ flex-grow: 1;
 .flexbox {
   display: flex;
   align-items: center;
-  width: 1300px;
+  width: 1183px;
   margin-top: 5px;
 }
 
 #you {
-  width: 1300px;
+  width: 1170px;
   height: 50px;
   background-color: #4A9DEE;
   margin-bottom: 0px;
@@ -112,7 +122,7 @@ flex-grow: 1;
 }
 
 #video {
-  width: 1300px;
+  width: 1183px;
 }
 
 
