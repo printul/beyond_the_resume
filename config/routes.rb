@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :videos, only: [:index, :new, :create, :destroy]
+  resources :videos, only: [:index, :new, :create]
   get 'videos/:url', to: 'videos#show', as: :external
-
+  delete 'videos/:url', to: 'videos#destroy', as: :delete_vid
   resources :postings, only: [:index, :show] do
     resources :applications, only: [:new, :create]
   end

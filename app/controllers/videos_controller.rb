@@ -23,13 +23,24 @@ class VideosController < ApplicationController
     if @video.save
       head :ok
     else
+      #if unable to create video in DB
       p "ERROR: UNABLE TO SAVE INTO DB"
     end
   end
 
   def destroy
-    @video.destroy
-    redirect_to videos_path
+    #only allow video owner to delete video
+    if @video.videoable == current_user
+      @ziggeo = Ziggeo.new(ENV["ZIGGEO_TOKEN"],
+                          ENV["ZIGGEO_PRIVATE_KEY"],
+                          ENV["ZIGGEO_ENCRYPTION_KEY"])
+      @ziggeo.videos().delete(@video.url)
+      @video.destroy
+      redirect_to videos_path
+    else
+      #redirect when invalid deletion
+      redirect_to root_path
+    end
   end
 
   private

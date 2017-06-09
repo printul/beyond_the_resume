@@ -25,7 +25,8 @@ gem 'omniauth-facebook'
 # linked-in connect
 gem 'omniauth-linkedin'
 
-
+# Ziggeo video API
+gem 'Ziggeo'
 
 
 #Charts

@@ -18,10 +18,10 @@
       <td><%= video.created_at %></td>
       <td class="actions">
         <%= link_to("Show", external_path(video.url)) %>
-        <%= link_to("Delete", video_path(video), method: :delete ) %>
+        <%= link_to("Delete", delete_vid_path(video.url), method: :delete, data: {confirm: "Are you sure you want to delete #{video.title}?" }) %>
       </td>
     </tr>
     <% end %>
   </table>
-
 <p><%= link_to "home", root_path %></p>
+
