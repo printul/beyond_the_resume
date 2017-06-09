@@ -17,8 +17,8 @@ User.create({
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     phone_number: Faker::PhoneNumber.phone_number,
-    business?: true,
-    searchable?: true,
+    is_business?: true,
+    is_searchable?: true,
     resume: Faker::Internet.url,
     admin: true
   })
@@ -31,8 +31,8 @@ User.create!({
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     phone_number: Faker::PhoneNumber.phone_number,
-    business?: true,
-    searchable?: true,
+    is_business?: true,
+    is_searchable?: true,
     resume: Faker::Internet.url
   })
 
@@ -42,8 +42,85 @@ User.create!({
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     phone_number: Faker::PhoneNumber.phone_number,
-    business?: false,
-    searchable?: true,
+    is_business?: false,
+    is_searchable?: true,
+    resume: Faker::Internet.url
+  })
+
+  User.create!({
+    email: Faker::Internet.email,
+    password: "123456789",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    is_business?: false,
+    is_searchable?: true,
+    resume: Faker::Internet.url
+  })
+
+  User.create!({
+    email: Faker::Internet.email,
+    password: "123456789",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    is_business?: false,
+    is_searchable?: true,
+    resume: Faker::Internet.url
+  })
+
+  User.create!({
+    email: Faker::Internet.email,
+    password: "123456789",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    is_business?: false,
+    is_searchable?: true,
+    resume: Faker::Internet.url
+  })
+
+  User.create!({
+    email: Faker::Internet.email,
+    password: "123456789",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    is_business?: true,
+    is_searchable?: true,
+    resume: Faker::Internet.url
+  })
+
+  User.create!({
+    email: Faker::Internet.email,
+    password: "123456789",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    is_business?: false,
+    is_searchable?: true,
+    resume: Faker::Internet.url
+  })
+
+  User.create!({
+    email: Faker::Internet.email,
+    password: "123456789",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    is_business?: true,
+    is_searchable?: true,
+    resume: Faker::Internet.url
+  })
+
+  User.create!({
+    email: Faker::Internet.email,
+    password: "123456789",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    is_business?: false,
+    is_searchable?: true,
     resume: Faker::Internet.url
   })
 
@@ -53,13 +130,114 @@ User.create!({
     phone_number: Faker::PhoneNumber.phone_number,
     email: Faker::Internet.email,
     industry: Faker::Job.field,
-    user_id: 1
+    user_id: 1,
+    city: Faker::Address.city,
+    zipcode: Faker::Address.postcode
+  })
+
+  Business.create!({
+    name: Faker::Company.name,
+    address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.email,
+    industry: Faker::Job.field,
+    user_id: 2,
+    city: Faker::Address.city,
+    zipcode: Faker::Address.postcode
+  })
+
+  Business.create!({
+    name: Faker::Company.name,
+    address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.email,
+    industry: Faker::Job.field,
+    user_id: 3,
+    city: Faker::Address.city,
+    zipcode: Faker::Address.postcode
+  })
+
+  Business.create!({
+    name: Faker::Company.name,
+    address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.email,
+    industry: Faker::Job.field,
+    user_id: 4,
+    city: Faker::Address.city,
+    zipcode: Faker::Address.postcode
+  })
+
+  Business.create!({
+    name: Faker::Company.name,
+    address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.email,
+    industry: Faker::Job.field,
+    user_id: 5,
+    city: Faker::Address.city,
+    zipcode: Faker::Address.postcode
+  })
+
+  Business.create!({
+    name: Faker::Company.name,
+    address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.email,
+    industry: Faker::Job.field,
+    user_id: 6,
+    city: Faker::Address.city,
+    zipcode: Faker::Address.postcode
+  })
+
+  Business.create!({
+    name: Faker::Company.name,
+    address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.email,
+    industry: Faker::Job.field,
+    user_id: 1,
+    city: Faker::Address.city,
+    zipcode: Faker::Address.postcode
+  })
+
+  Business.create!({
+    name: Faker::Company.name,
+    address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.email,
+    industry: Faker::Job.field,
+    user_id: 2,
+    city: Faker::Address.city,
+    zipcode: Faker::Address.postcode
+  })
+
+  Business.create!({
+    name: Faker::Company.name,
+    address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.email,
+    industry: Faker::Job.field,
+    user_id: 3,
+    city: Faker::Address.city,
+    zipcode: Faker::Address.postcode
+  })
+
+  Business.create!({
+    name: Faker::Company.name,
+    address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.email,
+    industry: Faker::Job.field,
+    user_id: 4,
+    city: Faker::Address.city,
+    zipcode: Faker::Address.postcode
   })
 
   Video.create!({
     title: Faker::Hipster.word,
     url: Faker::Internet.url('example.com'),
-    description: Faker::Lorem.sentence,
+    image_url: Faker::Internet.url('example.com'),
     videoable_type: "User",
     videoable_id: 2
   })
@@ -67,7 +245,7 @@ User.create!({
   Video.create!({
     title: Faker::Hipster.word,
     url: Faker::Internet.url('example.com'),
-    description: Faker::Lorem.sentence,
+    image_url: Faker::Internet.url('example.com'),
     videoable_type: "Business",
     videoable_id: 1
   })
@@ -98,10 +276,74 @@ User.create!({
 
   })
 
+  Profession.create!({
+    name: Faker::Job.title,
+    user_id: 1
+
+  })
+
+  Profession.create!({
+    name: Faker::Job.title,
+    user_id: 3
+
+  })
+
+  Profession.create!({
+    name: Faker::Job.title,
+    user_id: 4
+
+  })
+
+  Profession.create!({
+    name: Faker::Job.title,
+    user_id: 5
+
+  })
+
 
   Skill.create!({
     name: Faker::Job.key_skill,
     profession_id: 1
+  })
+
+  Skill.create!({
+    name: Faker::Job.key_skill,
+    profession_id: 2
+  })
+
+  Skill.create!({
+    name: Faker::Job.key_skill,
+    profession_id: 3
+  })
+
+  Skill.create!({
+    name: Faker::Job.key_skill,
+    profession_id: 1
+  })
+
+  Skill.create!({
+    name: Faker::Job.key_skill,
+    profession_id: 2
+  })
+
+  Skill.create!({
+    name: Faker::Job.key_skill,
+    profession_id: 3
+  })
+
+  Skill.create!({
+    name: Faker::Job.key_skill,
+    profession_id: 1
+  })
+
+  Skill.create!({
+    name: Faker::Job.key_skill,
+    profession_id: 2
+  })
+
+  Skill.create!({
+    name: Faker::Job.key_skill,
+    profession_id: 3
   })
 
 # 10.times do
@@ -111,8 +353,8 @@ User.create!({
 #     first_name: Faker::Name.first_name,
 #     last_name: Faker::Name.last_name,
 #     phone_number: Faker::PhoneNumber.phone_number,
-#     business?: Faker::Boolean.boolean,
-#     searchable?: Faker::Boolean.boolean,
+#     is_business?: Faker::Boolean.boolean,
+#     is_searchable?: Faker::Boolean.boolean,
 #     resume: Faker::Internet.url
 #   })
 # end
@@ -128,6 +370,8 @@ User.create!({
 #     phone_number: Faker::PhoneNumber.phone_number,
 #     email: Faker::Internet.email,
 #     industry: Faker::Job.field
+#     city: "London",
+#     zipcode: "EC1 AE1"
 #   })
 # end
 

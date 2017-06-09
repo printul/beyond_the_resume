@@ -6,8 +6,8 @@ ActiveAdmin.register User do
     column :first_name
     column :last_name
     column :resume
-    column :business?
-    column :searchable?
+    column :is_business?
+    column :is_searchable?
     column :created_at
     column :admin
     actions
