@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 21c50cafc5bfda16df6ffe741d8fb0f3ecd66e9e
+  revision: 9d0557ad05ece0da59a4df2c61468479093686a1
   specs:
     activeadmin (1.0.0)
       arbre (>= 1.1.1)
@@ -156,7 +156,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
-    json (1.8.3)
+    json (1.8.6)
     jwt (1.5.6)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)

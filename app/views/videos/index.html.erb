@@ -1,47 +1,27 @@
 
-<div class="container flexbox text-center">
-<div class="card" id = "video">
-<p id = "tag"> Your Videos </p>
-</div>
-</div>
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <h1>Your Videos</h1>
-  <% @videos.each do |video| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-       <%= image_tag "video.jpg", class:"avatar-square" %>
-      <div class="caption">
-        <p><%= link_to video.title, video_path(video) %></p>
-        <p><%= video.description %></p>
-      </div>
+      <h1 class="text-center">Your videos</h1>
+    <div class="col-sm-6 col-sm-offset-3">
+      <p><%= link_to "New video", new_video_path, class:"btn btn-success" %></p>
+
+      <table class="Videos listing table-hover table-condensed table-striped">
+          <tr class="header">
+            <th>Thumbnail</th>
+            <th>Created at</th>
+            <th>Actions</th>
+          </tr>
+          <% @videos.each do |video| %>
+          <tr data-link="<%= external_path(video.url) %>">
+            <td><%= image_tag "http://"+video.image_url %></td>
+            <td><%= l(video.created_at, format: :long) %></td>
+            <td class="actions">
+              <%= link_to "Delete", delete_vid_path(video.url), method: :delete, data: {confirm: "Are you sure you want to delete #{video.title}?" }, class:"btn btn-danger" %>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+      <p><%= link_to "home", root_path %></p>
     </div>
   </div>
-  <% end %>
 </div>
-</div>
-
-
-<table class="Videos">
-    <tr class="header">
-      <th>Title</th>
-      <th>image</th>
-      <th>URL</th>
-      <th>Created at</th>
-      <th>Actions</th>
-    </tr>
-    <% @videos.each do |video| %>
-    <tr>
-      <td><%= video.title %></td>
-      <td><%= video.image_url %></td>
-      <td><%= video.url %></td>
-      <td><%= video.created_at %></td>
-      <td class="actions">
-        <%= link_to("Show", external_path(video.url)) %>
-        <%= link_to("Delete", delete_vid_path(video.url), method: :delete, data: {confirm: "Are you sure you want to delete #{video.title}?" }) %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
-<p><%= link_to "home", root_path %></p>
-

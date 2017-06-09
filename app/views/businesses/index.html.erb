@@ -1,31 +1,33 @@
-<h1>All businesses</h1>
+<div class="container">
+  <h1 class="text-center">All businesses</h1>
 
-<p><%= link_to "add a business", new_business_path %></p>
+  <p><%= link_to "add a business", new_business_path, class:"btn btn-primary" %></p>
 
- <table class="listing" summary="Businesses list">
-    <tr class="header">
-      <th>Name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Zipcode</th>
-      <th>Phone Number</th>
-      <th>Industry</th>
-      <th>Actions</th>
-    </tr>
-    <% @businesses.each do |business| %>
-    <tr>
-      <td><%= business.name %></td>
-      <td><%= business.address %></td>
-      <td><%= business.city %></td>
-      <td><%= business.zipcode %></td>
-      <td><%= business.phone_number %></td>
-      <td><%= business.industry %></td>
-      <td class="actions">
-        <%= link_to("Show", business_path(business)) %>
-        <%= link_to("Edit", edit_business_path(business)) %>
-        <%= link_to "New_Post", new_business_posting_path(business) %>
-        <%= link_to("Delete", business_path(business), method: :delete ) %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
+   <table class="listing table-hover table-condensed table-striped">
+      <tr class="header">
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Zipcode</th>
+        <th>Phone Number</th>
+        <th>Industry</th>
+        <th>Actions</th>
+      </tr>
+      <% @businesses.each do |business| %>
+      <tr data-link="<%= business_path(business) %>">
+        <td><%= business.name %></td>
+        <td><%= business.address %></td>
+        <td><%= business.city %></td>
+        <td><%= business.zipcode %></td>
+        <td><%= business.phone_number %></td>
+        <td><%= business.industry %></td>
+        <td class="actions">
+          <%= link_to "Edit", edit_business_path(business), class:"btn btn-info" %>
+          <%= link_to "New_Post", new_business_posting_path(business), class:"btn btn-success" %>
+          <%= link_to "Delete", business_path(business), method: :delete, class:"btn btn-danger" %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+</div>
+
