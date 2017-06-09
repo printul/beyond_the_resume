@@ -1,13 +1,11 @@
 
-<% if user_signed_in?  %>
-  <% if current_user.is_business? %>
-    <p><%= link_to "My videos", videos_path %></p>
-    <p><%= link_to "My businesses", businesses_path %></p>
-    <p><%= link_to "All job postings", postings_path %></p>
-  <% else %>
-    <p><%= link_to "My videos", videos_path %></p>
-    <p><%= link_to "All my applications", applications_path %></p>
-  <% end %>
-<% else %>
+<%# if user_signed_in?  %>
+  <%# if current_user.business? %>
+   <!--  <p><%#= link_to "My videos", videos_path %></p>
+    <p><%#= link_to "My businesses", businesses_path %></p>
+    <p><%#= link_to "All job postings", postings_path %></p> -->
+  <%# end %>
+<%# else %>
+
   <%= render "pages/landing" %>
-<% end %>
+<%# end %>

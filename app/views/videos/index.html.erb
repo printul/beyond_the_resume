@@ -1,6 +1,26 @@
-<h1>Your videos</h1>
 
-<p><%= link_to("New video", new_video_path) %></p>
+<div class="container flexbox text-center">
+<div class="card" id = "video">
+<p id = "tag"> Your Videos </p>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <h1>Your Videos</h1>
+  <% @videos.each do |video| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+       <%= image_tag "video.jpg", class:"avatar-square" %>
+      <div class="caption">
+        <p><%= link_to video.title, video_path(video) %></p>
+        <p><%= video.description %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
+
 
 <table class="Videos">
     <tr class="header">
