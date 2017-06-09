@@ -17,7 +17,7 @@
       <td><%= video.url %></td>
       <td><%= video.created_at %></td>
       <td class="actions">
-        <%= link_to("Show", video_path(video)) %>
+        <%= link_to("Show", external_path(video.url)) %>
         <%= link_to("Delete", video_path(video), method: :delete ) %>
       </td>
     </tr>
