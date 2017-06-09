@@ -19,6 +19,7 @@
 
   <div class="current_postings">
     <h3> <%= @postings.count %> Posting(s)</h3>
+    <p><%= link_to "Add a posting", new_business_posting_path(@business) %></p>
     <ul>
       <% @postings.newest_first.first(5).each do |posting| %>
         <li><%= link_to posting.title, posting_path(posting) %> - <%= posting.views %> views - <%= posting.applications.count %> applications</li>

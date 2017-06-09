@@ -1,6 +1,25 @@
 <h1>All the postings</h1>
 
-<% @postings.each do |posting| %>
-  <p><%= link_to posting.title, posting_path(posting) %></p>
-  <p><%= posting.description %></p>
-<% end %>
+<table class="Postings">
+    <tr class="header">
+      <th>Title</th>
+      <th>Description</th>
+      <th>Active?</th>
+      <th>Views</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+    <% @postings.each do |posting| %>
+    <tr>
+      <td><%= posting.title %></td>
+      <td><%= posting.description %></td>
+      <td><%= posting.is_active? %></td>
+      <td><%= posting.views %></td>
+      <td><%= posting.created_at %></td>
+      <td class="actions">
+        <%= link_to("Show", posting_path(posting)) %>
+        <%= link_to("Delete", posting_path(posting), method: :delete ) %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
