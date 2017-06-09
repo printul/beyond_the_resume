@@ -1,0 +1,51 @@
+<div class="row">
+<div class="col-sm-8">
+<div class="container flexbox text-center">
+<div class="card" id = "you">
+<p id = "tag"> You </p>
+</div>
+</div>
+
+<div class="container flexbox text-center">
+<div class="card" id = "personal_page">
+<%= image_tag "profile_pic.png", class:"avatar-large" %>
+
+<p><strong>First name:</strong> <%= current_user.first_name %></p>
+<p><strong>Last name:</strong> <%= current_user.last_name %></p>
+<p><strong>Email:</strong> <%= current_user.email %></p>
+<p><strong>Phone:</strong> <%= current_user.phone_number %></p>
+<p><strong>Make your profile searchable?</strong> <%= current_user.searchable? %></p>
+<p><strong>Resume:</strong> <%= current_user.resume %></p>
+<p><strong>Last sign_in:</strong> <%= current_user.last_sign_in_at %></p>
+<p><strong>Profession:</strong>
+<% current_user.professions.each do |profession| %>
+  <%= profession.name %>
+<% end %>
+</p>
+</div>
+</div>
+
+<div class="container flexbox text-center">
+<div class="card" id = "settings">
+  <p>Edit profile</p>
+  <hr />
+  <p>Set site preferences</p>
+  <hr />
+  <p>Modify privacy preferences</p>
+  <hr />
+  <p>Change email & password</p>
+  <hr />
+  <p>Manage your CV</p>
+</div>
+
+<div class="card" id = "skills">
+  <p>Skills</p>
+
+</div>
+</div>
+
+</div>
+</div>
+
+
+
