@@ -5,6 +5,7 @@ table tr th, table tr td {
   img {
     width: 200px;
   }
+}
 
 tr.trLink {
     cursor: pointer;
@@ -32,8 +33,6 @@ th {
 }
 
 th:hover{
-
   cursor: pointer;
   cursor: hand;
-
 }
