@@ -7,7 +7,7 @@
 <% if @video.videoable == current_user %>
 <p><%= link_to "Go to all videos", videos_path %></p>
 
-<p><%= link_to "Delete video", delete_vid_path(@video.url), method: :delete %></p>
+<p><%= link_to "Delete video", delete_vid_path(@video.url), method: :delete, data: {confirm: "Are you sure you want to delete #{@video.title}?" } %></p>
 <% end %>
 
 <ziggeoplayer ziggeo-video='<%= @video.url %>'
