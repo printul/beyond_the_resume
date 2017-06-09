@@ -17,7 +17,7 @@
 
 
 <!-- https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=example -->
-<% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "www.ft.com" %>
+<% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "http://localhost:3000/videos/" + @video.url%>
 <%= link_to url, download: 'download' do  %>
   <%= image_tag url%>
 <% end %>
