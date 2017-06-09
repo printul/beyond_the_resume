@@ -17,13 +17,13 @@ class VideosController < ApplicationController
   def create
     @url = params[:data][:video][:token]
     @title = params[:data][:video][:embed_image_url]
-    @user = User.find(params[:data][:video][:key])
+    @user = User.find(params[:data][:video][:tags][0])
     @video = Video.new(url: @url, title: @title)
     @video.videoable = @user
     if @video.save
-      redirect_to video_path(@video)
+      head :ok
     else
-      render 'new'
+      p "ERROR: UNABLE TO SAVE INTO DB"
     end
   end
 
