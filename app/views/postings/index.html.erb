@@ -17,7 +17,7 @@
             <td><%= posting.description %></td>
             <td><%= posting.is_active? %></td>
             <td><%= posting.views %></td>
-            <td><%= l(posting.created_at, format: :long) %></td>
+            <td><%= l(posting.created_at, format: :short) %></td>
           </tr>
           <% end %>
       </table>
