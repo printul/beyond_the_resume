@@ -1,22 +1,26 @@
 <div id="sidebar-wrapper">
-
+  <hr />
   <ul class="sidebar-nav">
     <li class="active"><%= link_to "Home", root_path %></li>
     <li><%= link_to "My Videos", videos_path %></li>
     <li><%= link_to "Profile", current_user %></li>
     <li><%= link_to "My Applications", applications_path %></li>
   </ul>
+  <hr />
   <ul class="sidebar-nav">CREATE
     <li><%= link_to "Upload Video", new_video_path(@video) %></li>
     <li><%= link_to "Record", new_video_path(@video) %></li>
   </ul>
+  <hr />
   <ul class="sidebar-nav">POSTINGS
     <li><%= link_to "All Postings", postings_path %></li>
     <li><%= link_to "Search Postings", postings_path %></li>
   </ul>
+  <hr />
   <ul class="sidebar-nav">JOB WATCHLIST
     <li><a href="">Farming Producer</a></li>
   </ul>
+  <hr />
 </div>
 
 
