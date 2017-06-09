@@ -13,11 +13,15 @@
   <body id = "background">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+
     <% if user_signed_in?  %>
     <% unless current_user.business? %>
+     <div class="col-sm-2">
       <%= render 'shared/sidebar' %>
+    </div>
     <% end %>
     <% end %>
+
     <%= yield %>
     <%= javascript_include_tag 'application' %>
   </body>

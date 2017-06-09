@@ -62,12 +62,58 @@
 #personal_page {
   padding: 20px;
   height: 400px;
-  width: 800px;
+  width: 1300px;
+  margin-bottom: 5px;
+  margin-top: 12px;
+  margin-left: 10px;
 }
 
 #settings {
 height: 334px;
-width: 400px;
+width: 650px;
 padding: 20px;
 text-align: left;
+margin-left: 5px;
+margin-right: 5px;
+margin-top: 0px;
+flex-grow: 1;
 }
+
+#skills {
+height: 334px;
+width: 650px;
+padding: 20px;
+text-align: left;
+margin-right: 5px;
+margin-left: 5px;
+margin-top: 0px;
+flex-grow: 1;
+}
+
+.flexbox {
+  display: flex;
+  align-items: center;
+  width: 1300px;
+  margin-top: 5px;
+}
+
+#you {
+  width: 1300px;
+  height: 50px;
+  background-color: #4A9DEE;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  color: $white;
+}
+
+#tag {
+  margin-top: 13px;
+  font-size: 20px;
+}
+
+#video {
+  width: 1300px;
+}
+
+
+
