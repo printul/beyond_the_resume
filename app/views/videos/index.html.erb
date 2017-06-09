@@ -5,7 +5,7 @@
     <div class="col-sm-6 col-sm-offset-3">
       <p><%= link_to "New video", new_video_path, class:"btn btn-success" %></p>
 
-      <table class="Videos listing table-hover table-condensed table-striped">
+      <table class="Videos listing table-hover table-condensed">
           <tr class="header">
             <th>Thumbnail</th>
             <th>Created at</th>
@@ -14,7 +14,7 @@
           <% @videos.each do |video| %>
           <tr data-link="<%= external_path(video.url) %>">
             <td><%= image_tag "http://"+video.image_url %></td>
-            <td><%= l(video.created_at, format: :long) %></td>
+            <td><%= l(video.created_at, format: :short) %></td>
             <td class="actions">
               <%= link_to "Delete", delete_vid_path(video.url), method: :delete, data: {confirm: "Are you sure you want to delete #{video.title}?" }, class:"btn btn-danger" %>
             </td>
