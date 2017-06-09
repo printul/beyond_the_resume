@@ -1,6 +1,6 @@
 
 <% if user_signed_in?  %>
-  <% if current_user.business? %>
+  <% if current_user.is_business? %>
     <p><%= link_to "My videos", videos_path %></p>
     <p><%= link_to "My businesses", businesses_path %></p>
     <p><%= link_to "All job postings", postings_path %></p>

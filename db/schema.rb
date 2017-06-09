@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608131943) do
+ActiveRecord::Schema.define(version: 20170609100425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20170608131943) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "city"
+    t.string   "zipcode"
     t.index ["user_id"], name: "index_businesses_on_user_id", using: :btree
   end
 
@@ -109,8 +111,8 @@ ActiveRecord::Schema.define(version: 20170608131943) do
     t.string   "last_name"
     t.string   "phone_number"
     t.string   "resume"
-    t.boolean  "business?",              default: false
-    t.boolean  "searchable?",            default: false
+    t.boolean  "is_business?",           default: false
+    t.boolean  "is_searchable?",         default: false
     t.boolean  "admin",                  default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -119,11 +121,11 @@ ActiveRecord::Schema.define(version: 20170608131943) do
   create_table "videos", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
-    t.text     "description"
     t.string   "videoable_type"
     t.integer  "videoable_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "image_url"
     t.index ["videoable_type", "videoable_id"], name: "index_videos_on_videoable_type_and_videoable_id", using: :btree
   end
 

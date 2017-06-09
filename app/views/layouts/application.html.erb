@@ -18,7 +18,7 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <% if user_signed_in?  %>
-    <% unless current_user.business? %>
+    <% unless current_user.is_business? %>
       <%= render 'shared/sidebar' %>
     <% end %>
     <% end %>
