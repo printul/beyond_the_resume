@@ -4,7 +4,7 @@
 <p><%= @video.description %></p>
 
 <p><%= link_to "Go to all videos", videos_path %></p>
-<p><%= link_to "Delete video", video_path(@video), method: :delete %></p>
+<p><%= link_to "Delete video", delete_vid_path(@video.url), method: :delete %></p>
 
 <ziggeoplayer ziggeo-video='<%= @video.url %>'
     ziggeo-width=640
