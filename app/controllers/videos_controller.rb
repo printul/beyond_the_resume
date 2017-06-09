@@ -15,24 +15,39 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.new(video_params)
-    @video.videoable = current_user
+    @url = params[:data][:video][:token]
+    @image = params[:data][:video][:embed_image_url]
+    @title = "Video #{@url}"
+    @user = User.find(params[:data][:video][:tags][0])
+    @video = Video.new(title: @title, url: @url, image_url: @image)
+    @video.videoable = @user
     if @video.save
-      redirect_to video_path(@video)
+      head :ok
     else
-      render 'new'
+      #if unable to create video in DB
+      p "ERROR: UNABLE TO SAVE INTO DB"
     end
   end
 
   def destroy
-    @video.destroy
-    redirect_to videos_path
+    #only allow video owner to delete video
+    if @video.videoable == current_user
+      @ziggeo = Ziggeo.new(ENV["ZIGGEO_TOKEN"],
+                          ENV["ZIGGEO_PRIVATE_KEY"],
+                          ENV["ZIGGEO_ENCRYPTION_KEY"])
+      @ziggeo.videos().delete(@video.url)
+      @video.destroy
+      redirect_to videos_path
+    else
+      #redirect when invalid deletion
+      redirect_to root_path
+    end
   end
 
   private
 
   def set_video
-    @video = Video.find(params[:id])
+    @video = Video.find_by(url: params[:url])
   end
 
   def set_user
@@ -40,6 +55,6 @@ class VideosController < ApplicationController
   end
 
   def video_params
-    params.require(:video).permit(:title, :url, :description)
+    params.require(:video).permit(:title, :url, :image_url)
   end
 end

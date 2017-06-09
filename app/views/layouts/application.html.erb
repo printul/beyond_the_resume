@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link rel="stylesheet" href="//assets-cdn.ziggeo.com/v1-stable/ziggeo.css" />
+    <script src="//assets-cdn.ziggeo.com/v1-stable/ziggeo.js"></script>
+    <script>ZiggeoApi.token = "r17f8d61d50e0795659099b07b0fab0e";
+    ZiggeoApi.Config.webrtc = true;</script>
 
   </head>
   <body id = "background">
@@ -15,8 +19,8 @@
     <%= render 'shared/flashes' %>
 
     <% if user_signed_in?  %>
-    <% unless current_user.business? %>
-     <div class="col-sm-2">
+    <% unless current_user.is_business? %>
+    <div class="col-sm-2">
       <%= render 'shared/sidebar' %>
     </div>
     <% end %>
@@ -24,5 +28,7 @@
 
     <%= yield %>
     <%= javascript_include_tag 'application' %>
+
+    <%= yield(:after_js) %>
   </body>
 </html>

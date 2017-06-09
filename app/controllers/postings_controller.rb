@@ -7,6 +7,8 @@ class PostingsController < ApplicationController
     else
       @postings = Posting.all
     end
+    @user = current_user
+    @posting = Posting.new
   end
 
   def show

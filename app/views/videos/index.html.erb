@@ -1,3 +1,4 @@
+
 <div class="container flexbox text-center">
 <div class="card" id = "video">
 <p id = "tag"> Your Videos </p>
@@ -21,4 +22,26 @@
 </div>
 
 
+<table class="Videos">
+    <tr class="header">
+      <th>Title</th>
+      <th>image</th>
+      <th>URL</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+    <% @videos.each do |video| %>
+    <tr>
+      <td><%= video.title %></td>
+      <td><%= video.image_url %></td>
+      <td><%= video.url %></td>
+      <td><%= video.created_at %></td>
+      <td class="actions">
+        <%= link_to("Show", external_path(video.url)) %>
+        <%= link_to("Delete", delete_vid_path(video.url), method: :delete, data: {confirm: "Are you sure you want to delete #{video.title}?" }) %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+<p><%= link_to "home", root_path %></p>
 

@@ -25,11 +25,13 @@ gem 'omniauth-facebook'
 # linked-in connect
 gem 'omniauth-linkedin'
 
-#qr encoder gem
-gem 'qrencoder'
+# Ziggeo video API
+gem 'Ziggeo'
 
-# receiving webhooks for local development
-#gem 'ultrahook'
+
+#Charts
+gem 'chart-js-rails'
+
 
 #Admin panel Active Admin
 gem 'activeadmin', github: 'activeadmin/activeadmin'
