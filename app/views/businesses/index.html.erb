@@ -9,9 +9,9 @@
         <th>Address</th>
         <th>City</th>
         <th>Zipcode</th>
-        <th></th>
         <th>Postings</th>
         <th>Applications</th>
+        <th></th>
       </tr>
       <% @businesses.each do |business| %>
       <tr data-link="<%= business_path(business) %>">
@@ -19,13 +19,11 @@
         <td><%= business.address %></td>
         <td><%= business.city %></td>
         <td><%= business.zipcode %></td>
-        <td class="actions">
-          <%= link_to "Edit", edit_business_path(business), class:"btn btn-info" %>
-          <%= link_to "Create Post", new_business_posting_path(business), class:"btn btn-success" %>
-          <%= link_to "Delete", business_path(business), method: :delete, class:"btn btn-danger" %>
-        </td>
         <td><%= business.postings.count %></td>
         <td><%= business.applications.count %></td>
+        <td class="actions">
+          <%= link_to "Create Post", new_business_posting_path(business), class:"btn btn-success" %>
+        </td>
       </tr>
       <% end %>
     </table>
