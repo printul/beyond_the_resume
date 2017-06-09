@@ -1,7 +1,39 @@
+
 table tr th, table tr td {
   vertical-align: center;
 
   img {
     width: 200px;
   }
+
+tr.trLink {
+    cursor: pointer;
+}
+tr.trLink:hover {
+   background-color: $brand-color;
+}
+
+tr.trLink a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+tr.trLink:hover a{
+}
+
+th {
+  font-size: 25px;
+  padding: 20px;
+  font-weight: 500;
+}
+
+th:hover{
+
+  cursor: pointer;
+  cursor: hand;
+
 }

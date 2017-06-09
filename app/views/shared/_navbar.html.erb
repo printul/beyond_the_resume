@@ -8,29 +8,30 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
+   <!--  <form action="" class="navbar-wagon-search">
       <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
       </button>
-    </form>
+    </form> -->
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
+      <%#= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+       <!--  <div class="badge-container">
           <i class="fa fa-envelope-o"></i>
           <div class="badge badge-blue">3</div>
-        </div>
-      <% end %>
+        </div> -->
+      <%# end %>
 
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <% avatar_url = "http://placehold.it/30x30" %>
+        <%#= image_tag "profile_pic.png", class:"avatar-large" %>
+          <% avatar_url = "profile_pic.png" %>
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
