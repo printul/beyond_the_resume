@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   def show
     # authorize! :read, @user
     @user = User.find(params[:id])
-
   end
 
   # GET /users/:id/edit
