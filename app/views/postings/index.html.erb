@@ -1,25 +1,26 @@
-<h1>All the postings</h1>
+<div class="container">
+  <div class="row">
+      <h1 class="text-center">All the postings</h1>
+    <div class="col-sm-12 col-sm-offset-2">
+      <table class="Postings listing table-hover table-condensed">
+            <tr class="header text-center">
+              <th>Title</th>
+              <th>Description</th>
+              <th>Active?</th>
+              <th>Views</th>
+              <th>Created at</th>
+            </tr>
+          <% @postings.each do |posting| %>
+          <tr data-link="<%= posting_path(posting) %>">
+            <td><%= posting.title %></td>
+            <td><%= posting.description %></td>
+            <td><%= posting.is_active? %></td>
+            <td><%= posting.views %></td>
+            <td><%= l(posting.created_at, format: :long) %></td>
+          </tr>
+          <% end %>
+      </table>
+    </div>
+  </div>
+</div>
 
-<table class="Postings">
-    <tr class="header">
-      <th>Title</th>
-      <th>Description</th>
-      <th>Active?</th>
-      <th>Views</th>
-      <th>Created at</th>
-      <th>Actions</th>
-    </tr>
-    <% @postings.each do |posting| %>
-    <tr>
-      <td><%= posting.title %></td>
-      <td><%= posting.description %></td>
-      <td><%= posting.is_active? %></td>
-      <td><%= posting.views %></td>
-      <td><%= posting.created_at %></td>
-      <td class="actions">
-        <%= link_to("Show", posting_path(posting)) %>
-        <%= link_to("Delete", posting_path(posting), method: :delete ) %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
