@@ -1,18 +1,16 @@
-<%= simple_form_for @video do |f| %>
-  <%= f.input :title %>
-  <%= f.input :url %>
-  <%= f.input :image_url %>
-  <%= f.submit %>
-<% end %>
 <ziggeo ziggeo-limit=15
   ziggeo-width=640
   ziggeo-height=480
-  ziggeo-tags='<%= current_user.id %>'>
-</ziggeo>
-<ziggeorecorder ziggeo-timelimit=15
-  ziggeo-width=640
-  ziggeo-height=480
-  ziggeo-theme='modern'
   ziggeo-tags='<%= current_user.id %>'
-  id="myRecorder">
-</ziggeorecorder>
+  ziggeo-perms='forbidrerecord'>
+</ziggeo>
+
+<script>
+  ZiggeoApi.Events.on("submitted", function ( data ) {
+    function redirectShowPage() {
+      window.location.replace('/videos/' + data.video.token);
+    };
+
+    setTimeout(redirectShowPage, 3000);
+  });
+</script>
