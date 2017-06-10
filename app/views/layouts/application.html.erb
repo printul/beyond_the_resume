@@ -24,18 +24,12 @@
         </div>
       <% end %>
     <% end %>
-    <div class="wrapper">
-      <div class="container fixed-nav">
+      <%= yield %>
+      <%= javascript_include_tag 'application' %>
 
-
-        <%= yield %>
-        <%= javascript_include_tag 'application' %>
-
-        <%= yield(:after_js) %>
-      </div>
+      <%= yield(:after_js) %>
       <div class="footer">
           aa
       </div>
-    </div>
   </body>
 </html>
