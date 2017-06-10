@@ -2,3 +2,36 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+.home_cards {
+  padding: 50px;
+  text-align: center;
+}
+
+.wrapper-grey {
+  background: #EDEFF0;
+}
+
+.card-white {
+  background: white;
+  padding: 30px;
+  box-shadow: 1px 1px 2px #e7e7e7;
+  border-radius: 4px;
+  margin: 20px 50px;
+}
+
+.inspiration{
+  padding: 25px;
+}
+
+.wrapper-white{
+  background: white;
+}
+
+a {
+  color: black;
+  font-weight: lighter;
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}

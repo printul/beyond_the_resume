@@ -1,8 +1,106 @@
-<article>
-  <h1 class="text-center">Smile and say hello</h1>
-  <h2 class="text-center">Change the way you apply for jobs</h2>
-</article>
+<div id="banner">
+  <div class="padded">
+      <h1>Smile and say hello</h1>
+      <p>Change the way you apply for jobs</p>
+      <p>
+        <a href="#" class="btn btn-warning btn-lg">Try it now</a>
+      </p>
+    </div>
+  </div>
+  <div class="wrapper-grey padded">
+    <div class="container">
+      <h2 class="text-center">Beyond the resume</h2>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <%= link_to "#" do%>
+            <div class="card-white">
+              <h3 class="text-center">Candidates</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ea corporis dignissimos. Alias sed delectus at eaque sit ut recusandae odit quae repellendus velit deleniti maxime quaerat, reiciendis cupiditate dignissimos.
+              </p>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <%= link_to "#" do%>
+            <div class="card-white">
+              <h3 class="text-center">Employers</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ea corporis dignissimos. Alias sed delectus at eaque sit ut recusandae odit quae repellendus velit deleniti maxime quaerat, reiciendis cupiditate dignissimos.
+              </p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<video autoplay loop id="video-background" muted plays-inline>
-  <source src="https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761" type="video/mp4">
-</video>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="home_cards">
+        <img src="images/briefcase.png" alt="picture description" width="100">
+        <h2>Innovative</h2>
+        <p>A fast app, <strong>very fast</strong> app</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="home_cards">
+        <img src="images/heart.png" alt="picture description" width="100">
+        <h2>Engaging</h2>
+        <p>An awesome app, <strong>very awesome</strong> app</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="home_cards">
+        <img src="images/laptop.png" alt="picture description" width="100">
+        <h2>Reliable</h2>
+        <p>A beautiful app, <strong>very beautiful</strong> app</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="home_cards">
+        <img src="images/diamond.png" alt="picture description" width="100">
+        <h2>Simple</h2>
+        <p>A simple app, <strong>very simple</strong> app</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper-white padded">
+    <div class="container">
+      <h3 class="text-center">Need inspirations?</h3>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta text-center padded">
+      <h3>Harness the power of the video resume</h3>
+      <%= link_to "Sign up", new_user_registration_path, class:"btn btn-primary" %>
+    </div>
+
+<%= render "shared/footer" %>
