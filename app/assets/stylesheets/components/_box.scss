@@ -1,30 +1,49 @@
 .box {
-  margin: 20px 0;
-  border: 1px #ddd solid;
-  border-radius: 4px;
+  margin: 5px 0;
+  // box-shadow: 0px 0px 0px 1px rgba(200, 200, 200, 0.2);
+  border-radius: 5px;
   padding: 10px;
+  background-color: $white;
+  height: 350px;
 }
 
-.box h3{
+.box-content {
+  margin: 20px;
+}
+
+.box-content h2 {
   margin-top: 0;
-  font-size: 15px;
-  font-weight: bold;
 }
 
-.box li{
-  margin-bottom: 11px;
+.box-content p {
+  margin-bottom: 0;
 }
 
-.box select .filterStatus{
-  width: 100%;
+.box-content hr {
+  margin: 10px 0;
 }
 
-.box .btn{
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+.box-profile-small {
+  height: 200px;
 }
 
-.box #status-change{
-  margin-top: 30px;
+.box-blue {
+  background: $blue;
+  height: 40px;
+  color: $white;
+  padding: 10px 10px;
+}
+
+.box-left {
+  padding-left: 0;
+  padding-right: 5px;
+}
+
+.box-right {
+  padding-right: 0;
+  padding-left: 5px;
+}
+
+.box-my-videos {
+  padding-left: 10px;
 }

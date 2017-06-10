@@ -14,21 +14,28 @@
     ZiggeoApi.Config.webrtc = true;</script>
 
   </head>
-  <body id = "background">
+  <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
     <% if user_signed_in?  %>
-    <% unless current_user.is_business? %>
-    <div class="col-sm-2">
-      <%= render 'shared/sidebar' %>
+      <% unless current_user.is_business? %>
+        <div class="sidebar">
+          <%= render 'shared/sidebar' %>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="wrapper">
+      <div class="container fixed-nav">
+
+
+        <%= yield %>
+        <%= javascript_include_tag 'application' %>
+
+        <%= yield(:after_js) %>
+      </div>
+      <div class="footer">
+          aa
+      </div>
     </div>
-    <% end %>
-    <% end %>
-
-    <%= yield %>
-    <%= javascript_include_tag 'application' %>
-
-    <%= yield(:after_js) %>
   </body>
 </html>
