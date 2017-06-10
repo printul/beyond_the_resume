@@ -17,6 +17,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+gem 'bootstrap-social-rails'
+
 gem 'faker'
 
 gem 'omniauth'
