@@ -1,0 +1,19 @@
+#banner{
+  background-image: linear-gradient(rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%),
+              url('homepage.jpeg');
+  height: 80vh;
+  padding: 150px 0;
+  text-align: center;
+  background-size: cover;
+  color: white;
+}
+
+#banner h1{
+  color: white;
+}
+
+#banner p{
+  font-size: 25px;
+  font-weight: lighter;
+}
+

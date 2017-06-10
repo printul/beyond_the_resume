@@ -1,12 +1,21 @@
 /* Main class */
 .navbar-wagon {
-  background: white;
+  z-index: 1000;
+  // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background: transparent;
   transition: all 0.3s ease;
   display: flex;
   height: 70px;
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.nav-absolute {
+  position: absolute;
+  right: 0;
+  left: 0;
 }
 
 /* Optional class to fix the navbar on top */
@@ -20,7 +29,8 @@
 
 /* Navbar logo */
 .navbar-wagon-brand img {
-  width: 50px;
+  width: 120px;
+  margin-left: 30px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -39,11 +49,11 @@
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: #616668;
+  color: white;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: #AB2B2B;
   text-decoration: none;
 }
 
@@ -71,12 +81,13 @@
   justify-content: flex-end;
   padding: 0 10px;
   position: relative;
+  background-color: transparent;
 }
 .navbar-wagon-search-btn {
   line-height: 40px;
   color: #E6E6E6;
   border: none;
-  background: transparent;
+  background-color: transparent;
   position: absolute;
   right: 14px;
   top: -2px;
@@ -88,14 +99,16 @@
   line-height: 40px;
   font-weight: lighter;
   color: #666666;
-  border: 1px solid #E6E6E6;
-  border-radius: 5px;
+  // border: 1px solid #E6E6E6;
+  // border-radius: 5px;
   padding: 0 10px;
   font-size: 14px;
   outline: none;
+  background-color: transparent;
 }
 .navbar-wagon-search-input:focus  {
-  border: 1px solid #CCCCCC;
+  // border: 1px solid #CCCCCC;
+  background-color: white;
 }
 
 /* Navbar dropdown menu */
@@ -116,6 +129,12 @@
   background: transparent !important;
   color: black !important;
 }
+
+.navbar-wagon-dropdown-menu li > a > i {
+  padding-right: 8px;
+  color: red;
+}
+
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
   height: 10px;
@@ -128,3 +147,15 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+#be{
+  color: orange;
+  font-size: 25px;
+}
+
+
+#yond{
+  color: white;
+  font-size: 25px;
+}
+
