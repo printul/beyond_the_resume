@@ -1,4 +1,4 @@
-<%= link_to root_path do%>
+<%= link_to root_path, class: ('sidebar-active' if current_page?(root_path)) do%>
   <span class='sidebar-text-link'>
     <%= image_tag 'icons/core/home.svg', class: 'sidebar-img-icon'%>
     Home
@@ -7,7 +7,7 @@
 
 <br>
 
-<%= link_to videos_path do%>
+<%= link_to videos_path, class: ('sidebar-active' if current_page?(videos_path)) do%>
   <span class='sidebar-text-link'>
     <%= image_tag 'icons/photo-and-video/film.svg', class: 'sidebar-img-icon'%>
     My Videos
@@ -16,7 +16,7 @@
 
 <br>
 
-<%= link_to current_user do%>
+<%= link_to current_user, class: ('sidebar-active' if current_page?(current_user)) do%>
   <span class='sidebar-text-link'>
     <%= image_tag 'icons/core/user.svg', class: 'sidebar-img-icon'%>
     Profile
@@ -25,7 +25,7 @@
 
 <br>
 
-<%= link_to applications_path do%>
+<%= link_to applications_path, class: ('sidebar-active' if current_page?(applications_path)) do%>
   <span class='sidebar-text-link'>
     <%= image_tag 'icons/core/file-text.svg', class: 'sidebar-img-icon'%>
     Applications
@@ -40,7 +40,7 @@
 
 <br>
 
-<%= link_to new_video_path(@video) do%>
+<%= link_to new_video_path(@video), class: ('sidebar-active' if current_page?(new_video_path(@video))) do%>
 <span class='sidebar-text-link'>
   <%= image_tag 'icons/core/upload-cloud.svg', class: 'sidebar-img-icon'%>
   Upload
@@ -49,7 +49,7 @@
 
 <br>
 
-<%= link_to new_video_path(@video) do%>
+<%= link_to new_video_path(@video), class: ('sidebar-active' if current_page?(new_video_path(@video))) do%>
 <span class='sidebar-text-link'>
   <%= image_tag 'icons/photo-and-video/camera.svg', class: 'sidebar-img-icon'%>
   Record
@@ -62,7 +62,7 @@
   POSTINGS
 </span>
 
-<%= link_to postings_path do%>
+<%= link_to postings_path, class: ('sidebar-active' if current_page?(postings_path)) do%>
 <span class='sidebar-text-link'>
   <%= image_tag 'icons/core/list.svg', class: 'sidebar-img-icon'%>
   All Postings
@@ -71,12 +71,13 @@
 
 <br>
 
-<%= link_to postings_path do%>
+<%= link_to postings_path, class: ('sidebar-active' if current_page?(postings_path)) do%>
 <span class='sidebar-text-link'>
   <%= image_tag 'icons/core/search.svg', class: 'sidebar-img-icon'%>
   Search Postings
 </span>
 <% end %>
 
+<script>
 
-
+</script>

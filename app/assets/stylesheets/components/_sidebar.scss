@@ -17,18 +17,31 @@
   font-family: "Open sans", sans-serif;
 }
 
+.sidebar-active {
+  background-color: $orange;
+  color: $white;
+  img {
+      -webkit-filter: invert(100%);
+      filter: invert(100%);
+  }
+}
+
 .sidebar a{
   display: inline-block;
   width: 100%;
   padding-left: 20px;
-  color: $gray;
   text-decoration: none;
   padding-top: 5px;
   padding-bottom: 5px;
+  color: $gray;
 
   &:hover {
     color: $white;
     background-color: $sidebar-hover-gray;
+    img {
+      -webkit-filter: invert(100%);
+      filter: invert(100%);
+    }
   }
 }
 
@@ -51,7 +64,3 @@
   margin: 0 15px;
 }
 
-.sidebar-active {
-  color: $white;
-  background-color: $orange;
-}
