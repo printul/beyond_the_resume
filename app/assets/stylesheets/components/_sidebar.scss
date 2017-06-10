@@ -1,8 +1,57 @@
 .sidebar {
   height: 100vh;
-  z-index: -1;
   position: fixed;
-  padding-top: 70px;
+  padding-top: 80px;
   width: 200px;
   background: white;
+  border-right: 1px solid $light-gray;
+}
+
+.sidebar-img-icon {
+  height: 20px;
+  width: 20px;
+  margin-bottom: 3px;
+}
+
+.sidebar-text-link {
+  font-family: "Open sans", sans-serif;
+}
+
+.sidebar a{
+  display: inline-block;
+  width: 100%;
+  padding-left: 20px;
+  color: $gray;
+  text-decoration: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  &:hover {
+    color: $white;
+    background-color: $sidebar-hover-gray;
+  }
+}
+
+.sidebar-text-title {
+  font-size: 12px;
+  color: $orange;
+  margin-left: 10px;
+}
+
+.sidebar ul {
+  padding-left: 0px;
+}
+
+.sidebar ul li {
+  padding-bottom: 5px;
+  margin-left: 20px;
+}
+
+.sidebar hr {
+  margin: 0 15px;
+}
+
+.sidebar-active {
+  color: $white;
+  background-color: $orange;
 }

@@ -1,4 +1,82 @@
-<div class="sidebar">
-  <p>a</p>
-  <p>a</p>
-</div>
+<%= link_to root_path do%>
+  <span class='sidebar-text-link'>
+    <%= image_tag 'icons/core/home.svg', class: 'sidebar-img-icon'%>
+    Home
+  </span>
+<% end %>
+
+<br>
+
+<%= link_to videos_path do%>
+  <span class='sidebar-text-link'>
+    <%= image_tag 'icons/photo-and-video/film.svg', class: 'sidebar-img-icon'%>
+    My Videos
+  </span>
+<% end %>
+
+<br>
+
+<%= link_to current_user do%>
+  <span class='sidebar-text-link'>
+    <%= image_tag 'icons/core/user.svg', class: 'sidebar-img-icon'%>
+    Profile
+  </span>
+<% end %>
+
+<br>
+
+<%= link_to applications_path do%>
+  <span class='sidebar-text-link'>
+    <%= image_tag 'icons/core/file-text.svg', class: 'sidebar-img-icon'%>
+    Applications
+  </span>
+<% end %>
+
+<hr>
+
+<span class='sidebar-text-title'>
+  CREATE
+</span>
+
+<br>
+
+<%= link_to new_video_path(@video) do%>
+<span class='sidebar-text-link'>
+  <%= image_tag 'icons/core/upload-cloud.svg', class: 'sidebar-img-icon'%>
+  Upload
+</span>
+<% end %>
+
+<br>
+
+<%= link_to new_video_path(@video) do%>
+<span class='sidebar-text-link'>
+  <%= image_tag 'icons/photo-and-video/camera.svg', class: 'sidebar-img-icon'%>
+  Record
+</span>
+<% end %>
+
+<hr>
+
+<span class='sidebar-text-title'>
+  POSTINGS
+</span>
+
+<%= link_to postings_path do%>
+<span class='sidebar-text-link'>
+  <%= image_tag 'icons/core/list.svg', class: 'sidebar-img-icon'%>
+  All Postings
+</span>
+<% end %>
+
+<br>
+
+<%= link_to postings_path do%>
+<span class='sidebar-text-link'>
+  <%= image_tag 'icons/core/search.svg', class: 'sidebar-img-icon'%>
+  Search Postings
+</span>
+<% end %>
+
+
+
