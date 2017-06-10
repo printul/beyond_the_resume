@@ -1,50 +1,106 @@
 <div id="banner">
+  <div class="padded">
       <h1>Smile and say hello</h1>
       <p>Change the way you apply for jobs</p>
       <p>
-        <a href="#" class="btn btn-danger btn-lg">Start now</a>
+        <a href="#" class="btn btn-warning btn-lg">Try it now</a>
       </p>
     </div>
-
- <div class="container">
+  </div>
+  <div class="wrapper-grey padded">
+    <div class="container">
+      <h2 class="text-center">Beyond the resume</h2>
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="home_cards">
-            <img src="images/briefcase.png" alt="picture description" width="100">
-            <h2>Fast</h2>
-            <p>A fast app, <strong>very fast</strong> app</p>
-          </div>
+        <div class="col-xs-12 col-md-6">
+          <%= link_to "#" do%>
+            <div class="card-white">
+              <h3 class="text-center">Candidates</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ea corporis dignissimos. Alias sed delectus at eaque sit ut recusandae odit quae repellendus velit deleniti maxime quaerat, reiciendis cupiditate dignissimos.
+              </p>
+            </div>
+          <% end %>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="home_cards">
-            <img src="images/diamond.png" alt="picture description" width="100">
-            <h2>Simple</h2>
-            <p>A simple app, <strong>very simple</strong> app</p>
-          </div>
+        <div class="col-xs-12 col-md-6">
+          <%= link_to "#" do%>
+            <div class="card-white">
+              <h3 class="text-center">Employers</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ea corporis dignissimos. Alias sed delectus at eaque sit ut recusandae odit quae repellendus velit deleniti maxime quaerat, reiciendis cupiditate dignissimos.
+              </p>
+            </div>
+          <% end %>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="home_cards">
-            <img src="images/heart.png" alt="picture description" width="100">
-            <h2>Awesome</h2>
-            <p>An awesome app, <strong>very awesome</strong> app</p>
-          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="home_cards">
+        <img src="images/briefcase.png" alt="picture description" width="100">
+        <h2>Innovative</h2>
+        <p>A fast app, <strong>very fast</strong> app</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="home_cards">
+        <img src="images/heart.png" alt="picture description" width="100">
+        <h2>Engaging</h2>
+        <p>An awesome app, <strong>very awesome</strong> app</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="home_cards">
+        <img src="images/laptop.png" alt="picture description" width="100">
+        <h2>Reliable</h2>
+        <p>A beautiful app, <strong>very beautiful</strong> app</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="home_cards">
+        <img src="images/diamond.png" alt="picture description" width="100">
+        <h2>Simple</h2>
+        <p>A simple app, <strong>very simple</strong> app</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper-white padded">
+    <div class="container">
+      <h3 class="text-center">Need inspirations?</h3>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="home_cards">
-            <img src="images/laptop.png" alt="picture description" width="100">
-            <h2>Beautiful</h2>
-            <p>A beautiful app, <strong>very beautiful</strong> app</p>
-          </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
         </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+            <%= image_tag "http://placehold.it/200x150" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta text-center padded">
+      <h3>Harness the power of the video resume</h3>
+      <%= link_to "Sign up", new_user_registration_path, class:"btn btn-primary" %>
     </div>
 
-
-  <footer id="footer">
-    <ul class='list-inline'>
-      <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-      <li><a href="#"><i class="fa fa-github"></i></a></li>
-    </ul>
-    <p>©Le Wagon</p>
-  </footer>
+<%= render "shared/footer" %>
