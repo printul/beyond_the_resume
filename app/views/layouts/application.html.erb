@@ -32,6 +32,11 @@
               //Your code goes here
               console.log('RECORDING IN PROGRESS');
             });
+
+            recorder.on("verified", function () {
+              //Your code goes here
+              console.log(recorder.get('video'));
+            });
         });
     </script>
   </head>
