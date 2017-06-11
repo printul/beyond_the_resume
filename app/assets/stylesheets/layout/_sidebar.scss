@@ -90,7 +90,14 @@
     margin-left: 200px;
   }
 
-  .container {
+.fixed-sidebar .container {
     width: 980px;
   }
 }
+
+@media (min-width: 1400px){
+.fixed-sidebar .container {
+    width: 100%;
+  }
+}
+
