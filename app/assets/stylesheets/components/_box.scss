@@ -5,23 +5,34 @@
   padding: 10px;
   background-color: $white;
   height: 350px;
+
+  a {
+    text-decoration: none;
+    color: $white;
+    width: 100%;
+  }
 }
 
 .box-content {
   margin: 20px;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  hr {
+    margin: 10px 0;
+  }
 }
 
-.box-content h2 {
+.box-content h2, h3, h4 {
   margin-top: 0;
 }
 
-.box-content p {
+.box-content h4 {
   margin-bottom: 0;
 }
 
-.box-content hr {
-  margin: 10px 0;
-}
 
 .box-profile-small {
   height: 200px;
@@ -42,5 +53,17 @@
 .box-right {
   padding-right: 0;
   padding-left: 5px;
+}
+
+.box-title-skills {
+  float: left;
+}
+
+.box-add-skill {
+  float: right;
+}
+
+.box-row-vert-padded {
+  padding: 20px 0;
 }
 
