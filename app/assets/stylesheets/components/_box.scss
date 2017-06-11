@@ -67,3 +67,18 @@
   padding: 20px 0;
 }
 
+.box-video {
+  height: 200px !important;
+}
+
+.box-title-bar {
+  height: 80px !important;
+}
+
+#video-sort {
+    float: right;
+}
+
+.box-video:hover {
+  opacity: 0.8;
+}
