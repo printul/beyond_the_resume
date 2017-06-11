@@ -24,10 +24,6 @@
   background: #3b5998;
 }
 
-.padding-zero {
-  padding: 0;
-}
-
 .flex-default {
   display: flex;
   padding: 0;
@@ -37,17 +33,17 @@
   margin-left: 0;
 }
 
-.fixed-nav-side {
-  padding-left: 200px;
-}
-
-.fixed-nav {
+.fixed-navbar {
   padding-top: 70px;
-
+  min-height: 100vh;
   padding-bottom: 30px;
  }
 
-.page-content {
-  min-height: 100vh;
+.fixed-sidebar {
+  margin-left: 200px;
 }
 
+.no-padding {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
