@@ -13,32 +13,6 @@
     <script>//ZiggeoApi.token = "r17f8d61d50e0795659099b07b0fab0e";
     ZiggeoApi.token = "r1870311ab12ecf92523d6550f21bfe5";
     ZiggeoApi.Config.webrtc = true;</script>
-    <script>
-    ZiggeoApi.Events.on("system_ready", function() {
-            var element = document.getElementById('ziggeo');
-            var recorder = ZiggeoApi.V2.Recorder.findByElement(element);
-
-            recorder.on("loaded", function () {
-              //Your code goes here
-              console.log('bleh');
-            });
-
-            recorder.on("uploading", function () {
-              //Your code goes here
-              console.log('ITS UPLOADING');
-            });
-
-            recorder.on("recording", function () {
-              //Your code goes here
-              console.log('RECORDING IN PROGRESS');
-            });
-
-            recorder.on("verified", function () {
-              //Your code goes here
-              console.log(recorder.get('video'));
-            });
-        });
-    </script>
   </head>
   <body>
     <%= render 'shared/navbar' %>
