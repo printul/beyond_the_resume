@@ -16,7 +16,8 @@
           <%= link_to external_path(video.url), class: 'box-video-hover' do %>
             <div class="box box-video">
               <%= image_tag "http://"+video.image_url %>
-              <p><%= l(video.created_at, format: :short) %></p>
+              <%= video.title %>
+              <%= l(video.created_at, format: :short) %>
             </div>
           <% end %>
         </div>
