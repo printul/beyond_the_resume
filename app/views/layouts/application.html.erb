@@ -19,6 +19,7 @@
     <%= render 'shared/flashes' %>
     <% if user_signed_in?  %>
       <% unless current_user.is_business? %>
+        <%= render 'shared/page_title_bar' %>
         <div class="sidebar">
           <%= render 'shared/sidebar' %>
         </div>
