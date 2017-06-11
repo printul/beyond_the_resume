@@ -1,50 +1,50 @@
-
-<div class="container">
-  <div class="row">
-      <h1 class="text-center">All the postings</h1>
-    <div class="col-sm-12 col-sm-offset-2">
-      <table class="Postings listing table-hover table-condensed">
-            <tr class="header text-center">
-              <th>Title</th>
-              <th>Description</th>
-              <th>Active?</th>
-              <th>Views</th>
-              <th>Created at</th>
+<div class="fixed-navbar fixed-sidebar">
+  <div class="container">
+    <div class="row">
+        <h1 class="text-center">All the postings</h1>
+      <div class="col-sm-12 col-sm-offset-2">
+        <table class="Postings listing table-hover table-condensed">
+              <tr class="header text-center">
+                <th>Title</th>
+                <th>Description</th>
+                <th>Active?</th>
+                <th>Views</th>
+                <th>Created at</th>
+              </tr>
+            <% @postings.each do |posting| %>
+            <tr data-link="<%= posting_path(posting) %>">
+              <td><%= posting.title %></td>
+              <td><%= posting.description %></td>
+              <td><%= posting.is_active? %></td>
+              <td><%= posting.views %></td>
+              <td><%= l(posting.created_at, format: :short) %></td>
             </tr>
-          <% @postings.each do |posting| %>
-          <tr data-link="<%= posting_path(posting) %>">
-            <td><%= posting.title %></td>
-            <td><%= posting.description %></td>
-            <td><%= posting.is_active? %></td>
-            <td><%= posting.views %></td>
-            <td><%= l(posting.created_at, format: :short) %></td>
-          </tr>
-          <% end %>
-      </table>
-    </div>
-  </div>
-</div>
-
-
-<div id="page-content-wrapper">
-<div class="container-fluid">
-  <div class="row">
-  <div class="col-lg-12">
-    <h1>All job postings</h1>
-  <% @postings.each do |posting| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <%= image_tag "posting.jpg", class:"avatar-square" %>
-      <div class="caption">
-        <p><%= link_to posting.title, posting_path(posting) %></p>
-        <p><%= posting.description %></p>
+            <% end %>
+        </table>
       </div>
     </div>
   </div>
-  <% end %>
+
+  <div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+    <div class="col-lg-12">
+      <h1>All job postings</h1>
+    <% @postings.each do |posting| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= image_tag "posting.jpg", class:"avatar-square" %>
+        <div class="caption">
+          <p><%= link_to posting.title, posting_path(posting) %></p>
+          <p><%= posting.description %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    </div>
   </div>
-</div>
-</div>
+  </div>
+  </div>
 </div>
 
 
