@@ -17,8 +17,7 @@
     ZiggeoApi.Events.on("system_ready", function() {
             var element = document.getElementById('ziggeo');
             var recorder = ZiggeoApi.V2.Recorder.findByElement(element);
-            console.log(element);
-            console.log(recorder);
+
             recorder.on("loaded", function () {
               //Your code goes here
               console.log('bleh');
@@ -27,6 +26,11 @@
             recorder.on("uploading", function () {
               //Your code goes here
               console.log('ITS UPLOADING');
+            });
+
+            embedding.on("recording", function () {
+              //Your code goes here
+              console.log('RECORDING IN PROGRESS');
             });
         });
     </script>
