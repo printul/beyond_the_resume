@@ -10,6 +10,10 @@
   .box {
     max-width: 100%;
   }
+
+  .page-title-bar {
+    visibility: hidden;
+  }
 }
 
 
@@ -22,8 +26,12 @@
     margin-left: 200px;
   }
 
-.fixed-sidebar .container {
+  .fixed-sidebar .container {
     width: 980px;
+  }
+
+  .page-title-bar {
+    visibility: visible;
   }
 }
 
