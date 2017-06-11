@@ -4,5 +4,17 @@
   background-color: black;
   z-index: 1;
   bottom: 0;
+  color: $white;
+  font-size: 15px;
+  padding: 15px;
   position: relative;
+
+
+.footer a{
+  font-size: 20px;
+  color: white;
+}
+
+.footer a:hover {
+  color: white;
 }
