@@ -81,12 +81,16 @@
 }
 
 
-@media (min-width: 1380px){
+@media (min-width: 1200px){
   .sidebar {
       visibility: visible;
   }
 
   .fixed-sidebar {
     margin-left: 200px;
+  }
+
+  .container {
+    width: 980px;
   }
 }
