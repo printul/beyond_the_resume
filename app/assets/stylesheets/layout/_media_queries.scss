@@ -1,0 +1,46 @@
+@media (min-width: 0px){
+  .sidebar {
+    visibility: hidden;
+  }
+
+  .fixed-sidebar {
+    margin-left: 0px;
+  }
+
+  .box {
+    max-width: 100%;
+  }
+}
+
+
+@media (min-width: 1200px){
+  .sidebar {
+      visibility: visible;
+  }
+
+  .fixed-sidebar {
+    margin-left: 200px;
+  }
+
+.fixed-sidebar .container {
+    width: 980px;
+  }
+}
+
+@media (min-width: 1400px){
+.fixed-sidebar .container {
+    width: 1100px;
+  }
+}
+
+@media (min-width: 1600px){
+.fixed-sidebar .container {
+    width: 1300px;
+  }
+}
+
+@media (min-width: 1800px){
+.fixed-sidebar .container {
+    width: 1500px;
+  }
+}
