@@ -1,4 +1,16 @@
 <div class="fixed-navbar fixed-sidebar">
-  <h1>New video for <%= current_user.first_name %> <%= current_user.last_name %></h1>
-  <%= render 'form' %>
+  <div class="container">
+    <div class="box" style="height: 100%">
+      <h1>New video for <%= current_user.first_name %> <%= current_user.last_name %></h1>
+
+      <ziggeorecorder
+      id='ziggeo'
+      ziggeo-width=640
+      ziggeo-height=480
+      ziggeo-tags='<%= current_user.id %>'
+      ziggeo-simulate='true'>
+      </ziggeorecorder>
+    </div>
+  </div>
 </div>
+
