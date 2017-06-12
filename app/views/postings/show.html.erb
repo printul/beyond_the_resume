@@ -1,7 +1,7 @@
 <div class="fixed-navbar fixed-sidebar">
   <div class="container">
       <%= image_tag "#{@posting.business.logo}", class:"pull-left avatar", id: "logo" %>
-    <div class="row box">
+    <div class="row">
       <div class="col-xs-12">
         <p id="business-name"><%= @posting.business.name %></p>
         <p>Created on: <%= l(@posting.created_at, format: :short) %></p>
