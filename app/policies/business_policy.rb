@@ -7,7 +7,6 @@ class BusinessPolicy < BasePolicy
 
   def show?
     user_is_owner?
-    scope.where(:id => record.id).exist?
   end
 
   def create?
