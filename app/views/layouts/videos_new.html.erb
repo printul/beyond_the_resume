@@ -67,7 +67,6 @@
       <div class="fixed-navbar fixed-sidebar">
         <div class="container">
           <div class="box box-full-height">
-            <!-- <h1>New video for <%#= current_user.first_name %> <%#= current_user.last_name %></h1> -->
             <div class="text-center" id="ziggeo_div">
               <ziggeorecorder
               id='ziggeo'
@@ -77,6 +76,7 @@
               >
               </ziggeorecorder>
             </div>
+            <%= link_to 'Sign up and save', new_user_registration_path %>
           </div>
         </div>
       </div>
