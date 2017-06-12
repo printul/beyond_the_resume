@@ -1,10 +1,11 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
   before_action :set_posting, only: [:new, :create]
-  before_action :set_user, only: [:new, :create]
+  before_action :set_user, only: [:index, :new, :create]
 
   def index
-    @applications = current_user.applications
+    # authorize @user
+    @applications = policy_scope(Application)
   end
 
   def show
@@ -12,12 +13,14 @@ class ApplicationsController < ApplicationController
 
   def new
     @application = Application.new
+    authorize @application
   end
 
   def create
     @application = Application.new(application_params)
     @application.posting = @posting
     @application.user = @user
+    authorize @application
     if @application.save
       redirect_to application_path(@application)
     else
@@ -30,6 +33,7 @@ class ApplicationsController < ApplicationController
 
   def update
     @application.update(application_params)
+    authorize @application
     if @application.save
       redirect_to application_path(@application)
     else
