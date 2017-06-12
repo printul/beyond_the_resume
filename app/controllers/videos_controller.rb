@@ -11,8 +11,11 @@ class VideosController < ApplicationController
   end
 
   def new
-    # render layout: "videos_new"
-    @video = Video.new
+    unless session[:guest_user_id]
+      @guest_user = create_guest_user
+      @video = Video.new
+      render layout: "videos_new"
+    end
   end
 
   def create
