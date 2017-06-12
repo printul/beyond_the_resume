@@ -1,104 +1,106 @@
 <div id="banner">
-  <div class="padded">
-      <h1 id="title">Smile and say hello</h1>
-      <p id="tagline">Be seen before being chosen.</p>
-      <p>
-        <a href="#" class="btn btn-warning btn-lg">Try it now</a>
-      </p>
-    </div>
+  <video autoplay loop id="video_bg">
+    <source src="http://res.cloudinary.com/printul/video/upload/v1497277035/video_mtkgot.mp4">
+  </video>
+  <div class="text-center" id="banner_overlay">
+    <h1 id="title">Smile and say hello</h1>
+    <p id="tagline">Be seen before being chosen.</p>
+    <a href="#" class="btn btn-warning btn-lg">Try it now</a>
   </div>
-  <div class="wrapper-grey padded">
-    <div class="container">
-      <h2 class="text-center">1. Record or upload 2. Share as is or add to resume </h2>
-      <div class="row">
-        <div class="col-xs-12 col-md-6">
-          <%= link_to "#" do%>
-            <div class="card-white">
-              <h3 class="text-center">Need to stand out?</h3>
-              <p>
-                First impressions count, but only when you have the chance to make them. Your words, your personality, your choice. Change the way you apply.
-              </p>
-            </div>
-          <% end %>
-        </div>
-        <div class="col-xs-12 col-md-6">
-          <%= link_to "#" do%>
-            <div class="card-white">
-              <h3 class="text-center">Looking for the right people?</h3>
-              <p>
-                Your culture matters. It's at the core of your company, it's what keeps it ticking. Let candidates see it and attract those that appreciate it.
-              </p>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <div class="home_cards">
-        <img src="images/briefcase.png" alt="picture description" width="100">
-        <h2>Easy</h2>
-        <p> Two simple options<br><strong>Record / Upload</strong></p>
+<div class="wrapper-grey padded">
+  <div class="container">
+    <h2 class="text-center">1. Record or upload 2. Share as is or add to resume </h2>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <%= link_to "#" do%>
+          <div class="card-white">
+            <h3 class="text-center">Need to stand out?</h3>
+            <p>
+              First impressions count, but only when you have the chance to make them. Your words, your personality, your choice. Change the way you apply.
+            </p>
+          </div>
+        <% end %>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <div class="home_cards">
-        <img src="images/heart.png" alt="picture description" width="100">
-        <h2>Simple</h2>
-        <p>Choose the video and <br> <strong>share it</strong></p>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <div class="home_cards">
-        <img src="images/laptop.png" alt="picture description" width="100">
-        <h2>Be seen</h2>
-        <p>Create your profile video<br><strong>be found </strong>by employers</p>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <div class="home_cards">
-        <img src="images/diamond.png" alt="picture description" width="100">
-        <h2>Reliable</h2>
-        <p>Privacy matters.<br><strong>You're in control</strong></p>
+      <div class="col-xs-12 col-md-6">
+        <%= link_to "#" do%>
+          <div class="card-white">
+            <h3 class="text-center">Looking for the right people?</h3>
+            <p>
+              Your culture matters. It's at the core of your company, it's what keeps it ticking. Let candidates see it and attract those that appreciate it.
+            </p>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="wrapper-white padded">
-    <div class="container">
-      <h3 class="text-center">Need inspiration?</h3>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-            <%= image_tag "http://placehold.it/200x150" %>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-            <%= image_tag "http://placehold.it/200x150" %>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-            <%= image_tag "http://placehold.it/200x150" %>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-            <%= image_tag "http://placehold.it/200x150" %>
-        </div>
-        <!-- <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-            <%#= image_tag "http://placehold.it/200x150" %>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-            <%#= image_tag "http://placehold.it/200x150" %>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-            <%#= image_tag "http://placehold.it/200x150" %>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-            <%#= image_tag "http://placehold.it/200x150" %>
-        </div> -->
-      </div>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="home_cards">
+      <img src="images/briefcase.png" alt="picture description" width="100">
+      <h2>Easy</h2>
+      <p> Two simple options<br><strong>Record / Upload</strong></p>
     </div>
   </div>
-
-  <div class="cta text-center padded">
-    <h3>Standing out through video, made easy</h3>
-    <%= link_to "Sign up", new_user_registration_path, class:"btn btn-primary" %>
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="home_cards">
+      <img src="images/heart.png" alt="picture description" width="100">
+      <h2>Simple</h2>
+      <p>Choose the video and <br> <strong>share it</strong></p>
+    </div>
   </div>
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="home_cards">
+      <img src="images/laptop.png" alt="picture description" width="100">
+      <h2>Be seen</h2>
+      <p>Create your profile video<br><strong>be found </strong>by employers</p>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="home_cards">
+      <img src="images/diamond.png" alt="picture description" width="100">
+      <h2>Reliable</h2>
+      <p>Privacy matters.<br><strong>You're in control</strong></p>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper-white padded">
+  <div class="container">
+    <h3 class="text-center">Need inspiration?</h3>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+          <%= image_tag "http://placehold.it/200x150" %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+          <%= image_tag "http://placehold.it/200x150" %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+          <%= image_tag "http://placehold.it/200x150" %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+          <%= image_tag "http://placehold.it/200x150" %>
+      </div>
+      <!-- <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+          <%#= image_tag "http://placehold.it/200x150" %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+          <%#= image_tag "http://placehold.it/200x150" %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+          <%#= image_tag "http://placehold.it/200x150" %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+          <%#= image_tag "http://placehold.it/200x150" %>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="cta text-center padded">
+  <h3>Standing out through video, made easy</h3>
+  <%= link_to "Sign up", new_user_registration_path, class:"btn btn-primary" %>
+</div>
