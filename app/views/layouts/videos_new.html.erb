@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <link rel="stylesheet" href="//assets-cdn.ziggeo.com/v1-stable/ziggeo.css" />
-    <script src="//assets-cdn.ziggeo.com/v1-stable/ziggeo.js"></script>
+    <script src="//assets-cdn.ziggeo.com/v1-r26/ziggeo.js"></script>
     <script>ZiggeoApi.token = "r17f8d61d50e0795659099b07b0fab0e";
     ZiggeoApi.Config.webrtc = true;</script>
     <script>
@@ -18,17 +18,16 @@
             var recorder = ZiggeoApi.V2.Recorder.findByElement(element);
             var ziggeo_div = document.getElementById('ziggeo_div');
             var custom_upload_visual = document.getElementById('custom-upload-visual');
-
-            recorder.on("loaded", function () {
-              //Your code goes here
-              console.log('bleh');
-            });
+            var upload_percentage = document.getElementById('upload-percentage');
+            var uploaded_msg = document.getElementById('upload-msg');
+            var custom_uploaded_visual = document.getElementById('custom-uploaded-visual');
 
             recorder.on("uploading", function () {
               //Your code goes here
               console.log('uploading');
-              // ziggeo_div.hidden = true;
-              // custom_upload_visual.hidden = false;
+              ziggeo_div.hidden = true;
+              custom_upload_visual.hidden = false;
+              upload_percentage.innerHTML = "Uploading..."
             });
 
             recorder.on("recording", function () {
@@ -38,17 +37,38 @@
 
             recorder.on("verified", function () {
               //Your code goes here
-              console.log(recorder.get('video'));
+              console.log("VERIFIED SUCCESS");
+              uploaded_msg.hidden = true;
+              custom_uploaded_visual.hidden = true;
+              ziggeo_div.hidden = false;
             });
 
             recorder.on("upload_progress", function ( uploaded, total ) {
               //Your code goes here
               console.log('upload progress:' + (uploaded/total) * 100);
+              var timer = setInterval(upload_percent, 1000);
+              function upload_percent() {
+                upload_percentage.innerHTML = "Uploading " + Math.round(((uploaded/total) * 100)) + "%";
+
+                if (uploaded === total) {
+                  clearInterval(timer);
+                  upload_percentage.innerHTML = "Uploading Done. Verifying."
+                  custom_upload_visual.hidden = true;
+                }
+              };
+            });
+
+            recorder.on("uploaded", function () {
+              custom_upload_visual.hidden = true;
+              ziggeo_div.hidden = false;
             });
 
             recorder.on("playing", function () {
               console.log('playing');
               document.getElementById('box-guest-signup').hidden = false;
+            });
+
+            recorder.on("processed", function () {
             });
         });
     </script>
@@ -66,7 +86,7 @@
     <% end %>
       <div class="fixed-navbar">
         <div class="container">
-          <div class="box box-full-height">
+          <div class="box box-full-height" style="min-height: 485px;">
             <div class="text-center" id="ziggeo_div">
               <ziggeorecorder
               id='ziggeo'
@@ -75,6 +95,12 @@
               ziggeo-tags='<%= @guest_user.id %>'
               >
               </ziggeorecorder>
+            </div>
+            <div id="custom-upload-visual" hidden=true style="height: 485px;">
+              <h1 id="upload-percentage"></h1>
+            </div>
+            <div id="custom-uploaded-visual" hidden=true style="height: 485px;"">
+              <h1 id="uploaded-msg">Uploaded. Verifying...</h1>
             </div>
             <%= link_to 'Sign up and save', new_user_registration_path, id: 'box-guest-signup', hidden: true %>
           </div>
