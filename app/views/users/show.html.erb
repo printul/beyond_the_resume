@@ -1,60 +1,195 @@
-<div class="row">
-  <div class="col-sm-8">
-
-    <div class="container flexbox text-center">
-      <div class="card" id = "you">
-      <p id = "tag"> You </p>
+<div class="fixed-navbar fixed-sidebar">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center no-padding">
+        <div class="box box-blue">
+          <p>You</p>
+        </div>
       </div>
     </div>
-
-    <div class="container flexbox text-center">
-      <div class="card" id = "personal_page">
-      <%#= image_tag "profile_pic.png", class:"avatar-large" %>
-        <div class="card-left">
-          <div class="avatar-large margin-middle" style="background-image: url('<%= image_path "profile_pic.png" %>');">
-
+    <div class="row">
+      <div class="col-xs-12 col-md-8">
+        <div class="row">
+          <div class="box flex-default">
+            <div class="box-content">
+              <img src="https://s3.amazonaws.com/whisperinvest-images/default.png" alt="">
+            </div>
+            <div class="box-content">
+              <h2>Poppy Turner</h2>
+              <p>Web Developer, Egg Sniffer</p>
+              <p>poppyturner@meh.com</p>
+              <br>
+              <p>070 8502 9038</p>
+              <br>
+              <p>See your resume</p>
+              <hr>
+              <p>bleh</p>
+            </div>
           </div>
         </div>
-
-        <div class="card-right">
-          <p><strong>First name:</strong> <%= current_user.first_name %></p>
-          <p><strong>Last name:</strong> <%= current_user.last_name %></p>
-          <p><strong>Email:</strong> <%= current_user.email %></p>
-          <p><strong>Phone:</strong> <%= current_user.phone_number %></p>
-          <p><strong>Make your profile searchable?</strong> <%= current_user.is_searchable? %></p>
-          <p><strong>Resume:</strong> <%= current_user.resume %></p>
-          <p><strong>Last sign_in:</strong> <%= current_user.last_sign_in_at %></p>
-          <p><strong>Profession:</strong>
-          <% current_user.professions.each do |profession| %>
-          <%= profession.name %>
-          <% end %>
-          </p>
+        <div class="row">
+          <div class="col-xs-12 col-md-6 no-padding">
+            <div class="box box-left">
+              <div class="box-content box-profile-small">
+                <p>Edit Profile</p>
+                <hr>
+                <p>Manage your CV</p>
+                <hr>
+                <p>Placeholder</p>
+                <hr>
+                <p>Placeholder</p>
+                <hr>
+                <p>Placeholder</p>
+                <hr>
+                <p>Placeholder</p>
+                <hr>
+                <p>Placeholder</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6 no-padding">
+            <div class="box box-right">
+              <div class="box-content box-profile-small">
+                <div class="row box-row-padded">
+                <div class="box-title-skills">
+                  <h3>Skills</h3>
+                </div>
+                <div class="box-add-skill">
+                  <%= image_tag 'icons/core/plus.svg'%>
+                </div>
+                </div>
+                  <div class="row box-row-padded text-center">
+                    <div class="col-xs-6">
+                      <div class="skill">
+                        <span>
+                          Skill 1
+                        </span>
+                      </div>
+                    </div>
+                    <div class="col-xs-6">
+                      <div class="skill">
+                        <span>
+                          Skill 2
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row box-row-padded text-center">
+                    <div class="col-xs-6">
+                      <div class="skill">
+                        <span>
+                          Skill 3
+                        </span>
+                      </div>
+                    </div>
+                    <div class="col-xs-6">
+                      <div class="skill">
+                        <span>
+                          Skill 4
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row box-row-padded text-center">
+                    <div class="col-xs-6">
+                      <div class="skill">
+                        <span>
+                          Skill 5
+                        </span>
+                      </div>
+                    </div>
+                    <div class="col-xs-6">
+                      <div class="skill">
+                        <span>
+                          Skill 6
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4 no-padding">
+        <div class="box" style="height: 710px; ">
+          <div class="box-content">
+            <div class="row">
+              <h3>Your Videos</h3>
+            </div>
+            <div class="row box-row-vert-padded">
+              <div class="col-xs-3">
+                a
+              </div>
+              <div class="col-xs-9">
+                <h4>Bleh</h4>
+                <p>Meh</p>
+              </div>
+            </div>
+            <div class="row box-row-vert-padded">
+              <div class="col-xs-3">
+                a
+              </div>
+              <div class="col-xs-9">
+                <h4>Bleh</h4>
+                <p>Meh</p>
+              </div>
+            </div>
+            <div class="row box-row-vert-padded">
+              <div class="col-xs-3">
+                a
+              </div>
+              <div class="col-xs-9">
+                <h4>Bleh</h4>
+                <p>Meh</p>
+              </div>
+            </div>
+            <div class="row box-row-vert-padded">
+              <div class="col-xs-3">
+                a
+              </div>
+              <div class="col-xs-9">
+                <h4>Bleh</h4>
+                <p>Meh</p>
+              </div>
+            </div>
+            <div class="row box-row-vert-padded">
+              <div class="col-xs-3">
+                a
+              </div>
+              <div class="col-xs-9">
+                <h4>Bleh</h4>
+                <p>Meh</p>
+              </div>
+            </div>
+            <div class="row box-row-vert-padded">
+              <div class="col-xs-3">
+                a
+              </div>
+              <div class="col-xs-9">
+                <h4>Bleh</h4>
+                <p>Meh</p>
+              </div>
+            </div>
+            <div class="row box-row-vert-padded">
+              <div class="col-xs-3">
+                a
+              </div>
+              <div class="col-xs-9">
+                <h4>Bleh</h4>
+                <p>Meh</p>
+              </div>
+            </div>
+            <div class="row">
+              <%= button_to 'View All Videos', videos_path, method: :get, class: "btn-span-width" %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-
-    <div class="container flexbox text-center">
-      <div class="card" id = "settings">
-        <ul id="settings">
-          <li>Edit profile</li>
-          <hr />
-          <li>Set site preferences</li>
-          <hr />
-          <li>Modify privacy preferences</li>
-          <hr />
-          <li>Change email & password</li>
-          <hr />
-          <li>Manage your CV</li>
-        </ul>
-      </div>
-      <div class="card" id = "skills">
-        <p>Skills</p>
-      </div>
-    </div>
-
   </div>
 </div>
+
 
 
 
