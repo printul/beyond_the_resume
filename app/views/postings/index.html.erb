@@ -1,49 +1,24 @@
 <div class="fixed-navbar fixed-sidebar">
-  <div class="container">
-    <div class="row">
-        <h1 class="text-center">All the postings</h1>
-      <div class="col-sm-12 col-sm-offset-2">
-        <table class="Postings listing table-hover table-condensed">
-              <tr class="header text-center">
-                <th>Title</th>
-                <th>Description</th>
-                <th>Active?</th>
-                <th>Views</th>
-                <th>Created at</th>
-              </tr>
-            <% @postings.each do |posting| %>
-            <tr data-link="<%= posting_path(posting) %>">
-              <td><%= posting.title %></td>
-              <td><%= posting.description %></td>
-              <td><%= posting.is_active? %></td>
-              <td><%= posting.views %></td>
-              <td><%= l(posting.created_at, format: :short) %></td>
-            </tr>
+   <div id="page-content-wrapper">
+    <div class="container">
+  <p class="pull-left"><%= pluralize(@postings.count, 'Posting')%></p>
+      <div class="row">
+        <% @postings.each do |posting| %>
+            <div class="col-xs-12">
+                <%= link_to posting_path(posting) do %>
+                  <div class="card">
+                    <div class="card-category"><%= posting.business.name %></div>
+                    <div class="card-description">
+                      <h2><%= posting.title %></h2>
+                      <p><%= truncate(posting.description, length: 150) %></p>
+                    </div>
+                    <%= image_tag "#{posting.business.logo}", class: "card-user avatar" %>
+                  </div>
+                </div>
             <% end %>
-        </table>
+        <% end %>
       </div>
     </div>
-  </div>
-
-  <div id="page-content-wrapper">
-  <div class="container-fluid">
-    <div class="row">
-    <div class="col-lg-12">
-      <h1>All job postings</h1>
-    <% @postings.each do |posting| %>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <%= image_tag "posting.jpg", class:"avatar-square" %>
-        <div class="caption">
-          <p><%= link_to posting.title, posting_path(posting) %></p>
-          <p><%= posting.description %></p>
-        </div>
-      </div>
-    </div>
-    <% end %>
-    </div>
-  </div>
-  </div>
   </div>
 </div>
 
