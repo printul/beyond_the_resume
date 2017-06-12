@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     # authorize! :read, @user
     @user = User.find(params[:id])
     @title = "Profile"
+    authorize @user
   end
 
   # GET /users/:id/edit
