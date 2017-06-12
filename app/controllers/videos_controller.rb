@@ -4,13 +4,17 @@ class VideosController < ApplicationController
   skip_before_action :verify_authenticity_token, :authenticate_user!
 
   def index
-    @videos = current_user.videos
+    @videos = policy_scope(Video)
   end
 
   def show
+    authorize @video
   end
 
   def new
+
+    # render layout: "videos_new"
+
     @guest_user = guest_user
     unless guest_user
       @guest_user = create_guest_user #create guest user if none
@@ -19,12 +23,12 @@ class VideosController < ApplicationController
     unless current_user
       render layout: "videos_new" #guest user upload page
     end
+
   end
 
   def create
     @url = params[:data][:video][:token]
     @image = params[:data][:video][:embed_image_url]
-
     if @video = Video.find_by(url: @url)
       if @video.update(image_url: @image)
         head :ok
@@ -36,6 +40,7 @@ class VideosController < ApplicationController
       @user = User.find(params[:data][:video][:tags][0])
       @video = Video.new(title: @title, url: @url, image_url: @image)
       @video.videoable = @user
+      authorize @video
       if @video.save
         head :ok
       else
@@ -52,6 +57,7 @@ class VideosController < ApplicationController
                           ENV["ZIGGEO_PRIVATE_KEY"],
                           ENV["ZIGGEO_ENCRYPTION_KEY"])
       @ziggeo.videos().delete(@video.url)
+      authorize @video
       @video.destroy
       redirect_to videos_path
     else
@@ -64,6 +70,7 @@ class VideosController < ApplicationController
 
   def set_video
     @video = Video.find_by(url: params[:url])
+    authorize @video
   end
 
   def set_user

@@ -30,6 +30,8 @@ gem 'omniauth-linkedin'
 # Ziggeo video API
 gem 'Ziggeo'
 
+# restrict user accessing each other's profile
+gem 'pundit'
 
 #Charts
 gem 'chart-js-rails'
