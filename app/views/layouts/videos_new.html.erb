@@ -1,6 +1,150 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <style>
+    .cssload-container {
+  width: 117px;
+  margin: 0 auto;
+}
+
+.cssload-circle-1 {
+  height: 117px;
+  width: 117px;
+  background: rgb(97,46,141);
+}
+
+.cssload-circle-2 {
+  height: 97px;
+  width: 97px;
+  background: rgb(194,34,134);
+}
+
+.cssload-circle-3 {
+  height: 78px;
+  width: 78px;
+  background: rgb(234,34,94);
+}
+
+.cssload-circle-4 {
+  height: 58px;
+  width: 58px;
+  background: rgb(237,91,53);
+}
+
+.cssload-circle-5 {
+  height: 39px;
+  width: 39px;
+  background: rgb(245,181,46);
+}
+
+.cssload-circle-6 {
+  height: 19px;
+  width: 19px;
+  background: rgb(129,197,64);
+}
+
+.cssload-circle-7 {
+  height: 10px;
+  width: 10px;
+  background: rgb(0,163,150);
+}
+
+.cssload-circle-8 {
+  height: 5px;
+  width: 5px;
+  background: rgb(22,116,188);
+}
+
+.cssload-circle-1,
+.cssload-circle-2,
+.cssload-circle-3,
+.cssload-circle-4,
+.cssload-circle-5,
+.cssload-circle-6,
+.cssload-circle-7,
+.cssload-circle-8 {
+  border-bottom: none;
+  border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    -o-box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    -ms-box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  animation-name: cssload-spin;
+    -o-animation-name: cssload-spin;
+    -ms-animation-name: cssload-spin;
+    -webkit-animation-name: cssload-spin;
+    -moz-animation-name: cssload-spin;
+  animation-duration: 4600ms;
+    -o-animation-duration: 4600ms;
+    -ms-animation-duration: 4600ms;
+    -webkit-animation-duration: 4600ms;
+    -moz-animation-duration: 4600ms;
+  animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    -ms-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+  animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+}
+
+
+
+@keyframes cssload-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes cssload-spin {
+  from {
+    -o-transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(360deg);
+  }
+}
+
+@-ms-keyframes cssload-spin {
+  from {
+    -ms-transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes cssload-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes cssload-spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+  </style>
+
   <title>Be:yond</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -21,26 +165,20 @@
             var upload_percentage = document.getElementById('upload-percentage');
             var uploaded_msg = document.getElementById('upload-msg');
             var custom_uploaded_visual = document.getElementById('custom-uploaded-visual');
+            var done = false;
+            var spinner = document.getElementById('spinner');
 
             recorder.on("uploading", function () {
               //Your code goes here
               console.log('uploading');
               ziggeo_div.hidden = true;
               custom_upload_visual.hidden = false;
+              spinner.hidden = false;
               upload_percentage.innerHTML = "Uploading..."
             });
 
             recorder.on("recording", function () {
               //Your code goes here
-              console.log('RECORDING IN PROGRESS');
-            });
-
-            recorder.on("verified", function () {
-              //Your code goes here
-              console.log("VERIFIED SUCCESS");
-              uploaded_msg.hidden = true;
-              custom_uploaded_visual.hidden = true;
-              ziggeo_div.hidden = false;
             });
 
             recorder.on("upload_progress", function ( uploaded, total ) {
@@ -48,23 +186,28 @@
               console.log('upload progress:' + (uploaded/total) * 100);
               var timer = setInterval(upload_percent, 1000);
               function upload_percent() {
+                if (done == false) {
                 upload_percentage.innerHTML = "Uploading " + Math.round(((uploaded/total) * 100)) + "%";
-
+                }
                 if (uploaded === total) {
+                  done = true;
                   clearInterval(timer);
                   upload_percentage.innerHTML = "Uploading Done. Verifying."
-                  custom_upload_visual.hidden = true;
                 }
               };
             });
 
             recorder.on("uploaded", function () {
               custom_upload_visual.hidden = true;
-              ziggeo_div.hidden = false;
+              custom_uploaded_visual.hidden = false;
             });
 
+            recorder.on("verified", function () {
+                custom_uploaded_visual.hidden = true;
+                spinner.hidden = true;
+                ziggeo_div.hidden = false;
+            });
             recorder.on("playing", function () {
-              console.log('playing');
               document.getElementById('box-guest-signup').hidden = false;
             });
 
@@ -96,11 +239,30 @@
               >
               </ziggeorecorder>
             </div>
+            <div class="cssload-container" id="spinner" hidden=true>
+              <div class="cssload-circle-1">
+                <div class="cssload-circle-2">
+                  <div class="cssload-circle-3">
+                    <div class="cssload-circle-4">
+                      <div class="cssload-circle-5">
+                        <div class="cssload-circle-6">
+                          <div class="cssload-circle-7">
+                            <div class="cssload-circle-8">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div id="custom-upload-visual" hidden=true style="height: 485px;">
               <h1 id="upload-percentage"></h1>
             </div>
+
             <div id="custom-uploaded-visual" hidden=true style="height: 485px;"">
-              <h1 id="uploaded-msg">Uploaded. Verifying...</h1>
+              <h1 id="uploaded-msg">Uploading Done. Verifying.</h1>
             </div>
             <%= link_to 'Sign up and save', new_user_registration_path, id: 'box-guest-signup', hidden: true %>
           </div>
