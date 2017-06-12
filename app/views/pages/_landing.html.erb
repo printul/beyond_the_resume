@@ -1,11 +1,13 @@
 <div id="banner">
+
+  <div class="padded">
   <video autoplay loop id="video_bg">
     <source src="http://res.cloudinary.com/printul/video/upload/v1497277035/video_mtkgot.mp4">
   </video>
   <div class="text-center" id="banner_overlay">
     <h1 id="title">Smile and say hello</h1>
     <p id="tagline">Be seen before being chosen.</p>
-    <a href="#" class="btn btn-warning btn-lg">Try it now</a>
+    <%= link_to "Try it now", new_video_path, class: "btn btn-warning btn-lg"%>
   </div>
 </div>
 
