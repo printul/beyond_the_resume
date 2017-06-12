@@ -1,19 +1,41 @@
 #banner{
-  background-image: linear-gradient(rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%),
-              url('homepage.jpeg');
-  height: 80vh;
-  padding: 150px 0;
-  text-align: center;
-  background-size: cover;
-  color: white;
+  margin-top: 70px;
+  height: calc(100vh - 70px);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  video {
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+  }
+
+  div#banner_overlay {
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      color: white;
+    }
+
+    p {
+      font-size: 25px;
+      font-weight: lighter;
+    }
+  }
 }
 
-#banner h1{
-  color: white;
-}
+// #banner h1{
+//   color: white;
+// }
 
-#banner p{
-  font-size: 25px;
-  font-weight: lighter;
-}
-
+// #banner p{
+//   font-size: 25px;
+//   font-weight: lighter;
+// }
