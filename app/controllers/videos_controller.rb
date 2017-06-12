@@ -11,21 +11,31 @@ class VideosController < ApplicationController
   end
 
   def new
+    # render layout: "videos_new"
     @video = Video.new
   end
 
   def create
     @url = params[:data][:video][:token]
     @image = params[:data][:video][:embed_image_url]
-    @title = "Video #{@url}"
-    @user = User.find(params[:data][:video][:tags][0])
-    @video = Video.new(title: @title, url: @url, image_url: @image)
-    @video.videoable = @user
-    if @video.save
-      head :ok
+
+    if @video = Video.find_by(url: @url)
+      if @video.update(image_url: @image)
+        head :ok
+      else
+        p "ERROR: UNABLE TO UPDATE"
+      end
     else
+      @title = "Video #{@url}"
+      @user = User.find(params[:data][:video][:tags][0])
+      @video = Video.new(title: @title, url: @url, image_url: @image)
+      @video.videoable = @user
+      if @video.save
+        head :ok
+      else
       #if unable to create video in DB
-      p "ERROR: UNABLE TO SAVE INTO DB"
+        p "ERROR: UNABLE TO SAVE INTO DB"
+      end
     end
   end
 

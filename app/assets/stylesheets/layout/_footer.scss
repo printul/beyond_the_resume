@@ -1,17 +1,29 @@
 // Your footer style
-#footer{
-  width: 100%;
-  background: black;
-  color: white;
+.footer {
+  height: 60px;
+  background-color: black;
+  z-index: 5;
+  bottom: 0;
+  color: $white;
   font-size: 15px;
   padding: 15px;
+  position: relative;
 }
 
-#footer a{
+.footer ul {
+  float: left;
+}
+
+.footer a{
   font-size: 20px;
   color: white;
 }
 
-#footer a:hover {
+.footer a:hover {
   color: white;
+}
+
+.footer p {
+  margin-bottom: 0;
+  float: right;
 }
