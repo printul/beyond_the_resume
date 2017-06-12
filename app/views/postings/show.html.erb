@@ -1,16 +1,16 @@
 <div class="fixed-navbar fixed-sidebar">
   <div class="container">
-        <p><%= link_to "Apply", new_posting_application_path(@posting), class:'btn btn-primary pull-right' %></p>
       <%= image_tag "#{@posting.business.logo}", class:"pull-left avatar", id: "logo" %>
-    <div class="row">
+    <div class="row box">
       <div class="col-xs-12">
-        <p><%= @posting.business.name %></p>
+        <p id="business-name"><%= @posting.business.name %></p>
         <p>Created on: <%= l(@posting.created_at, format: :short) %></p>
-        <h3 class="text-center"><%= @posting.title %></h3>
+        <h3 class="text-center" id="post-title"><%= @posting.title %></h3>
         <p class="text-justify"><%= @posting.description %></p>
         <br>
-        <p><%= link_to "Back", postings_path %></p>
+        <p><%= link_to "Apply", new_posting_application_path(@posting), class:'btn btn-primary pull-right', id: "apply_cta" %></p>
       </div>
     </div>
   </div>
+        <p><%= link_to "Back", postings_path %></p>
 </div>
