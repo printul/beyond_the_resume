@@ -12,9 +12,18 @@ class VideosController < ApplicationController
   end
 
   def new
+
     # render layout: "videos_new"
-    @video = Video.new
-    authorize @video
+
+    @guest_user = guest_user
+    unless guest_user
+      @guest_user = create_guest_user #create guest user if none
+    end
+
+    unless current_user
+      render layout: "videos_new" #guest user upload page
+    end
+
   end
 
   def create

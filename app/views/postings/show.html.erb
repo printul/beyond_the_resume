@@ -1,7 +1,20 @@
 <div class="fixed-navbar fixed-sidebar">
-  <h3><%= @posting.title %></h3>
-  <p><%= @posting.description %></p>
-  <br>
-  <p><%= link_to "Back", postings_path %></p>
-  <p><%= link_to "Apply to this posting", new_posting_application_path(@posting) %></p>
+  <div class="post-wrap">
+    <div class="container">
+        <%= image_tag "#{@posting.business.logo}", class:"pull-left avatar", id: "logo" %>
+      <div class="row">
+        <div class="col-xs-12">
+          <h5 id="business-name"><%= @posting.business.name %></h5>
+          <h5><%= @posting.business.address %></h5>
+          <h5><%= @posting.business.city %></h5>
+          <h6>Created on: <%= l(@posting.created_at, format: :short) %></h6>
+          <h3 class="text-center" id="post-title"><%= @posting.title %></h3>
+          <p class="text-justify"><%= @posting.description %></p>
+          <br>
+          <p><%= link_to "Apply", new_posting_application_path(@posting), class:'btn btn-warning pull-right', id: "apply_cta" %></p>
+        </div>
+      </div>
+      <p><%= link_to "Back", postings_path, class: "btn btn-primary" %></p>
+    </div>
+  </div>
 </div>

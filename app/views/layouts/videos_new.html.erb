@@ -1,39 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    .loader {
-      border: 13px solid #f3f3f3;
-      border-radius: 50%;
-      border-top: 13px solid #459BF1;
-      border-bottom: 13px solid #459BF1;
-      width: 300px;
-      height: 300px;
-      -webkit-animation: spin 4s linear infinite;
-      animation: spin 4s linear infinite;
-    }
-
-    @-webkit-keyframes spin {
-      0% { -webkit-transform: rotate(0deg); }
-      100% { -webkit-transform: rotate(360deg); }
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .loader2 {
-      border: 13px solid #f3f3f3;
-      border-radius: 50%;
-      width: 300px;
-      height: 300px;
-      transition: height 3s;
-      -webkit-transition: height 3s;
-    }
-  </style>
-
-
   <title>Be:yond</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -60,8 +27,8 @@
             recorder.on("uploading", function () {
               //Your code goes here
               console.log('uploading');
-              ziggeo_div.hidden = true;
-              custom_upload_visual.hidden = false;
+              // ziggeo_div.hidden = true;
+              // custom_upload_visual.hidden = false;
             });
 
             recorder.on("recording", function () {
@@ -78,6 +45,11 @@
               //Your code goes here
               console.log('upload progress:' + (uploaded/total) * 100);
             });
+
+            recorder.on("playing", function () {
+              console.log('playing');
+              document.getElementById('box-guest-signup').hidden = false;
+            });
         });
     </script>
 </head>
@@ -92,43 +64,23 @@
         </div>
       <% end %>
     <% end %>
-      <div class="fixed-navbar fixed-sidebar">
+      <div class="fixed-navbar">
         <div class="container">
           <div class="box box-full-height">
-            <h1>New video for <%= current_user.first_name %> <%= current_user.last_name %></h1>
             <div class="text-center" id="ziggeo_div">
               <ziggeorecorder
               id='ziggeo'
               ziggeo-width=640
               ziggeo-height=480
-              ziggeo-tags='<%= current_user.id %>'
-              ziggeo-simulate='true'>
+              ziggeo-tags='<%= @guest_user.id %>'
+              >
               </ziggeorecorder>
             </div>
-            <div class="loader"></div>
-            <div class="loader2"></div>
-            <div id="bleh"></div>
-            <div style="height: 485px" hidden=true id='custom-upload-visual'>
-
-            </div>
+            <%= link_to 'Sign up and save', new_user_registration_path, id: 'box-guest-signup', hidden: true %>
           </div>
         </div>
       </div>
       <%= render 'shared/footer' %>
       <%= javascript_include_tag 'application' %>
-      <script>
-
-        var a = 0;
-        if (a < 100) {
-          var b = setInterval(function(){ab();},1000);
-        }
-        function ab () {
-            a += 1;
-            document.getElementById('bleh').innerHTML = Math.round(a);
-            if (a > 10) {
-              clearInterval(b);
-            }
-        }
-      </script>
 </body>
 </html>

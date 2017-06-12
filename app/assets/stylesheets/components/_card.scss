@@ -1,23 +1,16 @@
 .card {
-  background-color: white;
+  height: 175px;
+  background-size: cover !important;
+  color: black;
   position: relative;
-  border-radius: 4px;
+  background-color: #FBFBFB;
   margin-top: 25px;
-  margin-bottom: 25px;
-  margin-right: auto;
-  margin-left: auto;
-  box-shadow:  0 1px 3px rgba(0,0,0,.25);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.card-left {
-
 }
 
-.card-right {
-  text-align: left;
+.card:hover{
+  background-color: orange;
 }
+
 .card-user {
   position: absolute;
   right: 10px;
@@ -27,8 +20,7 @@
   position: absolute;
   top: 10px;
   left: 10px;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 15px;
   text-transform: uppercase;
 }
 .card-description {
@@ -36,94 +28,9 @@
   bottom: 10px;
   left: 10px;
 }
-
-#booking_card {
-  max-height: 350px;
-}
-
-#description h2 {
-  font-size: 20px;
-  text-align: right;
-  padding: 5px;
-}
-
 .card-description h2 {
-  font-size: 24px;
+  font-size: 20px;
 }
-
 .card-description p {
   font-size: 13px;
   }
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index:2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover{
-  opacity: 0.1;
-}
-
-#personal_page {
-  padding: 20px;
-  height: 400px;
-  width: 1183px;
-  margin-bottom: 5px;
-  margin-top: 12px;
-  margin-left: 10px;
-}
-
-#settings {
-height: 334px;
-width: 530px;
-padding: 20px;
-text-align: left;
-margin-left: 5px;
-margin-right: 5px;
-margin-top: 0px;
-flex-grow: 1;
-list-style-type: none;
-}
-
-#skills {
-height: 334px;
-width: 530px;
-padding: 20px;
-text-align: left;
-margin-right: 5px;
-margin-left: 5px;
-margin-top: 0px;
-flex-grow: 1;
-}
-
-.flexbox {
-  display: flex;
-  align-items: center;
-  width: 1183px;
-  margin-top: 5px;
-}
-
-#you {
-  width: 1170px;
-  height: 50px;
-  background-color: #4A9DEE;
-  margin-bottom: 0px;
-  margin-top: 10px;
-  color: $white;
-}
-
-#tag {
-  margin-top: 13px;
-  font-size: 20px;
-}
-
-#video {
-  width: 1183px;
-}
-
-
-

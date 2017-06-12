@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/super_admin', as: 'rails_admin'
   ActiveAdmin.routes(self)
   devise_for :users,
-  controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-
+  controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
+                registrations: 'users/registrations' }
 
   root to: 'pages#home'
   resources :users, only: [:show]
