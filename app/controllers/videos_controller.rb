@@ -11,6 +11,7 @@ class VideosController < ApplicationController
   end
 
   def new
+    @guest_user = guest_user
     unless guest_user
       @guest_user = create_guest_user #create guest user if none
     end

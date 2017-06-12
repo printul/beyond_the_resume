@@ -29,7 +29,6 @@
               console.log('uploading');
               // ziggeo_div.hidden = true;
               // custom_upload_visual.hidden = false;
-              // document.getElementById('url').value = recorder.get('video');
             });
 
             recorder.on("recording", function () {
@@ -49,6 +48,7 @@
 
             recorder.on("playing", function () {
               console.log('playing');
+              document.getElementById('box-guest-signup').hidden = false;
             });
         });
     </script>
@@ -64,7 +64,7 @@
         </div>
       <% end %>
     <% end %>
-      <div class="fixed-navbar fixed-sidebar">
+      <div class="fixed-navbar">
         <div class="container">
           <div class="box box-full-height">
             <div class="text-center" id="ziggeo_div">
@@ -76,7 +76,7 @@
               >
               </ziggeorecorder>
             </div>
-            <%= link_to 'Sign up and save', new_user_registration_path %>
+            <%= link_to 'Sign up and save', new_user_registration_path, id: 'box-guest-signup', hidden: true %>
           </div>
         </div>
       </div>
