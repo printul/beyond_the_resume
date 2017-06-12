@@ -19,16 +19,12 @@ class User < ApplicationRecord
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)
-
     user = signed_in_resource ? signed_in_resource : identity.user
-
-
 
     if user.nil?
       # Get the existing user by email if the provider gives us a verified email.
       # If no verified email was provided we assign a temporary email and ask the
       # user to verify it on the next step via UsersController.finish_signup
-      # binding.pry
       # email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
       email = auth.info.email# if email_is_verified
       user = User.where(:email => email).first if email
@@ -39,14 +35,16 @@ class User < ApplicationRecord
             first_name: auth.info.first_name,
             last_name: auth.info.last_name,
             email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-            password: Devise.friendly_token[0,20]
+            password: Devise.friendly_token[0,20],
+            photo: auth.info.image
             )
         elsif auth.provider == "facebook"
           user = User.new(
             first_name: auth.extra.raw_info.first_name,
             last_name: auth.extra.raw_info.last_name,
             email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-            password: Devise.friendly_token[0,20]
+            password: Devise.friendly_token[0,20],
+            photo: auth.info.image
           )
         end
 
