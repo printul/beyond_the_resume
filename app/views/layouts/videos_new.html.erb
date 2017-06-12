@@ -46,6 +46,10 @@
               //Your code goes here
               console.log('upload progress:' + (uploaded/total) * 100);
             });
+
+            recorder.on("playing", function () {
+              console.log('playing');
+            });
         });
     </script>
 </head>

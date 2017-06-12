@@ -10,10 +10,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    p session
-    p "qwerty"
-    p resource
-    p "aaaaaaaaaa"
     @videos = Video.where(videoable_id: session[:guest_user_id])
     @videos.each do |video|
       video.update(videoable_id: resource.id)
