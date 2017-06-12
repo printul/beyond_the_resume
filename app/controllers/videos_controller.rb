@@ -11,7 +11,7 @@ class VideosController < ApplicationController
   end
 
   def new
-    render layout: "videos_new"
+    # render layout: "videos_new"
     @video = Video.new
   end
 
