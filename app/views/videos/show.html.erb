@@ -8,18 +8,18 @@
         </ziggeoplayer>
       </div>
       <div class="share">
+         <div >
+          <%= image_tag "url.svg", id: "url-icon" %>
+          <p class="hidden"> <%= @url.short_url %></p>
+        </div>
+        <div id="share-icon">
+          <%= image_tag "share.svg" %>
+        </div>
         <div>
           <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://beyondtheresume.io/videos/" + @video.url%>
           <%= link_to url, download: 'download' do  %>
             <%= image_tag url, id: "qr-code" %>
           <% end %>
-        </div>
-        <div id="share-icon">
-          <%= image_tag "share.svg" %>
-        </div>
-         <div >
-          <%= image_tag "url.svg", id: "url-icon" %>
-          <p class="hidden"> <%= @url.short_url %></p>
         </div>
       </div>
     </div>
