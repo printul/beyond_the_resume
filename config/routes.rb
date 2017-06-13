@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  mount Attachinary::Engine => "/attachinary"
   mount RailsAdmin::Engine => '/super_admin', as: 'rails_admin'
   ActiveAdmin.routes(self)
   devise_for :users,
@@ -7,7 +7,7 @@ Rails.application.routes.draw do
                 registrations: 'users/registrations' }
 
   root to: 'pages#home'
-  resources :users, only: [:show]
+  resources :users, only: [:show, :update]
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :videos, only: [:index, :new, :create]

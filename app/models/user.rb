@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :professions
   has_many :skills, through: :professions
   has_many :postings, through: :businesses
+  has_attachment :document
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)
