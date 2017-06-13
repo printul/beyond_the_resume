@@ -8,16 +8,19 @@
         </ziggeoplayer>
       </div>
       <div class="share">
-         <div >
-          <%= image_tag "url.svg", id: "url-icon" %>
-          <p class="hidden"> <%= @url.short_url %></p>
+         <div>
+         <%= link_to "/", :id => 'login', "data-toggle" => "modal", 'data-target' => '#shortenURL' do %>
+            <%= image_tag "url.svg", id: "url-icon" %>
+          <% end %>
         </div>
         <div id="share-icon">
-          <%= image_tag "share.svg" %>
+          <%= link_to "/", :id => 'login', "data-toggle" => "modal", 'data-target' => '#socialIcons' do %>
+            <%= image_tag "share.svg" %>
+          <% end %>
         </div>
         <div>
-          <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://beyondtheresume.io/videos/" + @video.url%>
-          <%= link_to url, download: 'download' do  %>
+          <%= link_to "/", :id => 'login', "data-toggle" => "modal", 'data-target' => '#QRcode' do %>
+           <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://beyondtheresume.io/videos/" + @video.url%>
             <%= image_tag url, id: "qr-code" %>
           <% end %>
         </div>
@@ -25,7 +28,6 @@
     </div>
   </div>
 </div>
-
 
 
 
@@ -41,3 +43,60 @@
 
 </div>
 
+<div class="modal fade" id="shortenURL" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Share further with this shorten url</h4>
+      </div>
+      <div class="modal-body">
+         <p id= "short_url"> <%= @url.short_url %></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="socialIcons" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Spread your talent over the social media</h4>
+      </div>
+      <div class="modal-body">
+         <div class="social">
+            <%= social_share_button_tag("#{current_user.first_name} has sent you a video application")%>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="QRcode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Click to download your QR code</h4>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-offset-4">
+          <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://beyondtheresume.io/videos/" + @video.url%>
+            <%= link_to url, download: 'download' do  %>
+            <%= image_tag url, id: "qr-code-modal" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
