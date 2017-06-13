@@ -1,14 +1,6 @@
 <div class="fixed-navbar fixed-sidebar">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 text-center no-padding">
-        <div class="box box-blue">
-          <p>You</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
       <div class="col-xs-12 col-md-8">
         <div class="row">
           <div class="box flex-default">
@@ -17,10 +9,10 @@
             </div>
             <div class="box-content">
               <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
-              <p></p>
-              <p><%= current_user.email %></p>
+
+              <p>Email: <%= current_user.email %></p>
               <br>
-              <p><%= current_user.phone_number %></p>
+              <p>Phone number: <%= current_user.phone_number %></p>
               <br>
               <% if current_user.document %>
                 <%= cl_image_tag current_user.document.path, width: 200, height: 200, crop: :fill %>
@@ -32,9 +24,57 @@
                 <% end %>
               <% end %>
               <hr>
+
+              <p>You joined us on <%= current_user.created_at %></p>
+              <p>You have uploaded <%= current_user.videos.count %> <% if current_user.videos.count == 1 %> video <% else %> videos <% end %>, last upload on <%= current_user.videos.last.created_at %></p>
+
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateModalLabel"><strong>Edit my profile</strong></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <%= simple_form_for @user do |f| %>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :phone_number %>
+          <%= f.input :email %>
+          <%= f.input :is_searchable? %>
+          <p>Profession</p>
+          <%= f.simple_fields_for :professions do |profession_form| %>
+            <%= profession_form.input :name %>
+          <% end %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div>
+    <%= link_to "#", { :id => 'async_btn', :class => 'btn', 'data-toggle' => 'modal', 'data-target' => '#updateModal'} do %>
+    <span class="glyphicon glyphicon-pushpin" />
+    <% end %>
+    <%#= link_to 'Edit my profile', "#", class:"btn btn-span-width", data: { toggle: "modal", target:"#updateModal"} %>
+  </div>
+
+<!--   <button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+</button> -->
+
+  </div>
+    </div>
+
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-xs-12 col-md-6 no-padding">
             <div class="box box-left">
@@ -54,61 +94,24 @@
               <div class="box-content box-profile-small">
                 <div class="row box-row-padded">
                 <div class="box-title-skills">
-                  <h3>Skills</h3>
+                  <h3>
+                    Skills
+                  </h3>
                 </div>
                 <div class="box-add-skill">
                   <%= image_tag 'icons/core/plus.svg'%>
                 </div>
                 </div>
-                  <div class="row box-row-padded text-center">
-                    <div class="col-xs-6">
-                      <div class="skill">
-                        <span>
-                          Skill 1
-                        </span>
-                      </div>
+                  <div class="row box-row-padded text-center flexbox">
+                  <% Skill.all.each do |skill| %>
+                    <div class="skill">
+                      <span>
+                          <%= skill.name %>
+                      </span>
                     </div>
-                    <div class="col-xs-6">
-                      <div class="skill">
-                        <span>
-                          Skill 2
-                        </span>
-                      </div>
-                    </div>
+                    <% end %>
                   </div>
-                  <div class="row box-row-padded text-center">
-                    <div class="col-xs-6">
-                      <div class="skill">
-                        <span>
-                          Skill 3
-                        </span>
-                      </div>
-                    </div>
-                    <div class="col-xs-6">
-                      <div class="skill">
-                        <span>
-                          Skill 4
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row box-row-padded text-center">
-                    <div class="col-xs-6">
-                      <div class="skill">
-                        <span>
-                          Skill 5
-                        </span>
-                      </div>
-                    </div>
-                    <div class="col-xs-6">
-                      <div class="skill">
-                        <span>
-                          Skill 6
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-              </div>
+                </div>
             </div>
           </div>
         </div>
@@ -117,7 +120,7 @@
         <div class="box" style="height: 710px; ">
           <div class="box-content">
             <div class="row">
-              <h3>Your Videos</h3>
+              <%= button_to 'View All Your Videos', videos_path, method: :get, class: "btn-span-width" %>
             </div>
             <div class="row box-row-vert-padded">
             <% current_user.videos.first(4).each do |video| %>
@@ -133,9 +136,6 @@
             <% end %>
             </div>
 
-            </div>
-            <div class="row">
-              <%= button_to 'View All Videos', videos_path, method: :get, class: "btn-span-width" %>
             </div>
           </div>
         </div>

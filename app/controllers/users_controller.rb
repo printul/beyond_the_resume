@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   # GET /users/:id.:format
   def show
     # authorize! :read, @user
-    @user = User.find(params[:id])
     @title = "Profile"
     authorize @user
   end
@@ -59,12 +58,14 @@ class UsersController < ApplicationController
   private
     def set_user
       @user = User.find(params[:id])
+      authorize @user
     end
 
     def user_params
       accessible = [ :name, :email ] # extend with your own params
       accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
-      params.require(:user).permit(accessible, :document)
+      params.require(:user).permit(accessible, :first_name, :last_name, :phone_number, :is_searchable?, :document)
+
     end
 end
 
