@@ -3,13 +3,13 @@
     <div class="container">
       <div class="row">
         <% @postings.each do |posting| %>
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12 col-md-4">
                 <%= link_to posting_path(posting) do %>
                   <div class="card">
                     <div class="card-category"><%= posting.business.name %></div>
                     <div class="card-description">
                       <h2><%= posting.title %></h2>
-                      <p><%= truncate(posting.description, length: 75) %></p>
+                      <p><%= truncate(posting.description, length: 50) %></p>
                     </div>
                     <%= image_tag "#{posting.business.logo}", class: "card-user avatar" %>
                   </div>

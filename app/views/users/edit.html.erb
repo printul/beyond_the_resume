@@ -1,0 +1,28 @@
+ <div class="text-center padded">
+    <%= link_to 'Edit my profile', "#", class:"btn btn-info", data: { toggle: "modal", target:"#updateModal"} %>
+  </div>
+
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateModalLabel"><strong>Edit my profile</strong></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @user do |f| %>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :profession %>
+          <%= f.input :skill %>
+          <%= f.input :phone_number %>
+          <%= f.input :email %>
+          <%= f.input :is_searchable %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

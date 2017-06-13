@@ -30,9 +30,20 @@ gem 'omniauth-linkedin'
 # Ziggeo video API
 gem 'Ziggeo'
 
+# restrict user accessing each other's profile
+gem 'pundit'
 
 #Charts
 gem 'chart-js-rails'
+
+#Attachinary | Cloudinary
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
+
+gem 'bitly'
+gem 'social-share-button'
 
 
 #Admin panel Active Admin
