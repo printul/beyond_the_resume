@@ -14,7 +14,6 @@ class VideosController < ApplicationController
   end
 
   def new
-
     # render layout: "videos_new"
     @video = Video.new
     authorize @video
@@ -28,7 +27,6 @@ class VideosController < ApplicationController
     else
       render layout: "registered_videos_new"
     end
-
   end
 
   def create

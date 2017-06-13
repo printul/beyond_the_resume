@@ -14,7 +14,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @videos.each do |video|
       video.update(videoable_id: resource.id)
     end
-    User.find(session[:guest_user_id]).destroy
+    if session[:guest_user_id]
+      User.find(session[:guest_user_id]).destroy
+    end
   end
 
   # GET /resource/edit
