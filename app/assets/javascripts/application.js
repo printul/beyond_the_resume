@@ -6,4 +6,5 @@
 //= require attachinary
 //= require Chart.min
 //= require table
+//= require social-share-button
 //= require_tree .

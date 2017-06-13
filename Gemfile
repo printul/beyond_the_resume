@@ -43,6 +43,7 @@ gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
 gem 'bitly'
+gem 'social-share-button'
 
 
 #Admin panel Active Admin
