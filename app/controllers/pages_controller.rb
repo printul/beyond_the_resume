@@ -6,6 +6,15 @@ class PagesController < ApplicationController
       if current_user.is_business?
         redirect_to businesses_path
       else
+        #if first time signin, and have one video
+          #on login, redirect to video showpage
+
+        #ifels
+          #new video
+
+        #else if one or more videos, second or later signin
+          #profile
+
         if current_user.videos.count == 0
           redirect_to new_video_path(@video)
         else
