@@ -74,39 +74,62 @@
 <div class="wrapper-white padded">
   <div class="container">
     <h3 class="text-center">Feeling creative? Upload and apply by showing what you're good at!</h3>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+    <div class="row justify-content">
+
+      <div class="col-xs-12 col-sm-6 col-md-4 inspiration text-center">
         <!-- Button trigger modal -->
-        <div data-toggle="modal" data-target="#myModal">
-          <%= cl_image_tag("coding_docehe.jpg", :width=>200, :height=>150, :radius=>5, :resource_type=>"video") %>
+        <div data-toggle="modal" data-target="#mountain">
+          <%= cl_image_tag("mountain_climber_mrtx5x.jpg", :width=>200, :height=>150, :radius=>5, :resource_type=>"video") %>
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal fade" id="mountain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-body">
-                <%= cl_video_tag("coding_docehe", :width => 570, :height => 500, :crop => :scale, :preload => "none", :autoplay => true, :poster => true) %>
+              <div class="modal-body inspirations-modal">
+                <%= cl_video_tag("mountain_climber_mrtx5x", :width => 570, :height => 500, :crop => :fill, :preload => "none", :autoplay => true,  :loop => true, :poster => true) %>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-          <%= cl_image_tag("mountain_climber_mrtx5x.jpg", :width=>200, :height=>150, :radius=>5, :resource_type=>"video") %>
-          <%#= cl_video_tag("mountain_climber_mrtx5x", :width => 200, :height => 150, :crop => :scale,
-              :loop => false, :autoplay => true, :poster => true) %>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 inspiration text-center">
+        <!-- Button trigger modal -->
+        <div data-toggle="modal" data-target="#surfer">
+          <%= cl_image_tag("surfer_q4alst.jpg", :width=>200, :height=>150, :radius=>5, :resource_type=>"video") %>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="surfer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body inspirations-modal">
+                <%= cl_video_tag("surfer_q4alst", :width => 570, :height => 500, :preload => "none", :crop => :fill, :autoplay => true, :loop => true, :poster => true) %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-        <%= cl_image_tag("surfer_q4alst.jpg", :width=>200, :height=>150, :radius=>5, :resource_type=>"video") %>
-        <%#= cl_video_tag("surfer_q4alst", :width => 200, :height => 150, :crop => :scale,
-              :preload => "none", :autoplay => true, :poster => true) %>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
+
+       <div class="col-xs-12 col-sm-6 col-md-4 inspiration text-center">
+        <!-- Button trigger modal -->
+        <div data-toggle="modal" data-target="#skier">
           <%= cl_image_tag("skier_tjlx3u.jpg", :width=>200, :height=>150, :radius=>5, :resource_type=>"video") %>
-          <%#= cl_video_tag("skier_tjlx3u", :width => 200, :height => 150, :crop => :scale,
-              :loop => false, :autoplay => true, :poster => true) %>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="skier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body inspirations-modal">
+                <%= cl_video_tag("skier_tjlx3u", :width => 570, :height => 500, :crop => :fill, :preload => "none", :autoplay => true,  :loop => true, :poster => true) %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
