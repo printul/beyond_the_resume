@@ -76,13 +76,21 @@
     <h3 class="text-center">Feeling creative? Upload and apply by showing what you're good at!</h3>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-          <button data-toggle="modal" data-target="#coding"></button>
-          <div class="modal-fade" id="#coding">
-            <%= cl_image_tag("coding_docehe.jpg", :width=>200, :height=>150, :radius=>5, :resource_type=>"video") %>
-          </div>
+        <!-- Button trigger modal -->
+        <div data-toggle="modal" data-target="#myModal">
           <%= cl_image_tag("coding_docehe.jpg", :width=>200, :height=>150, :radius=>5, :resource_type=>"video") %>
-          <%#= cl_video_tag("coding_docehe", :width => 200, :height => 150, :crop => :scale,
-              :preload => "none", :autoplay => true, :poster => true) %>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <%= cl_video_tag("coding_docehe", :width => 570, :height => 500, :crop => :scale, :preload => "none", :autoplay => true, :poster => true) %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
           <%= cl_image_tag("mountain_climber_mrtx5x.jpg", :width=>200, :height=>150, :radius=>5, :resource_type=>"video") %>
