@@ -36,6 +36,9 @@ gem 'pundit'
 #Charts
 gem 'chart-js-rails'
 
+#Url Shortener
+gem 'bitly'
+
 
 #Admin panel Active Admin
 gem 'activeadmin', github: 'activeadmin/activeadmin'
