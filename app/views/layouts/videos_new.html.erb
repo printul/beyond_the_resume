@@ -1,150 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-  <style>
-    .cssload-container {
-  width: 117px;
-  margin: 0 auto;
-}
-
-.cssload-circle-1 {
-  height: 117px;
-  width: 117px;
-  background: rgb(97,46,141);
-}
-
-.cssload-circle-2 {
-  height: 97px;
-  width: 97px;
-  background: rgb(194,34,134);
-}
-
-.cssload-circle-3 {
-  height: 78px;
-  width: 78px;
-  background: rgb(234,34,94);
-}
-
-.cssload-circle-4 {
-  height: 58px;
-  width: 58px;
-  background: rgb(237,91,53);
-}
-
-.cssload-circle-5 {
-  height: 39px;
-  width: 39px;
-  background: rgb(245,181,46);
-}
-
-.cssload-circle-6 {
-  height: 19px;
-  width: 19px;
-  background: rgb(129,197,64);
-}
-
-.cssload-circle-7 {
-  height: 10px;
-  width: 10px;
-  background: rgb(0,163,150);
-}
-
-.cssload-circle-8 {
-  height: 5px;
-  width: 5px;
-  background: rgb(22,116,188);
-}
-
-.cssload-circle-1,
-.cssload-circle-2,
-.cssload-circle-3,
-.cssload-circle-4,
-.cssload-circle-5,
-.cssload-circle-6,
-.cssload-circle-7,
-.cssload-circle-8 {
-  border-bottom: none;
-  border-radius: 50%;
-    -o-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-    -o-box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-    -ms-box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-    -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-  animation-name: cssload-spin;
-    -o-animation-name: cssload-spin;
-    -ms-animation-name: cssload-spin;
-    -webkit-animation-name: cssload-spin;
-    -moz-animation-name: cssload-spin;
-  animation-duration: 4600ms;
-    -o-animation-duration: 4600ms;
-    -ms-animation-duration: 4600ms;
-    -webkit-animation-duration: 4600ms;
-    -moz-animation-duration: 4600ms;
-  animation-iteration-count: infinite;
-    -o-animation-iteration-count: infinite;
-    -ms-animation-iteration-count: infinite;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;
-  animation-timing-function: linear;
-    -o-animation-timing-function: linear;
-    -ms-animation-timing-function: linear;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-timing-function: linear;
-}
-
-
-
-@keyframes cssload-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@-o-keyframes cssload-spin {
-  from {
-    -o-transform: rotate(0deg);
-  }
-  to {
-    -o-transform: rotate(360deg);
-  }
-}
-
-@-ms-keyframes cssload-spin {
-  from {
-    -ms-transform: rotate(0deg);
-  }
-  to {
-    -ms-transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes cssload-spin {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@-moz-keyframes cssload-spin {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-  to {
-    -moz-transform: rotate(360deg);
-  }
-}
-  </style>
-
   <title>Be:yond</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -152,69 +8,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <link rel="stylesheet" href="//assets-cdn.ziggeo.com/v1-stable/ziggeo.css" />
+    <link rel="stylesheet" href="//assets-cdn.ziggeo.com/v1-r26/ziggeo.css" />
+
     <script src="//assets-cdn.ziggeo.com/v1-r26/ziggeo.js"></script>
-    <script>ZiggeoApi.token = "r17f8d61d50e0795659099b07b0fab0e";
+      <script>ZiggeoApi.token = "r17f8d61d50e0795659099b07b0fab0e";
     ZiggeoApi.Config.webrtc = true;</script>
-    <script>
+     <script>
     ZiggeoApi.Events.on("system_ready", function() {
             var element = document.getElementById('ziggeo');
             var recorder = ZiggeoApi.V2.Recorder.findByElement(element);
             var ziggeo_div = document.getElementById('ziggeo_div');
-            var custom_upload_visual = document.getElementById('custom-upload-visual');
-            var upload_percentage = document.getElementById('upload-percentage');
-            var uploaded_msg = document.getElementById('upload-msg');
-            var custom_uploaded_visual = document.getElementById('custom-uploaded-visual');
-            var done = false;
-            var spinner = document.getElementById('spinner');
+            var messages_div = document.getElementById('messages-div');
+            var video_messages = document.getElementById('video-messages');
+            var upload_done = false;
+            var processing_done = false;
 
+            var record_btn = document.getElementById('btn-record');
+            var upload_btn = document.getElementById('btn-upload');
+            record_btn.addEventListener("click", startRecord);
+            upload_btn.addEventListener("click", startUpload);
+            function startRecord() {
+              ziggeo_div.hidden = false;
+              recorder.record();
+              record_btn.hidden = true;
+              upload_btn.hidden = true;
+            };
+
+            function startUpload() {
+              var a = document.getElementsByClassName('ba-videorecorder-theme-elevate-chooser-file');
+              a[0].click();
+              ziggeo_div.hidden = false;
+              record_btn.hidden = true;
+              upload_btn.hidden = true;
+            };
+
+            recorder.on("attached", function () {
+    console.log('attached');
+});
             recorder.on("uploading", function () {
-              //Your code goes here
+              // hides ziggeo recorder and displays custom messages
               console.log('uploading');
               ziggeo_div.hidden = true;
-              custom_upload_visual.hidden = false;
-              spinner.hidden = false;
-              upload_percentage.innerHTML = "Uploading..."
-            });
-
-            recorder.on("recording", function () {
-              //Your code goes here
+              video_messages.innerHTML = "Uploading...";
+              messages_div.hidden = false;
             });
 
             recorder.on("upload_progress", function ( uploaded, total ) {
-              //Your code goes here
-              console.log('upload progress:' + (uploaded/total) * 100);
-              var timer = setInterval(upload_percent, 1000);
-              function upload_percent() {
-                if (done == false) {
-                upload_percentage.innerHTML = "Uploading " + Math.round(((uploaded/total) * 100)) + "%";
+              //displays upload %
+                if (upload_done == false) {
+                  video_messages.innerHTML = "Uploading " + Math.round(((uploaded/total) * 100)) + "%";
                 }
-                if (uploaded === total) {
-                  done = true;
-                  clearInterval(timer);
-                  upload_percentage.innerHTML = "Uploading Done. Verifying."
+
+                if (uploaded === total && upload_done != true) {
+                  upload_done = true;
+
                 }
-              };
             });
 
             recorder.on("uploaded", function () {
-              custom_upload_visual.hidden = true;
-              custom_uploaded_visual.hidden = false;
+              // completed upload
+              video_messages.innerHTML = "Upload Successful. Processing..."
             });
 
             recorder.on("verified", function () {
-                custom_uploaded_visual.hidden = true;
-                spinner.hidden = true;
+              // video verfified to allow processing
+              console.log('verified');
+              // video_messages.innerHTML = "Video Processing..."
+              video_messages.innerHTML = "Video Processed."
+              function showZiggeo() {
+                messages_div.hidden = true;
                 ziggeo_div.hidden = false;
+              };
+              //displays ziggeo after 3 seconds after processing
+              setTimeout(showZiggeo,3000);
             });
-            recorder.on("playing", function () {
-              document.getElementById('box-guest-signup').hidden = false;
+
+            /* NOT WORKING UNTIL ZIGGEO UPDATES
+            recorder.on("processing", function ( percentage ) {
+              console.log(percentage);
             });
 
             recorder.on("processed", function () {
+              // displays processing completed
+              console.log('processed');
+              video_messages.innerHTML = "Video Processed."
+              function showZiggeo() {
+                video_messages.hidden = true;
+                ziggeo_div.hidden = false;
+              };
+              //displays ziggeo after 3 seconds after processing
+              setTimeout(showZiggeo,3000);
+            });
+            */
+
+            recorder.on("playing", function () {
+              // displays sign up and save button after playing video
+              document.getElementById('box-guest-signup').hidden = false;
             });
         });
+
     </script>
+
 </head>
 <body>
     <%= render 'shared/navbar' %>
@@ -230,45 +124,28 @@
       <div class="fixed-navbar">
         <div class="container">
           <div class="box box-full-height" style="min-height: 485px;">
-            <div class="text-center" id="ziggeo_div">
+            <div class="text-center" id="ziggeo_div" hidden=true>
               <ziggeorecorder
               id='ziggeo'
               ziggeo-width=640
               ziggeo-height=480
               ziggeo-tags='<%= @guest_user.id %>'
+              ziggeo-theme='elevate'
+              ziggeo-allowrecord=false
               >
               </ziggeorecorder>
             </div>
-            <div class="cssload-container" id="spinner" hidden=true>
-              <div class="cssload-circle-1">
-                <div class="cssload-circle-2">
-                  <div class="cssload-circle-3">
-                    <div class="cssload-circle-4">
-                      <div class="cssload-circle-5">
-                        <div class="cssload-circle-6">
-                          <div class="cssload-circle-7">
-                            <div class="cssload-circle-8">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="custom-upload-visual" hidden=true style="height: 485px;">
-              <h1 id="upload-percentage"></h1>
-            </div>
-
-            <div id="custom-uploaded-visual" hidden=true style="height: 485px;"">
-              <h1 id="uploaded-msg">Uploading Done. Verifying.</h1>
+            <div id="messages-div" hidden=true style="height: 485px;">
+              <h1 class="text-center" id="video-messages"></h1>
             </div>
             <%= link_to 'Sign up and save', new_user_registration_path, id: 'box-guest-signup', hidden: true %>
+            <button id="btn-record">Record</button>
+            <button id="btn-upload">Upload</button>
           </div>
-        </div>
       </div>
+    </div>
       <%= render 'shared/footer' %>
       <%= javascript_include_tag 'application' %>
+
 </body>
 </html>
