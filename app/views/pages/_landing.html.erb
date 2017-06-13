@@ -73,34 +73,28 @@
 
 <div class="wrapper-white padded">
   <div class="container">
-    <h3 class="text-center">Need inspiration?</h3>
+    <h3 class="text-center">Feeling creative? Upload and apply by showing what you're good at!</h3>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-          <%= link_to "http://res.cloudinary.com/printul/video/upload/v1497289895/moonshot_tjaeng.mp4" do %>
-          <%= image_tag "sky viewer.jpg", { id: 'inspiration_thumbnail'} %>
-          <% end %>
+          <%= cl_image_tag("coding_docehe.jpg", :width=>200, :height=>150, :radius=>5, :resource_type=>"video") %>
+          <%#= cl_video_tag("coding_docehe", :width => 200, :height => 150, :crop => :scale,
+              :preload => "none", :autoplay => true, :poster => true) %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-          <%= image_tag "http://placehold.it/200x150" %>
+          <%= cl_image_tag("mountain_climber_mrtx5x.jpg", :width=>200, :height=>150, :radius=>5, :resource_type=>"video") %>
+          <%#= cl_video_tag("mountain_climber_mrtx5x", :width => 200, :height => 150, :crop => :scale,
+              :loop => false, :autoplay => true, :poster => true) %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-          <%= image_tag "http://placehold.it/200x150" %>
+        <%= cl_image_tag("surfer_q4alst.jpg", :width=>200, :height=>150, :radius=>5, :resource_type=>"video") %>
+        <%#= cl_video_tag("surfer_q4alst", :width => 200, :height => 150, :crop => :scale,
+              :preload => "none", :autoplay => true, :poster => true) %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-          <%= image_tag "http://placehold.it/200x150" %>
+          <%= cl_image_tag("skier_tjlx3u.jpg", :width=>200, :height=>150, :radius=>5, :resource_type=>"video") %>
+          <%#= cl_video_tag("skier_tjlx3u", :width => 200, :height => 150, :crop => :scale,
+              :loop => false, :autoplay => true, :poster => true) %>
       </div>
-      <!-- <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-          <%#= image_tag "http://placehold.it/200x150" %>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-          <%#= image_tag "http://placehold.it/200x150" %>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-          <%#= image_tag "http://placehold.it/200x150" %>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3 inspiration">
-          <%#= image_tag "http://placehold.it/200x150" %>
-      </div> -->
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  mount Attachinary::Engine => "/attachinary"
   mount RailsAdmin::Engine => '/super_admin', as: 'rails_admin'
   ActiveAdmin.routes(self)
   devise_for :users,

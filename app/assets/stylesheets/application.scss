@@ -14,3 +14,19 @@
 @import "layout/index";
 @import "components/index";
 @import "pages/index";
+@import "social-share-button";
+
+body {
+  min-height: calc(100vh - 70px)
+}
+
+// Social buttons
+$size: 50px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}
