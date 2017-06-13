@@ -17,14 +17,21 @@
             </div>
             <div class="box-content">
               <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
-              <p>Web Developer, Egg Sniffer</p>
-              <p>poppyturner@meh.com</p>
+              <p></p>
+              <p><%= current_user.email %></p>
               <br>
               <p><%= current_user.phone_number %></p>
               <br>
-              <p>See your resume</p>
+              <% if current_user.document %>
+                <%= cl_image_tag current_user.document.path, width: 200, height: 200, crop: :fill %>
+              <% else %>
+                <p>Add your resume</p>
+                <%= simple_form_for (current_user) do |f| %>
+                  <%= f.input :document, as: :attachinary %>
+                  <%= f.submit %>
+                <% end %>
+              <% end %>
               <hr>
-              <p>bleh</p>
             </div>
           </div>
         </div>
@@ -35,12 +42,6 @@
                 <p>Edit Profile</p>
                 <hr>
                 <p>Manage your CV</p>
-                <hr>
-                <p>Placeholder</p>
-                <hr>
-                <p>Placeholder</p>
-                <hr>
-                <p>Placeholder</p>
                 <hr>
                 <p>Placeholder</p>
                 <hr>
