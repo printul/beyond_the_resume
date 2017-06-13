@@ -1,28 +1,39 @@
 <div class="fixed-navbar fixed-sidebar">
-  <h1>Your video</h1>
-  <p><%= @video.title %></p>
-  <p><%= @video.url %></p>
-  <p><%= @video.image_url %></p>
+  <div class="container">
+    <div class="content">
+      <div id="video-player">
+        <ziggeoplayer ziggeo-video='<%= @video.url %>'
+            ziggeo-width=640
+            ziggeo-height=480>
+        </ziggeoplayer>
+      </div>
+      <div class="share">
+        <div>
+          <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://beyondtheresume.io/videos/" + @video.url%>
+          <%= link_to url, download: 'download' do  %>
+            <%= image_tag url, id: "qr-code" %>
+          <% end %>
+        </div>
+        <div id="share-icon">
+          <%= image_tag "share.svg" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
   <!-- hides links unless video owner -->
-  <% if @video.videoable == current_user %>
-  <p><%= link_to "Go to all videos", videos_path %></p>
-
-  <p><%= link_to "Delete video", delete_vid_path(@video.url), method: :delete, data: {confirm: "Are you sure you want to delete #{@video.title}?" } %></p>
-  <% end %>
-
-  <ziggeoplayer ziggeo-video='<%= @video.url %>'
-      ziggeo-width=640
-      ziggeo-height=480>
-  </ziggeoplayer>
 
 
+          <% if @video.videoable == current_user %>
+          <p><%= link_to "Go to all videos", videos_path %></p>
+
+          <p><%= link_to "Delete video", delete_vid_path(@video.url), method: :delete, data: {confirm: "Are you sure you want to delete #{@video.title}?" } %></p>
+          <% end %>
   <!-- https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=example -->
-  <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-    <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://beyondtheresume.io/videos/" + @video.url%>
-    <%= link_to url, download: 'download' do  %>
-      <%= image_tag url%>
-    <% end %>
-  </div>
+
 </div>
 
