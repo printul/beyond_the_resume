@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :postings, through: :businesses
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
+    binding
     identity = Identity.find_for_oauth(auth)
     user = signed_in_resource ? signed_in_resource : identity.user
 

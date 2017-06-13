@@ -12,13 +12,13 @@ class BusinessesController < ApplicationController
 
   def new
     @business = Business.new
-    authorise @business
+    authorize @business
   end
 
   def create
     @business = Business.new(business_params)
     @business.user = @user
-    authorise @business
+    authorize @business
     if @business.save
       redirect_to business_path(@business)
     else
@@ -31,6 +31,7 @@ class BusinessesController < ApplicationController
 
   def update
     @business.update(business_params)
+    authorize @business
     if @business.save
       redirect_to business_path(@business)
     else
@@ -47,6 +48,7 @@ class BusinessesController < ApplicationController
 
   def set_business
     @business = Business.find(params[:id])
+    authorize @business
   end
 
   def business_params

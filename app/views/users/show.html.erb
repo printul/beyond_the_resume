@@ -17,14 +17,19 @@
             </div>
             <div class="box-content">
               <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
-              <p>Web Developer, Egg Sniffer</p>
-              <p>poppyturner@meh.com</p>
+              <p>
+                Professions: <% Profession.all.each do |profession| %>
+                <%= profession.name %>
+                <% end %>
+                </p>
+              <p><%= current_user.email %></p>
               <br>
               <p><%= current_user.phone_number %></p>
               <br>
               <p>See your resume</p>
               <hr>
-              <p>bleh</p>
+              <p>You joined us on <%= current_user.created_at %></p>
+              <p>You have uploaded <%= current_user.videos.count %> <% if current_user.videos.count == 1 %> video <% else %> videos <% end %>, last upload on <%= current_user.videos.last.created_at %></p>
             </div>
           </div>
         </div>
@@ -53,7 +58,9 @@
               <div class="box-content box-profile-small">
                 <div class="row box-row-padded">
                 <div class="box-title-skills">
-                  <h3>Skills</h3>
+                  <h3>
+                    Skills
+                  </h3>
                 </div>
                 <div class="box-add-skill">
                   <%= image_tag 'icons/core/plus.svg'%>
@@ -63,7 +70,9 @@
                     <div class="col-xs-6">
                       <div class="skill">
                         <span>
-                          Skill 1
+                          <% Skill.all.each do |skill| %>
+                            <%= skill.name %>
+                          <% end %>
                         </span>
                       </div>
                     </div>
