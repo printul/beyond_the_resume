@@ -6,8 +6,9 @@ class VideoPolicy < BasePolicy
   end
 
   def show?
-    user_is_owner?
+    # user_is_owner?
     # scope.where(:id => record.id).exist?
+    true
   end
 
   def create?
