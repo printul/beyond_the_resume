@@ -1,0 +1,60 @@
+<div class="box flex-default">
+  <div class="box-content">
+    <%= image_tag (current_user.photo || "https://s3.amazonaws.com/whisperinvest-images/default.png") %>
+  </div>
+
+  <div class="box-content">
+    <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+    <p>Email: <%= current_user.email %></p>
+    <br>
+    <p>Phone number: <%= current_user.phone_number %></p>
+    <br>
+    <% if current_user.document %>
+      <%= cl_image_tag current_user.document.path, width: 200, height: 200, crop: :fill %>
+    <% else %>
+      <p>Add your resume</p>
+      <%= simple_form_for (current_user) do |f| %>
+        <%= f.input :document, as: :attachinary %>
+        <%= f.submit %>
+      <% end %>
+    <% end %>
+    <hr>
+    <p>You joined us on <%= current_user.created_at %></p>
+    <p>You have uploaded <%= current_user.videos.count %> <% if current_user.videos.count == 1 %> video <% else %> videos <% end %>, last upload on <%= current_user.videos.last.created_at %></p>
+  </div>
+
+   <div>
+    <%= link_to "#", { :id => 'async_btn', :class => 'btn', 'data-toggle' => 'modal', 'data-target' => '#updateModal'} do %>
+    <span class="glyphicon glyphicon-pushpin" />
+    <% end %>
+  </div>
+</div>
+
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateModalLabel"><strong>Edit my profile</strong></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <%= simple_form_for @user do |f| %>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :phone_number %>
+          <%= f.input :email %>
+          <%= f.input :is_searchable? %>
+          <p>Profession</p>
+          <%= f.simple_fields_for :professions do |profession_form| %>
+            <%= profession_form.input :name %>
+          <% end %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>

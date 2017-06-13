@@ -1,0 +1,28 @@
+<div class="box box-right">
+  <div class="box-content box-profile-small">
+
+    <div class="row box-row-padded">
+
+    <div class="box-title-skills">
+      <h3>
+        Skills
+      </h3>
+    </div>
+
+    <div class="box-add-skill">
+      <%= image_tag 'icons/core/plus.svg'%>
+    </div>
+
+    </div>
+
+    <div class="row box-row-padded text-center flexbox">
+      <% Skill.all.each do |skill| %>
+        <div class="skill">
+          <span>
+              <%= skill.name %>
+          </span>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
