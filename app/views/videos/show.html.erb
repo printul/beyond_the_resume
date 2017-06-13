@@ -19,7 +19,7 @@
           <% end %>
         </div>
         <div>
-          <%= link_to "#", :id => 'login', "data-toggle" => "moda", 'data-target' => '#QRcode' do %>
+          <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#QRcode' do %>
            <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://beyondtheresume.io/videos/" + @video.url%>
             <%= image_tag url, id: "qr-code" %>
           <% end %>
