@@ -13,6 +13,16 @@
   }
 }
 
+#box-newvideo-text {
+  padding: 10px;
+  background-color: $white;
+  border-radius: 5px;
+  p {
+    color: $light-gray !important;
+    margin-bottom: 0;
+  }
+}
+
 .box-content {
   margin: 20px;
 
@@ -91,7 +101,17 @@
   color: black !important;
 }
 
+#ziggeo_div {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#messages-div {
+  padding-left: 0px;
+  padding-right: 0px;
+
 .flexbox {
   display: flex;
   flex-wrap: wrap;
+
 }

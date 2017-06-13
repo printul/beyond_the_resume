@@ -14,8 +14,65 @@
   .page-title-bar {
     visibility: hidden;
   }
+
+  #btn-record, #btn-upload, .box-margins, #box-upload-record, #messages-div {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #ziggeo-container {
+    max-width: 330px;
+    max-height: 250px;
+  }
+
+  #btn-record, #btn-upload {
+    margin-bottom: 30px;
+  }
+
+  .upload-record-div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 
+@media (min-width: 700px) {
+  #ziggeo-container{
+    max-width: 640px;
+    max-height: 500px;
+  }
+
+  #box-upload-record, #messages-div {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  #btn-record {
+    margin-right: 0px;
+  }
+
+  #btn-upload {
+    margin-left: 0px;
+  }
+
+   #box-newvideo-text{
+    margin: 50px 0px;
+  }
+}
+
+@media (min-width: 990px) {
+  #btn-record {
+    margin-right: 50px;
+  }
+
+  #btn-upload {
+    margin-left: 50px;
+  }
+
+  #messages-div {
+    min-height: 200px;
+  }
+}
 
 @media (min-width: 1200px){
   .sidebar {
@@ -33,9 +90,22 @@
   .page-title-bar {
     visibility: visible;
   }
+
+  .box-margins {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  #box-newvideo-text{
+    margin: 50px 100px;
+  }
+
+  #messages-div, #box-upload-record {
+    min-height: 485px;
+  }
 }
 
-@media (min-width: 1400px){
+@media (min-width: 1400px) {
 .fixed-sidebar .container {
     width: 1100px;
   }

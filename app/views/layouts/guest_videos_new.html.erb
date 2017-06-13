@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Be:yond</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link rel="stylesheet" href="//assets-cdn.ziggeo.com/v1-r26/ziggeo.css" />
+
+    <script src="//assets-cdn.ziggeo.com/v1-r26/ziggeo.js"></script>
+    <script>ZiggeoApi.token = "r17f8d61d50e0795659099b07b0fab0e";
+    ZiggeoApi.Config.webrtc = true;</script>
+    <script>
+        ZiggeoApi.Events.on("system_ready", function() {
+        var element = document.getElementById('ziggeo');
+        var recorder = ZiggeoApi.V2.Recorder.findByElement(element);
+        var ziggeo_div = document.getElementById('box-upload-record');
+        var messages_div = document.getElementById('messages-div');
+        var video_messages = document.getElementById('video-messages');
+        var upload_done = false;
+        var processing_done = false;
+
+        var record_btn = document.getElementById('btn-record');
+        var upload_btn = document.getElementById('btn-upload');
+        record_btn.addEventListener("click", startRecord);
+        upload_btn.addEventListener("click", startUpload);
+        function startRecord() {
+          ziggeo_div.hidden = false;
+          var btn_ziggeo = document.getElementsByClassName('ba-videorecorder-theme-elevate-chooser-primary-button');
+          btn_ziggeo[0].click();
+          record_btn.hidden = true;
+          upload_btn.hidden = true;
+        };
+
+        function startUpload() {
+          var btn_ziggeo = document.getElementsByClassName('ba-videorecorder-theme-elevate-chooser-file');
+          btn_ziggeo[2].click();
+          ziggeo_div.hidden = false;
+          record_btn.hidden = true;
+          upload_btn.hidden = true;
+        };
+
+        recorder.on("uploading", function () {
+          // hides ziggeo recorder and displays custom messages
+          console.log('uploading');
+          ziggeo_div.hidden = true;
+          video_messages.innerHTML = "Uploading...";
+          messages_div.hidden = false;
+        });
+
+        recorder.on("upload_progress", function ( uploaded, total ) {
+          //displays upload %
+            if (upload_done == false) {
+              video_messages.innerHTML = "Uploading " + Math.round(((uploaded/total) * 100)) + "%";
+            }
+
+            if (uploaded === total && upload_done != true) {
+              upload_done = true;
+
+            }
+        });
+
+        recorder.on("uploaded", function () {
+          // completed upload
+          video_messages.innerHTML = "Upload Successful. Verifying..."
+        });
+
+        recorder.on("verified", function () {
+          // video verfified to allow processing
+          console.log('verified');
+          // video_messages.innerHTML = "Video Processing..."
+          video_messages.innerHTML = "Video verified."
+          function showZiggeo() {
+            messages_div.hidden = true;
+            ziggeo_div.hidden = false;
+          };
+          //displays ziggeo after 3 seconds after processing
+          setTimeout(showZiggeo,3000);
+        });
+
+        /* NOT WORKING UNTIL ZIGGEO UPDATES
+        recorder.on("processing", function ( percentage ) {
+          console.log(percentage);
+        });
+
+        recorder.on("processed", function () {
+          // displays processing completed
+          console.log('processed');
+          video_messages.innerHTML = "Video Processed."
+          function showZiggeo() {
+            video_messages.hidden = true;
+            ziggeo_div.hidden = false;
+          };
+          //displays ziggeo after 3 seconds after processing
+          setTimeout(showZiggeo,3000);
+        });
+        */
+
+        recorder.on("playing", function () {
+          // displays sign up and save button after playing video
+          document.getElementById('box-guest-signup').hidden = false;
+        });
+      });
+    </script>
+</head>
+<body>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
+      <div class="fixed-navbar">
+        <div class="container">
+          <div class="text-center">
+            <div class="box box-full-height" id="box-upload-record" hidden="true">
+            <div class="flex-center">
+              <div id="ziggeo-container">
+                  <ziggeorecorder
+                  id='ziggeo'
+                  ziggeo-tags='<%= @guest_user.id %>'
+                  ziggeo-theme='elevate'
+                  ziggeo-responsive=true
+                  ziggeo-timelimit=45
+                  >
+                  </ziggeorecorder>
+              </div>
+            </div>
+            <div id="box-guest-signup" hidden=true>
+            <%= link_to 'Sign up to share', new_user_registration_path, class: "btn", id: "btn-guest-save"%>
+            </div>
+            </div>
+          </div>
+
+          <div class="box box-full-height" id="messages-div" hidden="true">
+            <h1 class="text-center" id="video-messages"></h1>
+            <h4 class="text-center" id="flavour-text"> </h4>
+          </div>
+          <div class="upload-record-div text-center">
+            <button class="btn-upload-record" id="btn-record">
+              <i id="btn-icon-camera" class="fa fa-camera" aria-hidden="true"></i>
+              <h2>Record yourself</h2>
+              <h3>Create a video</h3>
+            </button>
+            <button class="btn-upload-record" id="btn-upload">
+              <i id="btn-icon-cloud" class="fa fa-cloud-upload" aria-hidden="true"></i>
+              <h2>Upload File</h2>
+              <h3>Choose a file</h3>
+            </button>
+          </div>
+          <div id="box-newvideo-text">
+             <p>
+               Remember, you can be professional, creative or both! <br>
+               Have a plan, start with a quick intro, talk about your objective and why you’re interested in the company and role.<br>
+               Make sure the lighting is good and, if possible, that it doesn’t come from behind or above you.<br>
+               Frame the video, make sure your upper body is the focus of the video and..  Relax, Smile, Record!
+             </p>
+            </div>
+      </div>
+    </div>
+      <%= render 'shared/footer' %>
+      <%= javascript_include_tag 'application' %>
+
+</body>
+</html>
