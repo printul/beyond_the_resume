@@ -17,7 +17,9 @@ class VideosController < ApplicationController
     end
 
     unless current_user
-      render layout: "videos_new" #guest user upload page
+      render layout: "guest_videos_new" #guest user upload page
+    else
+      render layout: "registered_videos_new"
     end
   end
 

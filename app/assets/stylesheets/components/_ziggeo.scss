@@ -1,17 +1,21 @@
-.video-recorder-initial .inner-container {
-  background-color: white;
+.ba-videorecorder-theme-elevate-chooser-container {
+  background-color: $white !important;
 }
 
 .ba-videorecorder-theme-elevate-chooser-primary-button {
-  background-color: $brand-color !important;
+  display: none !important;
 }
 
-.ba-videorecorder-theme-elevate-chooser-file {
-  background-color: $brand-color !important;
+.ba-videorecorder-theme-elevate-chooser-secondary-button{
+  display: none !important;
+}
+
+.ba-videoplayer-elevate-theme-rerecord-button {
+  background-color: gray !important;
 }
 
 .ba-videorecorder-theme-elevate-button-primary {
-  background-color: $brand-color !important;
+  background-color: $orange !important;
   font-size: 20px !important;
   border-radius: 5px !important;
 }
