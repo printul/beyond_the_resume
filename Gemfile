@@ -42,6 +42,9 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
+gem 'bitly'
+
+
 #Admin panel Active Admin
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
