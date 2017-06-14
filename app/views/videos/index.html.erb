@@ -6,7 +6,7 @@
            <%= link_to external_path(video.url), class: 'box-video-hover' do %>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= 'http://' + video.image_url %>);">
               <div class="card-description">
-                <h2><%= video.title %></h2>
+                <h2><%= truncate(video.title, length: 20) %></h2>
                 <p><%= l(video.created_at, format: :short) %></p>
               </div>
             </div>
