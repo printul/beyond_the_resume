@@ -11,340 +11,59 @@ require 'faker'
 
 puts "start seeding"
 
-User.create({
-    email: "user1@gmail.com",
-    password: "123456789",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number,
-    is_business?: true,
-    is_searchable?: true,
-    resume: Faker::Internet.url,
-    admin: true
-  })
-
-puts "users"
+#creating User for business model
 
 User.create!({
-    email: Faker::Internet.email,
-    password: "123456789",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number,
-    is_business?: true,
-    is_searchable?: true,
-    resume: Faker::Internet.url
+  email: "contact@lew.com",
+  password: "123456789",
+  first_name: "Le ",
+  last_name: "Wagon",
+  phone_number: "07515894123",
+  is_business?: true,
+  is_searchable?: true,
   })
 
-  User.create!({
-    email: Faker::Internet.email,
-    password: "123456789",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number,
-    is_business?: false,
-    is_searchable?: true,
-    resume: Faker::Internet.url
-  })
-
-  User.create!({
-    email: Faker::Internet.email,
-    password: "123456789",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number,
-    is_business?: false,
-    is_searchable?: true,
-    resume: Faker::Internet.url
-  })
-
-  User.create!({
-    email: Faker::Internet.email,
-    password: "123456789",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number,
-    is_business?: false,
-    is_searchable?: true,
-    resume: Faker::Internet.url
-  })
-
-  User.create!({
-    email: Faker::Internet.email,
-    password: "123456789",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number,
-    is_business?: false,
-    is_searchable?: true,
-    resume: Faker::Internet.url
-  })
-
-  User.create!({
-    email: Faker::Internet.email,
-    password: "123456789",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number,
-    is_business?: true,
-    is_searchable?: true,
-    resume: Faker::Internet.url
-  })
-
-  User.create!({
-    email: Faker::Internet.email,
-    password: "123456789",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number,
-    is_business?: false,
-    is_searchable?: true,
-    resume: Faker::Internet.url
-  })
-
-  User.create!({
-    email: Faker::Internet.email,
-    password: "123456789",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number,
-    is_business?: true,
-    is_searchable?: true,
-    resume: Faker::Internet.url
-  })
-
-  User.create!({
-    email: Faker::Internet.email,
-    password: "123456789",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number,
-    is_business?: false,
-    is_searchable?: true,
-    resume: Faker::Internet.url
-  })
 
   Business.create!({
-    name: Faker::Company.name,
-    address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email,
-    industry: Faker::Job.field,
-    user_id: 1,
-    city: Faker::Address.city,
-    zipcode: Faker::Address.postcode
-  })
-
-  Business.create!({
-    name: Faker::Company.name,
-    address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email,
-    industry: Faker::Job.field,
-    user_id: 2,
-    city: Faker::Address.city,
-    zipcode: Faker::Address.postcode
-  })
-
-  Business.create!({
-    name: Faker::Company.name,
-    address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email,
-    industry: Faker::Job.field,
-    user_id: 3,
-    city: Faker::Address.city,
-    zipcode: Faker::Address.postcode
-  })
-
-  Business.create!({
-    name: Faker::Company.name,
-    address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email,
-    industry: Faker::Job.field,
-    user_id: 4,
-    city: Faker::Address.city,
-    zipcode: Faker::Address.postcode
-  })
-
-  Business.create!({
-    name: Faker::Company.name,
-    address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email,
-    industry: Faker::Job.field,
-    user_id: 5,
-    city: Faker::Address.city,
-    zipcode: Faker::Address.postcode
-  })
-
-  Business.create!({
-    name: Faker::Company.name,
-    address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email,
-    industry: Faker::Job.field,
-    user_id: 6,
-    city: Faker::Address.city,
-    zipcode: Faker::Address.postcode
-  })
-
-  Business.create!({
-    name: Faker::Company.name,
-    address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email,
-    industry: Faker::Job.field,
-    user_id: 1,
-    city: Faker::Address.city,
-    zipcode: Faker::Address.postcode
-  })
-
-  Business.create!({
-    name: Faker::Company.name,
-    address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email,
-    industry: Faker::Job.field,
-    user_id: 2,
-    city: Faker::Address.city,
-    zipcode: Faker::Address.postcode
-  })
-
-  Business.create!({
-    name: Faker::Company.name,
-    address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email,
-    industry: Faker::Job.field,
-    user_id: 3,
-    city: Faker::Address.city,
-    zipcode: Faker::Address.postcode
-  })
-
-  Business.create!({
-    name: Faker::Company.name,
-    address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email,
-    industry: Faker::Job.field,
-    user_id: 4,
-    city: Faker::Address.city,
-    zipcode: Faker::Address.postcode
+    name: "Le Wagon",
+    address: "14 Elder Street, London",
+    phone_number: "07515984123",
+    email: "visitlewagon@gmail.com",
+    industry: "Education",
+    user_id: 37,
+    city: "London",
+    zipcode: "E1 6BT"
   })
 
   Video.create!({
-    title: Faker::Hipster.word,
-    url: Faker::Internet.url('example.com'),
-    image_url: Faker::Internet.url('example.com'),
-    videoable_type: "User",
-    videoable_id: 2
-  })
-
-  Video.create!({
-    title: Faker::Hipster.word,
-    url: Faker::Internet.url('example.com'),
+    title: "Le Wagon - change your life",
+    url: "http://res.cloudinary.com/printul/video/upload/v1497392998/lewagon_ek9d67.mp4",
     image_url: Faker::Internet.url('example.com'),
     videoable_type: "Business",
-    videoable_id: 1
+    videoable_id: 37
   })
 
 
   Posting.create!({
-    title: Faker::Job.title,
-    description: Faker::Lorem.sentence,
+    title: "Outdoors activity coordinator / TA",
+    description: "We're looking for someone with a spirit of adventure to take over the social activities during our bootcamp,
+    with a view to create a stronger bond between our students and the teachers and the alumni. Coding experience
+    is necessary as you'll be helping in class alongisde organizing awesome outdoors experiences for our students. ",
     business_id: 1,
-    video_id: 2
-
+    video_id: 37
   })
 
 
-  Application.create!({
-    title: Faker::Job.title,
-    description: Faker::Lorem.sentence,
-    user_id: 2,
-    posting_id: 1,
-    video_id: 1
+#   Application.create!({
+#     title: Faker::Job.title,
+#     description: Faker::Lorem.sentence,
+#     user_id: 2,
+#     posting_id: 1,
+#     video_id: 1
 
-  })
-
-
-  # Profession.create!({
-  #   name: Faker::Job.title,
-  #   user_id: 2
-
-  # })
-
-  # Profession.create!({
-  #   name: Faker::Job.title,
-  #   user_id: 1
-
-  # })
-
-  # Profession.create!({
-  #   name: Faker::Job.title,
-  #   user_id: 3
-
-  # })
-
-  # Profession.create!({
-  #   name: Faker::Job.title,
-  #   user_id: 4
-
-  # })
-
-  # Profession.create!({
-  #   name: Faker::Job.title,
-  #   user_id: 5
-
-  # })
+#   })
 
 
-  # Skill.create!({
-  #   name: Faker::Job.key_skill,
-  #   profession_id: 1
-  # })
-
-  # Skill.create!({
-  #   name: Faker::Job.key_skill,
-  #   profession_id: 2
-  # })
-
-  # Skill.create!({
-  #   name: Faker::Job.key_skill,
-  #   profession_id: 3
-  # })
-
-  # Skill.create!({
-  #   name: Faker::Job.key_skill,
-  #   profession_id: 1
-  # })
-
-  # Skill.create!({
-  #   name: Faker::Job.key_skill,
-  #   profession_id: 2
-  # })
-
-  # Skill.create!({
-  #   name: Faker::Job.key_skill,
-  #   profession_id: 3
-  # })
-
-  # Skill.create!({
-  #   name: Faker::Job.key_skill,
-  #   profession_id: 1
-  # })
-
-  # Skill.create!({
-  #   name: Faker::Job.key_skill,
-  #   profession_id: 2
-  # })
-
-  # Skill.create!({
-  #   name: Faker::Job.key_skill,
-  #   profession_id: 3
-  # })
 
 # 10.times do
 #   u = User.create!({
