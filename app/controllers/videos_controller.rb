@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :set_video, only: [:show, :destroy]
+  before_action :set_video, only: [:show, :destroy, :update]
   #before_action :video_params, only: [:create]
   skip_before_action :verify_authenticity_token, :authenticate_user!
 
@@ -51,6 +51,10 @@ class VideosController < ApplicationController
         p "ERROR: UNABLE TO SAVE INTO DB"
       end
     end
+  end
+
+  def update
+    @video.update(video_params)
   end
 
   def destroy
