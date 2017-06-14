@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :set_video, only: [:show, :destroy, :update]
+  before_action :set_video, only: [:show, :destroy]
   #before_action :video_params, only: [:create]
   skip_before_action :verify_authenticity_token, :authenticate_user!
 
@@ -54,7 +54,10 @@ class VideosController < ApplicationController
   end
 
   def update
+    @video = Video.find(params[:id])
+    authorize @video
     @video.update(video_params)
+    redirect_to external_path(@video.url)
   end
 
   def destroy
