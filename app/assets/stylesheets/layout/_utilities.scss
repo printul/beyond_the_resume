@@ -40,13 +40,13 @@
 
 .fixed-navbar {
   padding-top: 120px;
-  min-height: 100vh;
+  min-height: calc(100vh - 60px);
   padding-bottom: 30px;
  }
 
-.fixed-sidebar {
-  margin-left: 200px;
-}
+// .fixed-sidebar {
+//   margin-left: 200px;
+// }
 
 .no-padding {
   padding-right: 0 !important;

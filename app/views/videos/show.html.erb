@@ -1,4 +1,4 @@
-<div class="fixed-navbar fixed-sidebar">
+<div class="fixed-navbar">
   <div class="container">
     <div class="content">
       <div id="video-player">
@@ -8,7 +8,7 @@
         </ziggeoplayer>
       </div>
       <div class="share">
-         <div>
+         <div >
          <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#shortenURL' do %>
             <%= image_tag "url.svg", id: "url-icon" %>
           <% end %>
@@ -69,7 +69,7 @@
       </div>
       <div class="modal-body">
          <div class="social">
-            <%= social_share_button_tag("#{current_user.first_name} has sent you a video application")%>
+            <%= social_share_button_tag("Be:yond the resume - video application")%>
           </div>
       </div>
       <div class="modal-footer">

@@ -1,19 +1,19 @@
 @media (min-width: 0px){
-  .sidebar {
-    visibility: hidden;
-  }
+  // .sidebar {
+  //   visibility: hidden;
+  // }
 
-  .fixed-sidebar {
-    margin-left: 0px;
-  }
+  // .fixed-sidebar {
+  //   margin-left: 0px;
+  // }
 
   .box {
     max-width: 100%;
   }
 
-  .page-title-bar {
-    visibility: hidden;
-  }
+  // .page-title-bar {
+  //   visibility: hidden;
+  // }
 
   #btn-record, #btn-upload, .box-margins, #box-upload-record, #messages-div {
     margin-left: 0;
@@ -75,21 +75,21 @@
 }
 
 @media (min-width: 1200px){
-  .sidebar {
-      visibility: visible;
-  }
+  // .sidebar {
+  //     visibility: visible;
+  // }
 
-  .fixed-sidebar {
-    margin-left: 200px;
-  }
+  // .fixed-sidebar {
+  //   margin-left: 200px;
+  // }
 
   .fixed-sidebar .container {
     width: 980px;
   }
 
-  .page-title-bar {
-    visibility: visible;
-  }
+  // .page-title-bar {
+  //   visibility: visible;
+  // }
 
   .box-margins {
     margin-left: 50px;
