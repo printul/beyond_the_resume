@@ -5,6 +5,8 @@
 
   <div class="box-content">
     <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+    <p>Profession: <%= current_user.profession %></p>
+    <br>
     <p>Email: <%= current_user.email %></p>
     <br>
     <p>Phone number: <%= current_user.phone_number %></p>
@@ -20,7 +22,18 @@
     <% end %>
     <hr>
     <p>You joined us on <%= current_user.created_at %></p>
-    <p>You have uploaded <%= current_user.videos.count %> <% if current_user.videos.count == 1 %> video <% else %> videos <% end %>, last upload on <%= current_user.videos.last.created_at %></p>
+    <p>You have uploaded
+    <% if current_user.videos.count == 0 %>
+      0 video
+    <% else %>
+      <%= current_user.videos.count %>
+        <% if current_user.videos.count == 1 %>
+          video, last uploaded on <%= current_user.videos.last.created_at %>
+        <% else %>
+          videos, last uploaded on <%= current_user.videos.last.created_at %>
+        <% end %>
+    <% end %>
+    </p>
   </div>
 
    <div>
