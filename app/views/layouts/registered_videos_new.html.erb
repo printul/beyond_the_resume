@@ -25,8 +25,11 @@
 
         var record_btn = document.getElementById('btn-record');
         var upload_btn = document.getElementById('btn-upload');
+        var share_btn = document.getElementById('btn-user-save');
         record_btn.addEventListener("click", startRecord);
         upload_btn.addEventListener("click", startUpload);
+        share_btn.addEventListener("click", showVideoPage);
+
         function startRecord() {
           ziggeo_div.hidden = false;
           var btn_ziggeo = document.getElementsByClassName('ba-videorecorder-theme-elevate-chooser-primary-button');
@@ -38,14 +41,17 @@
         function startUpload() {
           var btn_ziggeo = document.getElementsByClassName('ba-videorecorder-theme-elevate-chooser-file');
           btn_ziggeo[2].click();
-          ziggeo_div.hidden = false;
-          record_btn.hidden = true;
-          upload_btn.hidden = true;
+        };
+
+        function showVideoPage() {
+          window.location.href = recorder.get('video');
         };
 
         recorder.on("uploading", function () {
           // hides ziggeo recorder and displays custom messages
           console.log('uploading');
+          record_btn.hidden = true;
+          upload_btn.hidden = true;
           ziggeo_div.hidden = true;
           video_messages.innerHTML = "Uploading...";
           messages_div.hidden = false;
@@ -81,7 +87,7 @@
           setTimeout(showZiggeo,3000);
         });
 
-        /* NOT WORKING UNTIL ZIGGEO UPDATES
+
         recorder.on("processing", function ( percentage ) {
           console.log(percentage);
         });
@@ -91,13 +97,17 @@
           console.log('processed');
           video_messages.innerHTML = "Video Processed."
           function showZiggeo() {
-            video_messages.hidden = true;
-            ziggeo_div.hidden = false;
+            // video_messages.hidden = true;
+            // ziggeo_div.hidden = false;
           };
           //displays ziggeo after 3 seconds after processing
-          setTimeout(showZiggeo,3000);
+          // setTimeout(showZiggeo,3000);
         });
-        */
+
+        recorder.on("playing", function () {
+          // displays share and save button after playing video
+          document.getElementById('box-user-share').hidden = false;
+        });
       });
     </script>
 </head>
@@ -119,6 +129,9 @@
                   >
                   </ziggeorecorder>
               </div>
+            </div>
+            <div id="box-user-share" hidden=true>
+            <%= button_tag "Share", class: 'btn btn-primary', id: 'btn-user-save' %>
             </div>
             </div>
           </div>

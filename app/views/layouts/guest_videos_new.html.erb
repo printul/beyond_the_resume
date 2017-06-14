@@ -38,14 +38,13 @@
         function startUpload() {
           var btn_ziggeo = document.getElementsByClassName('ba-videorecorder-theme-elevate-chooser-file');
           btn_ziggeo[2].click();
-          ziggeo_div.hidden = false;
-          record_btn.hidden = true;
-          upload_btn.hidden = true;
         };
 
         recorder.on("uploading", function () {
           // hides ziggeo recorder and displays custom messages
           console.log('uploading');
+          record_btn.hidden = true;
+          upload_btn.hidden = true;
           ziggeo_div.hidden = true;
           video_messages.innerHTML = "Uploading...";
           messages_div.hidden = false;
