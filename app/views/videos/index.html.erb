@@ -1,4 +1,8 @@
 <div class="fixed-navbar">
+<% if @videos.count == 0 %>
+  <h1 class="text-center padded">Record yourself NOW</h1>
+<% end %>
+
   <div class="container">
     <div class="row">
       <% @videos.each do |video| %>
