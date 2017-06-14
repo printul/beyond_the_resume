@@ -19,7 +19,9 @@
   div#banner_overlay {
     position: relative;
     z-index: 1;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     h1 {
       color: white;
     }
@@ -27,6 +29,27 @@
     p {
       font-size: 25px;
       font-weight: lighter;
+    }
+    a {
+      width: 30%;
+    }
+  }
+}
+
+.button-container-down {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 160px;
+  #button-down img {
+    width: 60px;
+    opacity: 0.6;
+  }
+
+  #button-down:hover {
+    img {
+      transition: 0.5s;
+      opacity: 1;
     }
   }
 }
@@ -36,12 +59,9 @@
   width: 100px;
 }
 
-// #banner h1{
-//   color: white;
-// }
+#arrow {
+  height: 30px;
+  width: 30px;
+}
 
-// #banner p{
-//   font-size: 25px;
-//   font-weight: lighter;
-// }
 
