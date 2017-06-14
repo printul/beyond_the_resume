@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :finish_signup]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :finish_signup, :new, :create]
+  def new
+  end
 
+  def create
+  end
 
   # GET /users/:id.:format
   def show
@@ -64,7 +68,7 @@ class UsersController < ApplicationController
     def user_params
       accessible = [ :name, :email ] # extend with your own params
       accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
-      params.require(:user).permit(accessible, :first_name, :last_name, :phone_number, :is_searchable?, :document)
+      params.require(:user).permit(accessible, :first_name, :last_name, :phone_number, :is_searchable?, :document, :created_at, :profession, :skill1, :skill2, :skill3, :skill4)
 
     end
 end

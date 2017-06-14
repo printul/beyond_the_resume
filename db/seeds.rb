@@ -270,81 +270,81 @@ User.create!({
   })
 
 
-  Profession.create!({
-    name: Faker::Job.title,
-    user_id: 2
+  # Profession.create!({
+  #   name: Faker::Job.title,
+  #   user_id: 2
 
-  })
+  # })
 
-  Profession.create!({
-    name: Faker::Job.title,
-    user_id: 1
+  # Profession.create!({
+  #   name: Faker::Job.title,
+  #   user_id: 1
 
-  })
+  # })
 
-  Profession.create!({
-    name: Faker::Job.title,
-    user_id: 3
+  # Profession.create!({
+  #   name: Faker::Job.title,
+  #   user_id: 3
 
-  })
+  # })
 
-  Profession.create!({
-    name: Faker::Job.title,
-    user_id: 4
+  # Profession.create!({
+  #   name: Faker::Job.title,
+  #   user_id: 4
 
-  })
+  # })
 
-  Profession.create!({
-    name: Faker::Job.title,
-    user_id: 5
+  # Profession.create!({
+  #   name: Faker::Job.title,
+  #   user_id: 5
 
-  })
+  # })
 
 
-  Skill.create!({
-    name: Faker::Job.key_skill,
-    profession_id: 1
-  })
+  # Skill.create!({
+  #   name: Faker::Job.key_skill,
+  #   profession_id: 1
+  # })
 
-  Skill.create!({
-    name: Faker::Job.key_skill,
-    profession_id: 2
-  })
+  # Skill.create!({
+  #   name: Faker::Job.key_skill,
+  #   profession_id: 2
+  # })
 
-  Skill.create!({
-    name: Faker::Job.key_skill,
-    profession_id: 3
-  })
+  # Skill.create!({
+  #   name: Faker::Job.key_skill,
+  #   profession_id: 3
+  # })
 
-  Skill.create!({
-    name: Faker::Job.key_skill,
-    profession_id: 1
-  })
+  # Skill.create!({
+  #   name: Faker::Job.key_skill,
+  #   profession_id: 1
+  # })
 
-  Skill.create!({
-    name: Faker::Job.key_skill,
-    profession_id: 2
-  })
+  # Skill.create!({
+  #   name: Faker::Job.key_skill,
+  #   profession_id: 2
+  # })
 
-  Skill.create!({
-    name: Faker::Job.key_skill,
-    profession_id: 3
-  })
+  # Skill.create!({
+  #   name: Faker::Job.key_skill,
+  #   profession_id: 3
+  # })
 
-  Skill.create!({
-    name: Faker::Job.key_skill,
-    profession_id: 1
-  })
+  # Skill.create!({
+  #   name: Faker::Job.key_skill,
+  #   profession_id: 1
+  # })
 
-  Skill.create!({
-    name: Faker::Job.key_skill,
-    profession_id: 2
-  })
+  # Skill.create!({
+  #   name: Faker::Job.key_skill,
+  #   profession_id: 2
+  # })
 
-  Skill.create!({
-    name: Faker::Job.key_skill,
-    profession_id: 3
-  })
+  # Skill.create!({
+  #   name: Faker::Job.key_skill,
+  #   profession_id: 3
+  # })
 
 # 10.times do
 #   u = User.create!({

@@ -13,8 +13,6 @@ class User < ApplicationRecord
 
   has_many :identities, dependent: :destroy
 
-  has_many :professions
-  has_many :skills, through: :professions
   has_many :postings, through: :businesses
   has_attachment :document
 

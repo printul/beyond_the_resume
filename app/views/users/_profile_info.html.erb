@@ -5,6 +5,8 @@
 
   <div class="box-content">
     <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+    <p>Profession: <%= current_user.profession %></p>
+    <br>
     <p>Email: <%= current_user.email %></p>
     <br>
     <p>Phone number: <%= current_user.phone_number %></p>
@@ -20,7 +22,18 @@
     <% end %>
     <hr>
     <p>You joined us on <%= current_user.created_at %></p>
-    <p>You have uploaded <%= current_user.videos.count %> <% if current_user.videos.count == 1 %> video <% else %> videos <% end %>, last upload on <%= current_user.videos.last.created_at %></p>
+    <p>You have uploaded
+    <% if current_user.videos.count == 0 %>
+      0 video
+    <% else %>
+      <%= current_user.videos.count %>
+        <% if current_user.videos.count == 1 %>
+          video, last uploaded on <%= current_user.videos.last.created_at %>
+        <% else %>
+          videos, last uploaded on <%= current_user.videos.last.created_at %>
+        <% end %>
+    <% end %>
+    </p>
   </div>
 
    <div>
@@ -47,11 +60,16 @@
           <%= f.input :last_name %>
           <%= f.input :phone_number %>
           <%= f.input :email %>
-          <%= f.input :is_searchable?, label: "Make your profile searchable", input_html: { class: 'my-input-class'}, label_html: { class: 'my-label-class'} %>
-          <p>Profession</p>
-          <%= f.simple_fields_for :professions do |profession_form| %>
-            <%= profession_form.input :name %>
-          <% end %>
+          <%= f.input :profession %>
+          <%= f.input :skill1 %>
+          <%= f.input :skill2 %>
+          <%= f.input :skill3 %>
+          <%= f.input :skill4 %>
+          <%= f.input :is_searchable?, label: "Make your profile searchable?", input_html: { class: 'my-input-class'}, label_html: { class: 'my-label-class'} %>
+          <!-- <p>Profession</p> -->
+          <%#= f.simple_fields_for :professions do |profession_form| %>
+            <%#= profession_form.input :name %>
+          <%# end %>
           <%= f.submit %>
         <% end %>
       </div>
