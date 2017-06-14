@@ -6,7 +6,7 @@
     <div class="row box-row-vert-padded">
     <% current_user.videos.first(4).each do |video| %>
       <div class="col-xs-8">
-      <%= link_to video_path(video) do %>
+      <%= link_to video_path(video.url) do %>
         <%= image_tag "http://"+video.image_url, class: "img-thumbnail" %>
       </div>
       <div class="col-xs-4">
