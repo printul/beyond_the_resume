@@ -1,7 +1,27 @@
 <div class="navbar-wagon <%= params[:action] == "home" ? "nav-absolute" : "" %>">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <span id="be">Be</span><span id="yond">:yond</span>
+  <div class="logo">
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <span id="be">Be</span><span id="yond">:yond</span>
+    <% end %>
+  </div>
+
+  <% if current_user %>
+    <div class="navbar-navigation">
+      <%= link_to "Create Video", new_video_path,
+      class: "navbar-navigation-link",
+        id: ("navbar-navigation-link-current-page" if current_page?(new_video_path)) %>
+      <%= link_to "Your Videos", videos_path,
+      class: "navbar-navigation-link",
+        id: (
+          if current_page?(videos_path) || (@video && !current_page?(new_video_path))
+            "navbar-navigation-link-current-page"
+          end)%>
+
+      <%= link_to "Jobs", postings_path,
+      class: "navbar-navigation-link",
+      id: ("navbar-navigation-link-current-page" if current_page?(postings_path)) %>
+    </div>
   <% end %>
 
   <!-- Right Navigation -->
