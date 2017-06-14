@@ -1,7 +1,40 @@
 <div class="navbar-wagon <%= params[:action] == "home" ? "nav-absolute" : "" %>">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <span id="be">Be</span><span id="yond">:yond</span>
+  <div class="logo">
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <span id="be">Be</span><span id="yond">:yond</span>
+    <% end %>
+  </div>
+
+  <% if current_user %>
+    <div class="navbar-navigation">
+      <ul class="list-inline">
+        <li>
+          <%= link_to videos_path,
+          class: "navbar-navigation-link" do %>
+            <div class="navbar-nav-link-padding"></div>
+            <h4 id=<%=
+            if current_page?(videos_path) || (@video if !current_page?(new_video_path))
+              'navbar-navigation-link-current-page'
+            end  %>>Your videos</h4>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_video_path,
+          class: "navbar-navigation-link" do %>
+            <div class="navbar-nav-link-padding"></div>
+            <h4 id=<%= 'navbar-navigation-link-current-page' if current_page?(new_video_path) %>>Create a video</h4>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to postings_path,
+          class: "navbar-navigation-link" do %>
+            <div class="navbar-nav-link-padding"></div>
+            <h4 id=<%= 'navbar-navigation-link-current-page' if current_page?(postings_path) || @posting %>>Jobs</h4>
+          <% end %>
+        </li>
+    </ul>
+    </div>
   <% end %>
 
   <!-- Right Navigation -->
