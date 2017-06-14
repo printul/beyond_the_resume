@@ -2,7 +2,6 @@
   <div class="box-content box-profile-small">
 
     <div class="row box-row-padded">
-
     <div class="box-title-skills">
       <h3>
         Skills
@@ -12,17 +11,37 @@
     <div class="box-add-skill">
       <%= image_tag 'icons/core/plus.svg'%>
     </div>
-
     </div>
 
     <div class="row box-row-padded text-center flexbox">
-      <% Skill.all.each do |skill| %>
+      <%# Skill.all.each do |skill| %>
         <div class="skill">
           <span>
-              <%= skill.name %>
+            <%= current_user.skill1 %>
+              <%#= skill.name %>
           </span>
         </div>
-        <% end %>
+
+        <div class="skill">
+          <span>
+            <%= current_user.skill2 %>
+              <%#= skill.name %>
+          </span>
+        </div>
+        <div class="skill">
+          <span>
+            <%= current_user.skill3 %>
+              <%#= skill.name %>
+          </span>
+        </div>
+        <div class="skill">
+          <span>
+            <%= current_user.skill4 %>
+              <%#= skill.name %>
+          </span>
+        </div>
+        <%# end %>
     </div>
+
   </div>
 </div>
