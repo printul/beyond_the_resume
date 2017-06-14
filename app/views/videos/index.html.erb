@@ -1,27 +1,21 @@
 <div class="fixed-navbar">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
-        <div class="box box-title-bar">
-          <%= button_to 'Create A Video', new_video_path, method: :get, class: 'btn-fit', style: 'float: left;' %>
-          <select name="" id="video-sort">
-            <option value="">Date added (newest)</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <% @videos.each do |video| %>
-      <div class="row">
-        <div class="col-xs-12">
-          <%= link_to external_path(video.url), class: 'box-video-hover' do %>
-            <div class="box box-video">
-              <%= image_tag "http://"+video.image_url %>
-              <%= video.title %>
-              <%= l(video.created_at, format: :short) %>
+      <div class="col-xs-12 col-sm-4">
+        <% @videos.each do |video| %>
+           <%= link_to external_path(video.url), class: 'box-video-hover' do %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= "http://" + video.image_url %>);">
+              <div class="card-description">
+                <h2><%= video.title %></h2>
+                <p><%= l(video.created_at, format: :short) %></p>
+              </div>
             </div>
           <% end %>
-        </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
+
+
+<%= button_to 'Create A Video', new_video_path, method: :get, class: 'btn-fit', style: 'float: left;' %>
