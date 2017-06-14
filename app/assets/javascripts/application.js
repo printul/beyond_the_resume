@@ -7,4 +7,5 @@
 //= require Chart.min
 //= require table
 //= require social-share-button
+//= require tooltip
 //= require_tree .
