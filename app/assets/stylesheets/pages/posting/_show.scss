@@ -1,5 +1,5 @@
 #apply_cta {
-  width: 100%;
+
 }
 
 #business-name {
@@ -12,14 +12,35 @@
 }
 
 #logo {
+  width: 70px;
+  height: 70px;
   margin-bottom: 10px;
 }
 
-
 .post-wrap {
   background-color: white;
-  margin: 20px;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 1px 1px 0px 0px lightgrey;
+  max-width: 1200px;
+  margin: 0;
+}
+
+.post-wrapper {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 0px 0px lightgrey;
+  padding: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#padding-mini-vert {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#padding-mini-hori {
+  margin-right: 30px;
+  margin-left: 30px;
 }

@@ -7,51 +7,94 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "Seeding start"
+puts "Adding businesses..."
 
+User.create(email:"qwerty@qwerty.com", password:"qwerty")
 
-puts "start seeding"
+#businesses
+businesses = [
+              {
+                name: "Le Wagon",
+                address: "14 Elder Street",
+                phone_number: "+4434 8756 4220",
+                email: "lewagon@lewagon.org",
+                industry: "Technology",
+                city: "London",
+                zipcode: "E1 6BT",
+                logo: "https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/1692/s300/le-wagon-logo.png"
+              },
 
+              {
+                name: "Spiffy Accountants",
+                address: "14 Elder Street",
+                phone_number: "+4415 2516 5135",
+                email: "spiffy@spiffyaccountants.com",
+                industry: "Accounting",
+                city: "London",
+                zipcode: "E3 9BT",
+                logo: "http://orig07.deviantart.net/353d/f/2011/019/6/7/random_logo_by_firefly_man-d37l9rz.png"
+              }
+            ]
+
+postings = [
+            {
+              business_id: 1,
+              description: "Some kind of description",
+              vid_token: "r127799f64dc2207ac2476b5983a4afa",
+              title: "Full Stack Web Developer"
+            },
+            {
+              business_id: 2,
+              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, erat in elementum blandit, nibh neque sagittis nisi, nec scelerisque nisl magna id leo. Vestibulum ultrices libero consectetur imperdiet pharetra. Maecenas malesuada vulputate eleifend. Nam a tortor magna. Nunc pulvinar mauris a laoreet convallis. Phasellus lacinia enim lectus, quis pulvinar magna ultricies ut. Proin sapien nulla, blandit nec risus sit amet, euismod eleifend augue.",
+              vid_token: "r127799f64dc2207ac2476b5983a4afa",
+              title: "Accounting Manager"
+            }
+          ]
+
+businesses.each { |business| Business.create(business) }
+postings.each { |posting| Posting.create(posting) }
 #creating User for business model
 
-User.create!({
-  email: "contact@lew.com",
-  password: "123456789",
-  first_name: "Le ",
-  last_name: "Wagon",
-  phone_number: "07515894123",
-  is_business?: true,
-  is_searchable?: true,
-  })
+# User.create!({
+#   email: "contact@lew.com",
+#   password: "123456789",
+#   first_name: "Le ",
+#   last_name: "Wagon",
+#   phone_number: "07515894123",
+#   is_business?: true,
+#   is_searchable?: true,
+#   })
 
 
-  Business.create!({
-    name: "Le Wagon",
-    address: "14 Elder Street, London",
-    phone_number: "07515984123",
-    email: "visitlewagon@gmail.com",
-    industry: "Education",
-    user_id: 37,
-    city: "London",
-    zipcode: "E1 6BT"
-  })
+#   Business.create!({
+#     name: "Le Wagon",
+#     address: "14 Elder Street, London",
+#     phone_number: "07515984123",
+#     email: "visitlewagon@gmail.com",
+#     industry: "Education",
+#     user_id: 37,
+#     city: "London",
+#     zipcode: "E1 6BT"
+#   })
 
-  Video.create!({
-    title: "Le Wagon - change your life",
-    url: "http://res.cloudinary.com/printul/video/upload/v1497392998/lewagon_ek9d67.mp4",
-    image_url: Faker::Internet.url('example.com'),
-    videoable_type: "Business",
-    videoable_id: 37
-  })
+#   Video.create!({
+#     title: "Le Wagon - change your life",
+#     url: "http://res.cloudinary.com/printul/video/upload/v1497392998/lewagon_ek9d67.mp4",
+#     image_url: Faker::Internet.url('example.com'),
+#     videoable_type: "Business",
+#     videoable_id: 37
+#   })
 
 
-  Posting.create!({
-    title: "Outdoors activity coordinator / TA",
-    description: "We're looking for someone with a spirit of adventure to take over the social activities during our bootcamp,
-    with a view to create a stronger bond between our students and the teachers and the alumni. Coding experience
-    is necessary as you'll be helping in class alongisde organizing awesome outdoors experiences for our students. ",
-    business_id: 1,
-    video_id: 37
-  })
+#   Posting.create!({
+#     title: "Outdoors activity coordinator / TA",
+#     description: "We're looking for someone with a spirit of adventure to take over the social activities during our bootcamp,
+#     with a view to create a stronger bond between our students and the teachers and the alumni. Coding experience
+#     is necessary as you'll be helping in class alongisde organizing awesome outdoors experiences for our students. ",
+#     business_id: 1,
+#     video_id: 37
+#   })
 
 
 #   Application.create!({

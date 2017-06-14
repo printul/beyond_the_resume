@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614063245) do
+ActiveRecord::Schema.define(version: 20170614194050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20170614063245) do
     t.string   "title"
     t.boolean  "is_active?",  default: true
     t.integer  "views",       default: 0
+    t.string   "vid_token"
     t.index ["business_id"], name: "index_postings_on_business_id", using: :btree
     t.index ["video_id"], name: "index_postings_on_video_id", using: :btree
   end
