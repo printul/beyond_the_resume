@@ -24,7 +24,7 @@
 }
 
 .box-content {
-  margin: 20px;
+  margin: 73px;
 
   p {
     margin-bottom: 0;
@@ -45,7 +45,7 @@
 
 
 .box-profile-small {
-  height: 200px;
+  height: 100px;
 }
 
 .box-blue {
@@ -114,9 +114,30 @@
 .flexbox {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 
+}
+
+.videos {
+  overflow: scroll;
+  height: 560px;
 }
 
 #skills {
   margin-top: 25px;
 }
+
+.box-video-image {
+  margin: 20px;
+}
+
+
+.img-thumbnail {
+  margin-bottom: 10px;
+}
+
+.profile-image {
+
+}
+
+

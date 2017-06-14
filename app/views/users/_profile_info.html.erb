@@ -1,6 +1,6 @@
 <div class="box flex-default">
   <div class="box-content">
-    <%= image_tag (current_user.photo || "https://s3.amazonaws.com/whisperinvest-images/default.png") %>
+    <%= image_tag (current_user.photo || "https://s3.amazonaws.com/whisperinvest-images/default.png"), class: "profile-image" %>
   </div>
 
   <div class="box-content">
@@ -21,24 +21,24 @@
       <% end %>
     <% end %>
     <hr>
-    <p>You joined us on <%= current_user.created_at %></p>
+    <!-- <p>You joined us on <%= current_user.created_at %></p> -->
     <p>You have uploaded
     <% if current_user.videos.count == 0 %>
       0 video
     <% else %>
       <%= current_user.videos.count %>
         <% if current_user.videos.count == 1 %>
-          video, last uploaded on <%= current_user.videos.last.created_at %>
+          video<!-- , last uploaded on --> <%#= current_user.videos.last.created_at %>
         <% else %>
-          videos, last uploaded on <%= current_user.videos.last.created_at %>
+          videos<!-- , last uploaded on --> <%#= current_user.videos.last.created_at %>
         <% end %>
     <% end %>
     </p>
   </div>
 
-   <div>
+   <div class="box-add-skill">
     <%= link_to "#", { :id => 'async_btn', :class => 'btn', 'data-toggle' => 'modal', 'data-target' => '#updateModal'} do %>
-    <span class="glyphicon glyphicon-pushpin" />
+    <span class="glyphicon glyphicon-pencil" />
     <% end %>
   </div>
 </div>

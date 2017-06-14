@@ -1,7 +1,7 @@
 <div class="box box-right">
-  <div class="box-content box-profile-small">
-
+  <div class="box-profile-small">
     <div class="row box-row-padded">
+
     <div class="box-title-skills">
       <h3>
         Skills
@@ -9,8 +9,11 @@
     </div>
 
     <div class="box-add-skill">
-      <%= image_tag 'icons/core/plus.svg'%>
+      <%= link_to "#", { :id => 'async_btn', :class => 'btn', 'data-toggle' => 'modal', 'data-target' => '#skillModal'} do %>
+        <span class="glyphicon glyphicon-pencil" />
+      <% end %>
     </div>
+
     </div>
 
     <div class="row box-row-padded text-center flexbox">
@@ -45,3 +48,31 @@
 
   </div>
 </div>
+
+<div class="modal fade" id="skillModal" tabindex="-1" role="dialog" aria-labelledby="skillModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="skillModalLabel"><strong>Edit/Add my skills</strong></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <%= simple_form_for @user do |f| %>
+          <%= f.input :skill1 %>
+          <%= f.input :skill2 %>
+          <%= f.input :skill3 %>
+          <%= f.input :skill4 %>
+          <!-- <p>Profession</p> -->
+          <%#= f.simple_fields_for :professions do |profession_form| %>
+            <%#= profession_form.input :name %>
+          <%# end %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
