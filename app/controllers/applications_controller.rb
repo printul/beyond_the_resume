@@ -55,7 +55,6 @@ class ApplicationsController < ApplicationController
 
   def set_posting
     @posting = Posting.find(params[:posting_id])
-    authorize @posting
   end
 
   def set_user

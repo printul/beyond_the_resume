@@ -5,16 +5,12 @@ class ApplicationPolicy < BasePolicy
     end
   end
 
-  def index?
-    true
-  end
-
   def show?
-    user_is_owner?
+    return true
   end
 
   def create?
-    user_is_owner?
+    return true
   end
 
   def update?
