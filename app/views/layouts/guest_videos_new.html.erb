@@ -1,6 +1,24 @@
+<!-- DON'T LOOK AT THE CODING PRACTICES DONE IN THIS FILE, IT"S HORRIFIC I KNOW
+ -->
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+    .loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #E67E22;
+    border-bottom: 16px solid #E67E22;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+  </style>
   <title>Be:yond</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -20,6 +38,7 @@
         var ziggeo_div = document.getElementById('box-upload-record');
         var messages_div = document.getElementById('messages-div');
         var video_messages = document.getElementById('video-messages');
+        var flavour_text = document.getElementById('flavour-text');
         var upload_done = false;
         var processing_done = false;
 
@@ -40,6 +59,135 @@
           btn_ziggeo[2].click();
         };
 
+        function showFlavourText() {
+          // var text = [
+          //             "1. Get your shortened URL to use freely, to add to an email or to your resume",
+          //             "2. Share your video on your social media",
+          //             "3. Get your QR code and embed it into your resume for offline access"
+          //            ]
+          // var text_counter = 0;
+          var text = ["Adding Hidden Agendas",
+                      "Adjusting Bell Curves",
+                      "Aesthesizing Industrial Areas",
+                      "Aligning Covariance Matrices",
+                      "Applying Feng Shui Shaders",
+                      "Applying Theatre Soda Layer",
+                      "Asserting Packed Exemplars",
+                      "Attempting to Lock Back-Buffer",
+                      "Binding Sapling Root System",
+                      "Breeding Fauna",
+                      "Building Data Trees",
+                      "Bureacritizing Bureaucracies",
+                      "Calculating Inverse Probability Matrices",
+                      "Calculating Llama Expectoration Trajectory",
+                      "Calibrating Blue Skies",
+                      "Charging Ozone Layer",
+                      "Coalescing Cloud Formations",
+                      "Cohorting Exemplars",
+                      "Collecting Meteor Particles",
+                      "Compounding Inert Tessellations",
+                      "Compressing Fish Files",
+                      "Computing Optimal Bin Packing",
+                      "Concatenating Sub-Contractors",
+                      "Containing Existential Buffer",
+                      "Debarking Ark Ramp",
+                      "Debunching Unionized Commercial Services",
+                      "Deciding What Message to Display Next",
+                      "Decomposing Singular Values",
+                      "Decrementing Tectonic Plates",
+                      "Deleting Ferry Routes",
+                      "Depixelating Inner Mountain Surface Back Faces",
+                      "Depositing Slush Funds",
+                      "Destabilizing Economic Indicators",
+                      "Determining Width of Blast Fronts",
+                      "Deunionizing Bulldozers",
+                      "Dicing Models",
+                      "Diluting Livestock Nutrition Variables",
+                      "Downloading Satellite Terrain Data",
+                      "Exposing Flash Variables to Streak System",
+                      "Extracting Resources",
+                      "Factoring Pay Scale",
+                      "Fixing Election Outcome Matrix",
+                      "Flood-Filling Ground Water",
+                      "Flushing Pipe Network",
+                      "Gathering Particle Sources",
+                      "Generating Jobs",
+                      "Gesticulating Mimes",
+                      "Graphing Whale Migration",
+                      "Hiding Willio Webnet Mask",
+                      "Implementing Impeachment Routine",
+                      "Increasing Accuracy of RCI Simulators",
+                      "Increasing Magmafacation",
+                      "Initializing My Sim Tracking Mechanism",
+                      "Initializing Rhinoceros Breeding Timetable",
+                      "Initializing Robotic Click-Path AI",
+                      "Inserting Sublimated Messages",
+                      "Integrating Curves",
+                      "Integrating Illumination Form Factors",
+                      "Integrating Population Graphs",
+                      "Iterating Cellular Automata",
+                      "Lecturing Errant Subsystems",
+                      "Mixing Genetic Pool",
+                      "Modeling Object Components",
+                      "Mopping Occupant Leaks",
+                      "Normalizing Power",
+                      "Obfuscating Quigley Matrix",
+                      "Overconstraining Dirty Industry Calculations",
+                      "Partitioning City Grid Singularities",
+                      "Perturbing Matrices",
+                      "Pixalating Nude Patch",
+                      "Polishing Water Highlights",
+                      "Populating Lot Templates",
+                      "Preparing Sprites for Random Walks",
+                      "Prioritizing Landmarks",
+                      "Projecting Law Enforcement Pastry Intake",
+                      "Realigning Alternate Time Frames",
+                      "Reconfiguring User Mental Processes",
+                      "Relaxing Splines",
+                      "Removing Road Network Speed Bumps",
+                      "Removing Texture Gradients",
+                      "Removing Vehicle Avoidance Behavior",
+                      "Resolving GUID Conflict",
+                      "Reticulating Splines",
+                      "Retracting Phong Shader",
+                      "Retrieving from Back Store",
+                      "Reverse Engineering Image Consultant",
+                      "Routing Neural Network Infanstructure",
+                      "Scattering Rhino Food Sources",
+                      "Scrubbing Terrain",
+                      "Searching for Llamas",
+                      "Seeding Architecture Simulation Parameters",
+                      "Sequencing Particles",
+                      "Setting Advisor Moods",
+                      "Setting Inner Deity Indicators",
+                      "Setting Universal Physical Constants",
+                      "Sonically Enhancing Occupant-Free Timber",
+                      "Speculating Stock Market Indices",
+                      "Splatting Transforms",
+                      "Stratifying Ground Layers",
+                      "Sub-Sampling Water Data",
+                      "Synthesizing Gravity",
+                      "Synthesizing Wavelets",
+                      "Time-Compressing Simulator Clock",
+                      "Unable to Reveal Current Activity",
+                      "Weathering Buildings",
+                      "Zeroing Crime Network",
+                      ]
+          var lines_count = text.length - 1;
+          var change_text = setInterval(changeFlavourText, 4000);
+          flavour_text.innerHTML = text[Math.floor(Math.random() * lines_count)];
+          function changeFlavourText() {
+            flavour_text.innerHTML = text[Math.floor(Math.random() * lines_count)];
+
+            /* uncomment for boring messages
+            text_counter += 1;
+            if (text_counter === text.length) {
+              clearInterval(change_text);
+            }
+            */
+          };
+        };
+
         recorder.on("uploading", function () {
           // hides ziggeo recorder and displays custom messages
           console.log('uploading');
@@ -48,6 +196,8 @@
           ziggeo_div.hidden = true;
           video_messages.innerHTML = "Uploading...";
           messages_div.hidden = false;
+          flavour_text.hidden = false;
+          showFlavourText();
         });
 
         recorder.on("upload_progress", function ( uploaded, total ) {
@@ -131,8 +281,13 @@
           </div>
 
           <div class="box box-full-height" id="messages-div" hidden="true">
-            <h1 class="text-center" id="video-messages"></h1>
-            <h4 class="text-center" id="flavour-text"> </h4>
+            <div class="flex-centered">
+              <h3 class="text-center" id="video-messages" style="font-weight: lighter; padding-bottom: 60px;"></h3>
+              <div class="loader"></div>
+              <!-- don't look here please :( -->
+              <h4 class="text-center" id="flavour-text" style="font-weight: normal; padding-top: 60px;"><!-- Once your video is uploaded and ready for viewing you can.. -->
+              </h4>
+            </div>
           </div>
           <div class="upload-record-div text-center">
             <button class="btn-upload-record" id="btn-record">
