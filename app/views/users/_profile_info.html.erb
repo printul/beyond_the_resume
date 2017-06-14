@@ -47,11 +47,16 @@
           <%= f.input :last_name %>
           <%= f.input :phone_number %>
           <%= f.input :email %>
-          <%= f.input :is_searchable?, label: "Make your profile searchable", input_html: { class: 'my-input-class'}, label_html: { class: 'my-label-class'} %>
-          <p>Profession</p>
-          <%= f.simple_fields_for :professions do |profession_form| %>
-            <%= profession_form.input :name %>
-          <% end %>
+          <%= f.input :profession %>
+          <%= f.input :skill1 %>
+          <%= f.input :skill2 %>
+          <%= f.input :skill3 %>
+          <%= f.input :skill4 %>
+          <%= f.input :is_searchable?, label: "Make your profile searchable?", input_html: { class: 'my-input-class'}, label_html: { class: 'my-label-class'} %>
+          <!-- <p>Profession</p> -->
+          <%#= f.simple_fields_for :professions do |profession_form| %>
+            <%#= profession_form.input :name %>
+          <%# end %>
           <%= f.submit %>
         <% end %>
       </div>
