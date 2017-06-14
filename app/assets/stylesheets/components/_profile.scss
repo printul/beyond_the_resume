@@ -1,0 +1,93 @@
+
+.profile-container {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+
+}
+
+.profile-videos {
+  .title-container {
+    height: 5vh;
+    width: 45vh;
+    display: flex;
+    justify-content: center;
+    background-color: #F78A03;
+    align-items: center;
+    color: white;
+    opacity: 0.6;
+    h4 {
+      margin: 0;
+    }
+
+  }
+  .videos-container {
+    padding: 10px;
+    height: 75vh;
+    overflow: scroll;
+  }
+}
+.profile-info {
+  // background-color: $orange-bg;
+  height: 60vh;
+}
+
+.profile-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+  height: 100%;
+  img {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.profile-content-right {
+  padding: 0 20px;
+  flex: 1 0 40%;
+}
+
+.profile-content-left {
+  padding: 0 20px;
+  flex: 1 0 60%;
+}
+
+.flex-row {
+  display: flex;
+  align-items: baseline;
+}
+
+.profile-skills {
+  display: flex;
+  justify-content: space-around;
+}
+.skill-card {
+  padding: 15px 25px;
+  background: #F78A03;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+.add-skill-btn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.resume {
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  // width: 40px;
+}
+
+.btn-upload {
+  background-color: #F78A03;
+  color: $white;
+}
+
+
+
+
+

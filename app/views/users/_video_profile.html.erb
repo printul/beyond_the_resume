@@ -1,20 +1,18 @@
 <div class="box">
-  <div class="box-content">
-    <div class="row">
-      <%= button_to 'View All Your Videos', videos_path, method: :get, class: "btn-span-width" %>
-    </div>
-    <div class="row box-row-vert-padded">
-    <% current_user.videos.first(4).each do |video| %>
-      <div class="col-xs-8">
-      <%= link_to video_path(video) do %>
-        <%= image_tag "http://"+video.image_url, class: "img-thumbnail" %>
+  <div class="box-video-image">
+      <div class="row">
+          <%= button_to 'View All Your Videos', videos_path, method: :get, class: "btn-span-width" %>
       </div>
-      <div class="col-xs-4">
-        <h4>Bleh</h4>
-        <p>Meh</p>
-      </div>
-      <% end %>
+
+
+    <div class="row box-row-vert-padded flexbox videos">
+    <% current_user.videos.each do |video| %>
+        <%= link_to external_path(video.url) do %>
+          <%= image_tag "http://"+video.image_url, class: "img-thumbnail" %>
+        <% end %>
       <% end %>
     </div>
+
   </div>
 </div>
+
