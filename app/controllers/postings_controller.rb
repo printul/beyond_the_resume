@@ -4,7 +4,7 @@ class PostingsController < ApplicationController
 
   def index
 
-    @postings = policy_scope(Posting)
+    @postings = policy_scope(Posting).sort
     @user = current_user
     @applications = Application.where(user_id: current_user)
     @applied = []

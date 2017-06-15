@@ -48,30 +48,81 @@ businesses = [
               },
 
               {
-                name: "Mondo Pastry",
-                address: "24 Main Street",
-                phone_number: "+4454 9216 1337",
-                email: "cat@mondopastry.com",
-                industry: "Food",
+                name: "White Night",
+                address: "10 Downing Street",
+                phone_number: "+4403 2101 3489",
+                email: "steph@whiteknight.com",
+                industry: "Entertainment",
                 city: "London",
-                zipcode: "L12 1BC",
-                logo: "logos/pastry.png"
+                zipcode: "A12 4PZ",
+                logo: "logos/whiteknight.png"
               },
 
+              {
+                name: "Airport Services Ltd",
+                address: "32 Coconut Avenue",
+                phone_number: "+4497 8942 4092",
+                email: "hs@aiportservices.com",
+                industry: "Travel",
+                city: "London",
+                zipcode: "W74 5JX",
+                logo: "logos/airport.png"
+              },
+
+              {
+                name: "Designado",
+                address: "5 Gibberish Road",
+                phone_number: "+4419 0376 3985",
+                email: "designer@Designado.com",
+                industry: "Fashion",
+                city: "London",
+                zipcode: "B3 1IE",
+                logo: "logos/designer.png"
+              }
             ]
 
 postings = [
             {
               business_id: 1,
-              description: "Some kind of description",
+              description: "We change people’s lives by teaching them to code and you can do it too! We’re looking for someone to help us enhance our students’ experiences during the course and since, coding keeps us indoors so much, we need inspiration on how to get more outdoorsy! If you are interested in coding, have a working knowledge of a start-up oriented environment and.. last but not least.. you have a good feel for adventure, show us and we’ll be happy to meet you!",
               vid_token: "r127799f64dc2207ac2476b5983a4afa",
-              title: "Full Stack Web Developer"
+              title: "Outdoors experiences coordinator with some coding flair"
             },
+
             {
               business_id: 2,
-              description: "A relaxing intimate space for those looking to escape the hustle and bustle of the city. Customers can sit back, relax and enjoy a drink in the comfort of our newly refurbished retro space. You could as well, if you’re a talented junior bartender looking to get experience in a hard working but fun environment. Drinks are on us!"
-              vid_token: "r127799f64dc2207ac2476b5983a4afa",
-              title: "Staff"
+              description: "A relaxing intimate space for those looking to escape the hustle and bustle of the city. Customers can sit back, relax and enjoy a drink in the comfort of our newly refurbished retro space. You could as well, if you’re a talented junior bartender looking to get experience in a hard working but fun environment. Drinks are on us!",
+              vid_token: "r1e78ee6cc3492b69272e13213d16257",
+              title: "Bartender"
+            },
+
+            {
+              business_id: 3,
+              description: "One of a kind pastry shop where the aroma conquers even the strongest will. We offer a global selection of freshly made cookies and pastry products, right in the middle of Notting Hill. And now.. We’re expanding! We’re looking for 1 enthusiastic person to join our brilliant Customer Service team, you’ll be working in a dynamic and fun environment and we’re sure you’ll enjoy it! If you love cookies, reach out to us!",
+              vid_token: "r1331342e8447ef34140d5e2e83e04f2",
+              title: "Baker"
+            },
+
+            {
+              business_id: 4,
+              description: "No-frills, high-ceilinged, 500+ capacity clubbing space with a unique use of lighting and a heavy, heavy sound system. We like to party and hope you do too! Going into summer we’re looking for more staff so if you’re keen on getting your groove on while working, we’re waiting for you!",
+              vid_token: "r160479c97d82d696ea6ed6c8c95161b",
+              title: "Floor Staff"
+            },
+
+            {
+              business_id: 5,
+              description: "We’re a leading Airport Services provision group in Europe, with facilities and offices in most of the continent’s main airports.
+We could tell you we offer services ranging from maintenance of airport infrastructures, special services for aircraft to aircraft refuelling but we’d rather tell you that we love planes. And if you love planes and you’re a Engineer Shift Manager, give us a buzz!",
+              vid_token: "r133aa8aa9f7edc176e838f26396b24b",
+              title: "Shift Manager"
+            },
+
+            {
+              business_id: 6,
+              description: "We’re a creative and brand strategy agency in London, with a focus on start-up oriented work. We believe simple is best and we always start with a piece of paper and a pen. We’re now looking to add a new member to our growing team so reach out if you’ve just graduated with a degree in Arts or Design and let’s see if you fit!",
+              vid_token: "r17af8be85b96231df1e4e3845f5b505",
+              title: "Junior Designer"
             }
           ]
 
