@@ -39,7 +39,8 @@ class VideosController < ApplicationController
         p "ERROR: UNABLE TO UPDATE"
       end
     else
-      @title = "Video #{@url}"
+      @timenow = Time.now
+      @title = "Video created on #{@timenow.strftime('%e %b %Y %H:%M:%S%p')}"
       @user = User.find(params[:data][:video][:tags][0])
       @video = Video.new(title: @title, url: @url, image_url: @image)
       @video.videoable = @user
