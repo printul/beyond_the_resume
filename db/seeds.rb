@@ -78,7 +78,42 @@ businesses = [
                 city: "London",
                 zipcode: "B3 1IE",
                 logo: "logos/designer.png"
+              },
+
+               {
+                name: "Runners' World",
+                address: "7 Seafront Road",
+                phone_number: "+4443 0847 3948",
+                email: "office@runnersworld.com",
+                industry: "Sports",
+                city: "London",
+                zipcode: "E14 5FG",
+                logo: "logos/trail-running-shoe.png"
+              },
+
+              {
+                name: "Coffee.co",
+                address: "24 Hill Road",
+                phone_number: "+4412 0923 0985",
+                email: "barista@coffee.co",
+                industry: "Barista",
+                city: "London",
+                zipcode: "SW7 6AK",
+                logo: "logos/coffee-cup.png"
+              },
+
+              {
+                name: "Wrist Watchers",
+                address: "8 Gloucester Road",
+                phone_number: "+4493 1342 8872",
+                email: "office@wristwatchers.co.uk",
+                industry: "Luxury goods",
+                city: "London",
+                zipcode: "SW7 6AK",
+                logo: "logos/watch.png"
               }
+
+
             ]
 
 postings = [
@@ -123,7 +158,31 @@ We could tell you we offer services ranging from maintenance of airport infrastr
               description: "We’re a creative and brand strategy agency in London, with a focus on start-up oriented work. We believe simple is best and we always start with a piece of paper and a pen. We’re now looking to add a new member to our growing team so reach out if you’ve just graduated with a degree in Arts or Design and let’s see if you fit!",
               vid_token: "r17af8be85b96231df1e4e3845f5b505",
               title: "Junior Designer"
+            },
+
+            {
+              business_id: 7,
+              description: "We’re all about running and those who love running. We’re a small sports shoes manufacturer targeting those who do not fear the long stretch ahead, the hill coming up or who love waking up in the morning to catch a long stretch of beach unoccupied. If you love running too and you’re looking for a role in a dynamic, agile company, give us a try, we want to hear from you!",
+              vid_token: "r18708563842b3a540d90b1400aee598",
+              title: "Sales representative"
+            },
+
+            {
+              business_id: 8,
+              description: "Do you wake up every day looking forward to the aroma of freshly ground coffee? So do we! Having started as a small corner coffee shop in South Kensington, we are now in the fortunate position to expand into another chic neighbourhood, Notting Hill. If you’re as passionate as we are about coffee and customer service, we are waiting for you. Send us a quick video showing us your passion and you’ll hear from us.",
+              vid_token: "r162a6bf3d46d6f6c415c03aa03b10e3",
+              title: "Barista"
+            },
+
+            {
+              business_id: 9,
+              description: "Tempus fugit and we love watching it. This drew us to open our first watch store 10 years ago, since then we grew and we continue to. This means there are some new opportunities for those of you out there who share our passion for fine watchmaking, who enjoy showcasing beautiful timepieces and finding the right watch for the right owner. If you’re a fine salesperson with a refined approach, knowledgeable in watches and with an easy going personality, get in touch.
+",
+              vid_token: "r113c19f8e22da290de5f21fe2c80cdd",
+              title: "Sales"
             }
+
+
           ]
 
 businesses.each { |business| Business.create(business) }
