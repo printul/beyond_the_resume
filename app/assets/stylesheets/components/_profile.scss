@@ -12,9 +12,13 @@
     height: 5vh;
     display: flex;
     justify-content: center;
-    background-color: #F78A03;
+    background-color: white;
     align-items: center;
-    color: white;
+    color: black;
+    border-top: 1px solid #F78A03;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
     h4 {
       margin: 0;
     }
@@ -86,14 +90,37 @@
 }
 
 .btn-upload {
-  background-color: #F78A03;
-  color: $white;
+  border-top: 1px solid #F78A03;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  color: black;
+  background: white;
+  font-weight: 100;
 }
 
 ul {
   list-style-type: none;
 }
 
-.fa-home {
-  color: #999999;
+.document_upload_input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.document_upload_label {
+  padding: 5px 10px;
+  font-size: 1.25em;
+  font-weight: 700;
+  color: black;
+  background-color: white;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.document_upload_label:hover {
+   color: #F78A03;
 }
