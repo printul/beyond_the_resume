@@ -1,5 +1,5 @@
 #apply_cta {
-  width: 100%;
+  margin-top: 30px;
 }
 
 #business-name {
@@ -12,14 +12,41 @@
 }
 
 #logo {
+  width: 70px;
+  height: 70px;
   margin-bottom: 10px;
 }
 
-
 .post-wrap {
   background-color: white;
-  margin: 20px;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 1px 1px 0px 0px lightgrey;
+  margin: 0;
+
+  align-self: center;
+}
+
+.post-wrapper {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 0px 0px lightgrey;
+  padding: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  justify-content: space-around;
+}
+
+.post-flex-item {
+  padding: 0px;
+  max-width: 600px;
+  margin: 0px, 20px;
+}
+
+#post-flex-video {
+  min-width: 600px;
+  min-height: 320px;
 }

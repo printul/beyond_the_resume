@@ -1,20 +1,52 @@
 <div class="fixed-navbar">
-  <div class="post-wrap">
-    <div class="container">
-        <%= image_tag "#{@posting.business.logo}", class:"pull-left avatar", id: "logo" %>
-      <div class="row">
-        <div class="col-xs-12">
+  <div class="post-wrapper">
+    <div class="post-flex-item" id="post-flex-video">
+      <ziggeoplayer
+        ziggeo-video='<%= @posting.vid_token %>'
+        ziggeo-stretch=true>
+      </ziggeoplayer>
+    </div>
+      <div class="post-flex-item">
+          <h3 class="text-center" id="post-title"><%= @posting.title %></h3>
+          <p><%= @posting.description %></p>
+          <%= image_tag @posting.business.logo, class:"pull-left avatar", id: "logo" %>
+          <div style="float: left;">
           <h5 id="business-name"><%= @posting.business.name %></h5>
           <h5><%= @posting.business.address %></h5>
           <h5><%= @posting.business.city %></h5>
-          <h6>Created on: <%= l(@posting.created_at, format: :short) %></h6>
-          <h3 class="text-center" id="post-title"><%= @posting.title %></h3>
-          <p class="text-justify"><%= @posting.description %></p>
-          <br>
-          <p><%= link_to "Apply", new_posting_application_path(@posting), class:'btn btn-warning pull-right', id: "apply_cta" %></p>
+          </div>
+          <% unless @applied %>
+            <div class="text-center">
+              <%= button_tag "Apply Now", class:'btn btn-warning', id: "apply_cta", data: {toggle:"modal", target:"#applyModal"} %>
+            </div>
+
+            <% else %>
+            <div class="text-center" id="apply_cta">
+              Applied on <%= @applied.created_at %>
+            </div>
+          <% end %>
         </div>
       </div>
-      <p><%= link_to "Back", postings_path, class: "btn btn-primary" %></p>
-    </div>
+      <!-- <p><%#= link_to "Back", postings_path, class: "btn btn-primary" %></p> -->
   </div>
 </div>
+
+<div class="modal fade" id="applyModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Apply to <%= @posting.title %> (<%= @posting.business.name %>)</h4>
+        </div>
+        <div class="modal-body">
+          <p>Choose your video to apply with:</p>
+          <%= simple_form_for @application, url: posting_applications_path(@posting) do |f| %>
+          <%= f.input :video_id , collection: @videos, label_method: :title, value_method: :id,label: "Video", include_blank: false, selected: @videos[0] %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit class: "btn btn-warning"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -22,7 +22,7 @@ class ApplicationsController < ApplicationController
     @application.user = @user
     authorize @application
     if @application.save
-      redirect_to application_path(@application)
+      redirect_to postings_path
     else
       render 'new'
     end
