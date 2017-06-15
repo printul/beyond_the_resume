@@ -1,11 +1,16 @@
 <div class="fixed-navbar">
-  <div class="container">
+  <div class="container hidden-xs hidden-sm">
     <div class="content">
       <div id="video-player">
         <ziggeoplayer ziggeo-video='<%= @video.url %>'
-            ziggeo-width=640
-            ziggeo-height=480>
+          ziggeo-stretch=true>
         </ziggeoplayer>
+        <div id="above-video">
+          <h4><%= @video.title %></h4>
+          <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#edit-title-btn' do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+        </div>
         <% if !user_signed_in? %>
           <%= link_to "Get in touch", root_path, class: "btn btn-warning bcta" %>
         <% end %>
@@ -24,23 +29,52 @@
           </div>
           <div data-toggle="tooltip" data-placement="bottom" title="Get QR Code">
             <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#QRcode' do %>
-             <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://beyondtheresume.io/videos/" + @video.url%>
+             <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://www.beyondtheresume.io/videos/" + @video.url%>
               <%= image_tag url, id: "qr-code" %>
             <% end %>
           </div>
         </div>
       </div>
-        <div class="row">
-          <div class="col-xs-12 col-md-6 col-md-offset-1">
-            <div class="edit-title">
-              <%= simple_form_for(@video) do |f| %>
-              <%= f.input :title %>
-              <%= f.submit "Edit Title", class: "btn btn-primary" %>
-              <% end %>
-            </div>
+    <% end %>
+  </div>
+   <div class="container hidden-md hidden-lg">
+    <div class="content-sm">
+      <div id="video-player">
+        <ziggeoplayer ziggeo-video='<%= @video.url %>'
+            ziggeo-width=640
+            ziggeo-height=480>
+        </ziggeoplayer>
+        <div id="above-video">
+          <h4><%= @video.title %></h4>
+          <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#edit-title-btn' do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+        </div>
+        <% if !user_signed_in? %>
+          <%= link_to "Get in touch", root_path, class: "btn btn-warning bcta" %>
+        <% end %>
+      </div>
+      <% if user_signed_in? %>
+        <div class="share-sm">
+           <div data-toggle="tooltip" data-placement="bottom" title="Get URL">
+           <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#shortenURL' do %>
+              <%= image_tag "url.svg", id: "url-icon-sm" %>
+            <% end %>
+          </div>
+          <div id="share-icon-sm" data-toggle="tooltip" data-placement="bottom" title="Share on social media">
+            <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#socialIcons' do %>
+              <%= image_tag "share.svg" %>
+            <% end %>
+          </div>
+          <div data-toggle="tooltip" data-placement="bottom" title="Get QR Code">
+            <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#QRcode' do %>
+             <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://www.beyondtheresume.io/videos/" + @video.url%>
+              <%= image_tag url, id: "qr-code-sm" %>
+            <% end %>
           </div>
         </div>
-      <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 
@@ -49,11 +83,9 @@
   <!-- hides links unless video owner -->
 
 
-          <% if @video.videoable == current_user %>
-          <p><%= link_to "Go to all videos", videos_path %></p>
 
-          <p><%= link_to "Delete video", delete_vid_path(@video.url), method: :delete, data: {confirm: "Are you sure you want to delete #{@video.title}?" } %></p>
-          <% end %>
+
+
   <!-- https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=example -->
 
 </div>
@@ -117,6 +149,28 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="edit-title-btn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+         <div class="edit-title">
+          <%= simple_form_for(@video) do |f| %>
+          <%= f.input :title %>
+
+            <%= f.submit "Edit Title" %>
+            <% end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div id= "modal-footer-flex">
+          <%= link_to "Delete video", delete_vid_path(@video.url), method: :delete, data: {confirm: "Are you sure you want to delete #{@video.title}?" } %>
+          <button type="button", data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>

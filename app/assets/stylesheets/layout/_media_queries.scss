@@ -21,8 +21,8 @@
   }
 
   #ziggeo-container {
-    max-width: 330px;
-    max-height: 250px;
+    max-width: 300px;
+    max-height: 169px;
   }
 
   #btn-record, #btn-upload {
@@ -34,13 +34,27 @@
     justify-content: center;
     flex-wrap: wrap;
   }
+
+  #video-player {
+    min-width: 320px;
+    min-height: 260px;
+  }
 }
 
-@media (min-width: 700px) {
-  #ziggeo-container{
-    max-width: 640px;
-    max-height: 500px;
+@media (min-width: 500px) {
+  #video-player {
+    min-width: 410px;
+    min-height: 310px;
   }
+
+  #ziggeo-container {
+    max-width: 410px;
+    max-height: 310px;
+  }
+}
+
+
+@media (min-width: 700px) {
 
   #box-upload-record, #messages-div {
     margin-left: 100px;
@@ -58,6 +72,16 @@
    #box-newvideo-text{
     margin: 50px 0px;
   }
+
+   #video-player{
+    min-width: 550px;
+    min-height: 430px;
+  }
+
+  #ziggeo-container {
+    max-width: 550px;
+    max-height: 430px;
+  }
 }
 
 @media (min-width: 990px) {
@@ -71,6 +95,16 @@
 
   #messages-div {
     min-height: 200px;
+  }
+
+  #video-player {
+    min-width: 750px;
+    min-height: 563px;
+  }
+
+  #ziggeo-container {
+    max-width: 750px;
+    max-height: 563px;
   }
 }
 

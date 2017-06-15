@@ -231,6 +231,7 @@
           function showZiggeo() {
             messages_div.hidden = true;
             ziggeo_div.hidden = false;
+            document.getElementById('box-user-share').hidden = false;
           };
           //displays ziggeo after 3 seconds after processing
           setTimeout(showZiggeo,3000);
@@ -255,7 +256,6 @@
 
         recorder.on("playing", function () {
           // displays share and save button after playing video
-          document.getElementById('box-user-share').hidden = false;
         });
       });
     </script>
