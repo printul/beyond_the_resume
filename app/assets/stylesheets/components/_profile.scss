@@ -15,7 +15,9 @@
     background-color: white;
     align-items: center;
     color: black;
-    border-top: 1px solid #F78A03;
+    border-bottom: 1px solid #F78A03;
+//     border-top: 1px solid #F78A03;
+
     border-radius: 5px;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
     margin-top: 5px;
@@ -71,7 +73,7 @@
 .skill-card {
   padding: 15px 25px;
   background: white;
-  border-top: 1px solid #F78A03;
+  border-bottom: 1px solid #F78A03;
   border-radius: 5px;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   color: black;
@@ -90,12 +92,20 @@
 }
 
 .btn-upload {
-  border-top: 1px solid #F78A03;
+
+  border-bottom: 1px solid #F78A03;
+//   border-top: 1px solid #F78A03;
+
   border-radius: 5px;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   color: black;
   background: white;
   font-weight: 100;
+}
+
+.btn-upload:hover {
+  background-color: #F78A03;
+  color: white;
 }
 
 ul {
@@ -123,4 +133,8 @@ ul {
 
 .document_upload_label:hover {
    color: #F78A03;
+}
+
+.fa-pencil:hover {
+  color: #F78A03;
 }

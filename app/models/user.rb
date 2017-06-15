@@ -35,7 +35,7 @@ class User < ApplicationRecord
             last_name: auth.info.last_name,
             email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
             password: Devise.friendly_token[0,20],
-            photo: auth.info.image
+            photo: auth.extra.raw_info.pictureUrls.values.last.first
             )
         elsif auth.provider == "facebook"
           user = User.new(
