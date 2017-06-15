@@ -3,8 +3,7 @@
     <div class="content">
       <div id="video-player">
         <ziggeoplayer ziggeo-video='<%= @video.url %>'
-            ziggeo-width=640
-            ziggeo-height=480>
+          ziggeo-stretch=true>
         </ziggeoplayer>
         <% if !user_signed_in? %>
           <%= link_to "Get in touch", root_path, class: "btn btn-warning bcta" %>
