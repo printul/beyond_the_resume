@@ -3,8 +3,7 @@
     <div class="content">
       <div id="video-player">
         <ziggeoplayer ziggeo-video='<%= @video.url %>'
-            ziggeo-width=640
-            ziggeo-height=480>
+          ziggeo-stretch=true>
         </ziggeoplayer>
         <div id="above-video">
           <h4><%= @video.title %></h4>
