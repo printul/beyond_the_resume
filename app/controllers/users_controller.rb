@@ -27,14 +27,14 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         sign_in(@user == current_user ? @user : current_user, :bypass => true)
-        format.html { redirect_to @user, notice: 'Your profile was successfully updated.' }
+        format.html { redirect_to user_path(@user), notice: 'Your profile was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-    redirect_to user_path(current_user)
+    redirect_to user_path(@user)
   end
 
   # GET/PATCH /users/:id/finish_signup
