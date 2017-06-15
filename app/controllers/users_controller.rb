@@ -34,6 +34,7 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+    redirect_to user_path(current_user)
   end
 
   # GET/PATCH /users/:id/finish_signup
