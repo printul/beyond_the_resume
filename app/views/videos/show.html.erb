@@ -6,6 +6,12 @@
             ziggeo-width=640
             ziggeo-height=480>
         </ziggeoplayer>
+        <div id="above-video">
+          <h4><%= @video.title %></h4>
+          <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#edit-title-btn' do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+        </div>
         <% if !user_signed_in? %>
           <%= link_to "Get in touch", root_path, class: "btn btn-warning bcta" %>
         <% end %>
@@ -30,17 +36,7 @@
           </div>
         </div>
       </div>
-        <div class="row">
-          <div class="col-xs-12 col-md-6 col-md-offset-1">
-            <div class="edit-title">
-              <%= simple_form_for(@video) do |f| %>
-              <%= f.input :title %>
-              <%= f.submit "Edit Title", class: "btn btn-primary" %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+    <% end %>
   </div>
 </div>
 
@@ -117,6 +113,27 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="edit-title-btn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+         <div class="edit-title">
+          <%= simple_form_for(@video) do |f| %>
+          <%= f.input :title %>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div id="modal-footer-flex">
+          <%= f.submit "Edit Title" %>
+          <button type="button", data-dismiss="modal">Close</button>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
