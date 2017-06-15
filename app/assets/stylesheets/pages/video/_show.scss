@@ -9,6 +9,10 @@
   box-shadow: 1px 1px 0px lightgrey;
 }
 
+.content-sm {
+  padding: 50px 10px;
+  background-color: white;
+}
 
 .share{
   position: absolute;
@@ -95,9 +99,13 @@
 
 #above-video {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   padding-left: 22px;
   padding-right: 22px;
+
+  a {
+    margin-left: 10px;
+  }
 }
 
 #modal-footer-flex {
