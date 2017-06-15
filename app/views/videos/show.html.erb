@@ -6,36 +6,41 @@
             ziggeo-width=640
             ziggeo-height=480>
         </ziggeoplayer>
+        <% if !user_signed_in? %>
+          <%= link_to "Get in touch", root_path, class: "btn btn-warning bcta" %>
+        <% end %>
       </div>
-      <div class="share">
-         <div data-toggle="tooltip" data-placement="bottom" title="Get URL">
-         <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#shortenURL' do %>
-            <%= image_tag "url.svg", id: "url-icon" %>
-          <% end %>
-        </div>
-        <div id="share-icon" data-toggle="tooltip" data-placement="bottom" title="Share on social media">
-          <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#socialIcons' do %>
-            <%= image_tag "share.svg" %>
-          <% end %>
-        </div>
-        <div data-toggle="tooltip" data-placement="bottom" title="Get QR Code">
-          <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#QRcode' do %>
-           <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://beyondtheresume.io/videos/" + @video.url%>
-            <%= image_tag url, id: "qr-code" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-6 col-md-offset-1">
-          <div class="edit-title">
-            <%= simple_form_for(@video) do |f| %>
-            <%= f.input :title %>
-            <%= f.submit "Edit Title", class: "btn btn-primary" %>
+      <% if user_signed_in? %>
+        <div class="share">
+           <div data-toggle="tooltip" data-placement="bottom" title="Get URL">
+           <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#shortenURL' do %>
+              <%= image_tag "url.svg", id: "url-icon" %>
+            <% end %>
+          </div>
+          <div id="share-icon" data-toggle="tooltip" data-placement="bottom" title="Share on social media">
+            <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#socialIcons' do %>
+              <%= image_tag "share.svg" %>
+            <% end %>
+          </div>
+          <div data-toggle="tooltip" data-placement="bottom" title="Get QR Code">
+            <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#QRcode' do %>
+             <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://beyondtheresume.io/videos/" + @video.url%>
+              <%= image_tag url, id: "qr-code" %>
             <% end %>
           </div>
         </div>
       </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-6 col-md-offset-1">
+            <div class="edit-title">
+              <%= simple_form_for(@video) do |f| %>
+              <%= f.input :title %>
+              <%= f.submit "Edit Title", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
   </div>
 </div>
 
