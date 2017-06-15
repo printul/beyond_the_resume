@@ -29,7 +29,9 @@
 }
 .profile-info {
   // background-color: $orange-bg;
-  height: 60vh;
+  height: 100%;
+  padding-bottom: 15px;
+
 }
 
 .profile-content {
@@ -61,14 +63,15 @@
 
 .profile-skills {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
 }
 .skill-card {
   padding: 15px 25px;
   background: #F78A03;
   border-radius: 5px;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
-  color: white;
+  color: black;
+  overflow-wrap: break-word;
 }
 .add-skill-btn {
   position: absolute;
@@ -86,7 +89,7 @@
   color: $white;
 }
 
-
-
-
+ul {
+  list-style-type: none;
+}
 
