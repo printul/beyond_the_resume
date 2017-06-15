@@ -10,7 +10,7 @@ class VideosController < ApplicationController
   def show
     authorize @video
     client = Bitly.client
-    @url = client.shorten("https://beyondtheresume.io/videos/" + @video.url)
+    @url = client.shorten("https://www.beyondtheresume.io/videos/" + @video.url)
   end
 
   def new

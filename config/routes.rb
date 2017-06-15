@@ -7,7 +7,7 @@ Rails.application.routes.draw do
                 registrations: 'users/registrations' }
 
   root to: 'pages#home'
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :update, :new, :create]
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :videos, only: [:index, :new, :create, :update]
