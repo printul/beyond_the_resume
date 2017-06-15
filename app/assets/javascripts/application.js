@@ -8,4 +8,5 @@
 //= require table
 //= require social-share-button
 //= require tooltip
+//= require homepage_anim
 //= require_tree .
