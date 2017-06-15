@@ -7,6 +7,7 @@
           <%= link_to "#", { class: "add-skill-btn", 'data-toggle' => 'modal', 'data-target' => '#updateModal'} do %>
               <i class="fa fa-pencil"></i>
             <% end %>
+
             <div class="profile-content">
               <%= image_tag (current_user.photo || "https://s3.amazonaws.com/whisperinvest-images/default.png"), class: "avatar-large" %>
               <div class="flex-row">
@@ -17,13 +18,20 @@
                   <p>Phone number: <%= current_user.phone_number %></p>
                 </div>
                 <div class="profile-content-right">
-                <h4>Add your resume</h4>
-                <%= simple_form_for (current_user) do |f| %>
-                  <%= f.input :document, label: false, as: :attachinary %>
-                  <%= f.submit "Add Document", class: "btn btn-upload" %>
-                  <%#= cl_image_tag current_user.document.path %>
-                <% end %>
-
+                  <% if current_user.document.present? %>
+                    <h4>Update your resume</h4>
+                    <%= simple_form_for (current_user) do |f| %>
+                      <%= f.input :document, label: false, as: :attachinary %>
+                      <%= f.submit "Update", class: "btn btn-upload" %>
+                      <%= link_to "View", "http://res.cloudinary.com/printul/image/upload/c_fill,h_200,w_200/#{current_user.document.path}", class: "btn btn-upload" %>
+                    <% end %>
+                  <% else %>
+                    <h4>Add your resume</h4>
+                    <%= simple_form_for (current_user) do |f| %>
+                      <%= f.input :document, label: false, as: :attachinary %>
+                      <%= f.submit "Save", class: "btn btn-upload" %>
+                    <% end %>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -103,20 +111,25 @@
 
   <!-- MODAL FOR DOCUMENT -->
 
-  <div class="modal fade" id="doc" tabindex="-1" role="dialog" aria-labelledby="updateModal" aria-hidden="true">
+  <!-- <div class="modal fade" id="docModal" tabindex="-1" role="dialog" aria-labelledby="docModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
       <div class="modal-header">
-        <h5 class="modal-title" id="updateModalLabel"><strong>Edit my profile</strong></h5>
+        <h5 class="modal-title" id="docModalLabel"><strong>My resume</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
 
       <div class="modal-body">
-       <%#= cl_image_tag current_user.document %>
+      <%# if current_user.document %>
+       <%#= cl_image_tag current_user.document.path, :width=>1000, :height=>1000, :crop=>"fill" %>
+       <%# else %>
+        Please upload your resume!
+       <%# end %>
       </div>
       </div>
     </div>
   </div>
+ -->
