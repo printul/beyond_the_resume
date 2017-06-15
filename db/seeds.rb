@@ -22,19 +22,42 @@ businesses = [
                 industry: "Technology",
                 city: "London",
                 zipcode: "E1 6BT",
-                logo: "https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/1692/s300/le-wagon-logo.png"
+                logo: "logos/lewagon.png"
               },
 
               {
-                name: "Spiffy Accountants",
-                address: "14 Elder Street",
+                name: "The Lounge Bar",
+                address: "16 Elder Street",
                 phone_number: "+4415 2516 5135",
-                email: "spiffy@spiffyaccountants.com",
-                industry: "Accounting",
+                email: "jerry@theloungebar.com",
+                industry: "Entertainment",
                 city: "London",
                 zipcode: "E3 9BT",
-                logo: "http://orig07.deviantart.net/353d/f/2011/019/6/7/random_logo_by_firefly_man-d37l9rz.png"
-              }
+                logo: "logos/bar.png"
+              },
+
+              {
+                name: "Mondo Pastry",
+                address: "24 Main Street",
+                phone_number: "+4454 9216 1337",
+                email: "cat@mondopastry.com",
+                industry: "Food",
+                city: "London",
+                zipcode: "L12 1BC",
+                logo: "logos/pastry.png"
+              },
+
+              {
+                name: "Mondo Pastry",
+                address: "24 Main Street",
+                phone_number: "+4454 9216 1337",
+                email: "cat@mondopastry.com",
+                industry: "Food",
+                city: "London",
+                zipcode: "L12 1BC",
+                logo: "logos/pastry.png"
+              },
+
             ]
 
 postings = [
@@ -46,9 +69,9 @@ postings = [
             },
             {
               business_id: 2,
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum, erat in elementum blandit, nibh neque sagittis nisi, nec scelerisque nisl magna id leo. Vestibulum ultrices libero consectetur imperdiet pharetra. Maecenas malesuada vulputate eleifend. Nam a tortor magna. Nunc pulvinar mauris a laoreet convallis. Phasellus lacinia enim lectus, quis pulvinar magna ultricies ut. Proin sapien nulla, blandit nec risus sit amet, euismod eleifend augue.",
+              description: "A relaxing intimate space for those looking to escape the hustle and bustle of the city. Customers can sit back, relax and enjoy a drink in the comfort of our newly refurbished retro space. You could as well, if you’re a talented junior bartender looking to get experience in a hard working but fun environment. Drinks are on us!"
               vid_token: "r127799f64dc2207ac2476b5983a4afa",
-              title: "Accounting Manager"
+              title: "Staff"
             }
           ]
 

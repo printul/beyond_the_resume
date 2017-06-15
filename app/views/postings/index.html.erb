@@ -5,7 +5,7 @@
         <% @postings.each do |posting| %>
             <div class="col-xs-12 col-md-4">
                 <%= link_to posting_path(posting) do %>
-                  <div class="card-job">
+                  <div class="card-job <%= 'opacity-half' if @applied.include? posting.id %>">
                     <div class="card-category-job"><%= posting.business.name %></div>
                     <div class="card-description-job">
                       <h2><%= posting.title %></h2>

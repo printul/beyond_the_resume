@@ -6,13 +6,19 @@ class PostingsController < ApplicationController
 
     @postings = policy_scope(Posting)
     @user = current_user
+    @applications = Application.where(user_id: current_user)
+    @applied = []
+    @applications.each { |application| @applied << application[:posting_id] }
     # @posting = Posting.new
   end
 
   def show
     @posting = Posting.find(params[:id])
+    @applied = Application.find_by(posting_id: @posting, user_id: current_user)
     @posting.views += 1
     @posting.save
+    @application = Application.new(posting_id: @posting)
+    @videos = Video.where("user_id" == current_user.id)
     authorize @posting
   end
 
