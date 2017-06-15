@@ -1,0 +1,5 @@
+meta_product_name: "be:yond"
+meta_title: "be:yond - Enhance your application through video"
+meta_description: "Being memorable with video, made easy"
+meta_image: "beyond.jpeg"                       # should exist in `app/assets/images/`
+twitter_account: "@beyondwithvideo"   # required for Twitter Cards
