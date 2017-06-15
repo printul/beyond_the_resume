@@ -1,5 +1,5 @@
 <div class="fixed-navbar">
-  <div class="container">
+  <div class="container hidden-xs hidden-sm">
     <div class="content">
       <div id="video-player">
         <ziggeoplayer ziggeo-video='<%= @video.url %>'
@@ -32,6 +32,45 @@
             <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#QRcode' do %>
              <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://www.beyondtheresume.io/videos/" + @video.url%>
               <%= image_tag url, id: "qr-code" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+   <div class="container hidden-md hidden-lg">
+    <div class="content-sm">
+      <div id="video-player">
+        <ziggeoplayer ziggeo-video='<%= @video.url %>'
+            ziggeo-width=640
+            ziggeo-height=480>
+        </ziggeoplayer>
+        <div id="above-video">
+          <h4><%= @video.title %></h4>
+          <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#edit-title-btn' do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+        </div>
+        <% if !user_signed_in? %>
+          <%= link_to "Get in touch", root_path, class: "btn btn-warning bcta" %>
+        <% end %>
+      </div>
+      <% if user_signed_in? %>
+        <div class="share-sm">
+           <div data-toggle="tooltip" data-placement="bottom" title="Get URL">
+           <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#shortenURL' do %>
+              <%= image_tag "url.svg", id: "url-icon-sm" %>
+            <% end %>
+          </div>
+          <div id="share-icon-sm" data-toggle="tooltip" data-placement="bottom" title="Share on social media">
+            <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#socialIcons' do %>
+              <%= image_tag "share.svg" %>
+            <% end %>
+          </div>
+          <div data-toggle="tooltip" data-placement="bottom" title="Get QR Code">
+            <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#QRcode' do %>
+             <% url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "https://www.beyondtheresume.io/videos/" + @video.url%>
+              <%= image_tag url, id: "qr-code-sm" %>
             <% end %>
           </div>
         </div>
