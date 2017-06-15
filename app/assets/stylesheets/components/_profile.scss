@@ -15,7 +15,6 @@
     background-color: #F78A03;
     align-items: center;
     color: white;
-    opacity: 0.6;
     h4 {
       margin: 0;
     }
@@ -63,15 +62,17 @@
 
 .profile-skills {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .skill-card {
   padding: 15px 25px;
-  background: #F78A03;
+  background: white;
+  border-top: 1px solid #F78A03;
   border-radius: 5px;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   color: black;
   overflow-wrap: break-word;
+  font-weight: 100;
 }
 .add-skill-btn {
   position: absolute;
@@ -93,3 +94,6 @@ ul {
   list-style-type: none;
 }
 
+.fa-home {
+  color: #999999;
+}
