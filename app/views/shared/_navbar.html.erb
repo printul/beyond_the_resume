@@ -95,11 +95,16 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <% if current_user %>
         <li><%= link_to "Home", root_path %> </li>
         <li><%= link_to "Your videos", videos_path %></li>
         <li><%= link_to "Create a video", new_video_path%></li>
         <li><%= link_to "Jobs", postings_path %> </li>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path%></li>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <% end %>
       </ul>
     </div>
   </div>
