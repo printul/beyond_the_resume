@@ -121,7 +121,7 @@ postings = [
               business_id: 1,
               description: "We change people’s lives by teaching them to code and you can do it too! We’re looking for someone to help us enhance our students’ experiences during the course and since, coding keeps us indoors so much, we need inspiration on how to get more outdoorsy! If you are interested in coding, have a working knowledge of a start-up oriented environment and.. last but not least.. you have a good feel for adventure, show us and we’ll be happy to meet you!",
               vid_token: "r127799f64dc2207ac2476b5983a4afa",
-              title: "Outdoors experiences coordinator with some coding flair"
+              title: "Teacher Assistant with a sense of adventure"
             },
 
             {
