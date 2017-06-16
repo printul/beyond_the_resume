@@ -6,13 +6,17 @@
           ziggeo-responsive=true>
         </ziggeoplayer>
         <div id="above-video">
-          <h4><%= @video.title %></h4>
-          <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#edit-title-btn' do %>
-              <i class="fa fa-pencil"></i>
+          <% if current_user %>
+            <% if @video.videoable_id == current_user.id  %>
+              <h4><%= @video.title %></h4>
+              <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#edit-title-btn' do %>
+                  <i class="fa fa-pencil"></i>
+                <% end %>
             <% end %>
+          <% end %>
         </div>
         <% if !user_signed_in? %>
-          <%= link_to "Get in touch", root_path, class: "btn btn-warning bcta" %>
+          <%= link_to "Get in touch", root_path, class: "btn btn-warning bcta", style: "width:87%;"%>
         <% end %>
       </div>
       <% if user_signed_in? %>
@@ -34,20 +38,24 @@
             <% end %>
           </div>
         </div>
-      </div>
     <% end %>
+    </div>
   </div>
-   <div class="container hidden-md hidden-lg">
+  <div class="container hidden-md hidden-lg">
     <div class="content-sm">
       <div id="video-player">
         <ziggeoplayer ziggeo-video='<%= @video.url %>'
             ziggeo-responsive=true>
         </ziggeoplayer>
         <div id="above-video">
-          <h4><%= @video.title %></h4>
-          <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#edit-title-btn' do %>
-              <i class="fa fa-pencil"></i>
+          <% if current_user %>
+            <% if @video.videoable_id == current_user.id  %>
+              <h4><%= @video.title %></h4>
+              <%= link_to "#", :id => 'login', "data-toggle" => "modal", 'data-target' => '#edit-title-btn' do %>
+                  <i class="fa fa-pencil"></i>
+                <% end %>
             <% end %>
+          <% end %>
         </div>
         <% if !user_signed_in? %>
           <%= link_to "Get in touch", root_path, class: "btn btn-warning bcta" %>
@@ -72,22 +80,13 @@
             <% end %>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
-
   <!-- hides links unless video owner -->
-
-
-
-
-
   <!-- https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=example -->
 
-</div>
 
 <div class="modal fade" id="shortenURL" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
