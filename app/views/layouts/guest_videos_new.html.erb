@@ -46,6 +46,7 @@
         var upload_btn = document.getElementById('btn-upload');
         record_btn.addEventListener("click", startRecord);
         upload_btn.addEventListener("click", startUpload);
+
         function startRecord() {
           ziggeo_div.hidden = false;
           var btn_ziggeo = document.getElementsByClassName('ba-videorecorder-theme-elevate-chooser-primary-button');
@@ -152,7 +153,7 @@
                       "Retracting Phong Shader",
                       "Retrieving from Back Store",
                       "Reverse Engineering Image Consultant",
-                      "Routing Neural Network Infanstructure",
+                      "Routing Neural Network Infrastructure",
                       "Scattering Rhino Food Sources",
                       "Scrubbing Terrain",
                       "Searching for Llamas",
@@ -263,24 +264,23 @@
         <div class="container">
           <div class="text-center">
             <div class="box box-full-height" id="box-upload-record" hidden="true">
-            <div class="flex-center">
-              <div id="ziggeo-container">
-                  <ziggeorecorder
-                  id='ziggeo'
-                  ziggeo-tags='<%= @guest_user.id %>'
-                  ziggeo-theme='elevate'
-                  ziggeo-responsive=true
-                  ziggeo-timelimit=45
-                  >
-                  </ziggeorecorder>
+              <div class="flex-center">
+                <div id="ziggeo-container">
+                    <ziggeorecorder
+                    id='ziggeo'
+                    ziggeo-tags='<%= @guest_user.id %>'
+                    ziggeo-theme='elevate'
+                    ziggeo-responsive=true
+                    ziggeo-timelimit=45
+                    >
+                    </ziggeorecorder>
+                </div>
+              </div>
+              <div id="box-guest-signup" hidden=true>
+              <%= link_to 'Sign up to share', new_user_registration_path, class: "btn", id: "btn-guest-save"%>
               </div>
             </div>
-            <div id="box-guest-signup" hidden=true>
-            <%= link_to 'Sign up to share', new_user_registration_path, class: "btn", id: "btn-guest-save"%>
-            </div>
-            </div>
           </div>
-
           <div class="box box-full-height" id="messages-div" hidden="true">
             <div class="flex-centered">
               <h3 class="text-center" id="video-messages" style="font-weight: lighter; padding-bottom: 60px;"></h3>
@@ -291,15 +291,22 @@
             </div>
           </div>
           <div class="upload-record-div text-center">
-            <button class="btn-upload-record" id="btn-record">
+            <button class="btn-upload-record hidden-xs hidden-sm" id="btn-record">
               <i id="btn-icon-camera" class="fa fa-camera" aria-hidden="true"></i>
               <h2>Record yourself</h2>
               <h3>Create a video</h3>
             </button>
             <button class="btn-upload-record" id="btn-upload">
-              <i id="btn-icon-cloud" class="fa fa-cloud-upload" aria-hidden="true"></i>
-              <h2>Upload File</h2>
-              <h3>Choose a file</h3>
+              <div class="hidden-xs hidden-sm">
+                <i id="btn-icon-cloud" class="fa fa-cloud-upload" aria-hidden="true"></i>
+                <h2>Upload File</h2>
+                <h3>Choose a file</h3>
+              </div>
+              <div class="hidden-md hidden-lg">
+                <i id="btn-icon-camera" class="fa fa-camera" aria-hidden="true"></i>
+                <h2>Record/Upload</h2>
+                <h3>Create or choose a file</h3>
+              </div>
             </button>
           </div>
           <div class="text-center" id="box-newvideo-text">
