@@ -28,14 +28,20 @@
                   <% if current_user.document.present? %>
                     <h4>Update your resume</h4>
                     <%= simple_form_for (current_user) do |f| %>
-                      <%= f.input :document, label: false, as: :attachinary %>
+                      <%= f.label  :document do %>
+                        <span class="document_upload_label"><i class="fa fa-upload"></i></span>
+                      <% end %>
+                      <%= f.input :document, label:false, as: :attachinary, input_html: {class: "document_upload_input"} %>
                       <%= f.submit "Update", class: "btn btn-upload" %>
                       <%= link_to "View", "http://res.cloudinary.com/printul/image/upload/c_fill,h_200,w_200/#{current_user.document.path}", class: "btn btn-upload" %>
                     <% end %>
                   <% else %>
                     <h4>Add your resume</h4>
                     <%= simple_form_for (current_user) do |f| %>
-                      <%= f.input :document, label: false, as: :attachinary %>
+                      <%= f.label :document do %>
+                        <span class="document_upload_label"><i class="fa fa-upload"></i></span>
+                      <% end %>
+                      <%= f.input :document, label:false, as: :attachinary, input_html: {class: "document_upload_input"} %>
                       <%= f.submit "Save", class: "btn btn-upload" %>
                     <% end %>
                   <% end %>

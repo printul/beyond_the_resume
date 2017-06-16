@@ -8,7 +8,8 @@ Devise.setup do |config|
     image_size: 'large',
     secure_image_url: true
 
-  config.omniauth :linkedin, ENV["LINKEDIN_KEY"], ENV["LINKEDIN_SECRET"]
+  config.omniauth :linkedin, ENV["LINKEDIN_KEY"], ENV["LINKEDIN_SECRET"],
+    fields: ['id', 'email-address', 'first-name', 'last-name', 'picture-url', 'public-profile-url', 'picture-urls::(original)']
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
