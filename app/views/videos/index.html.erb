@@ -1,7 +1,14 @@
 <div class="fixed-navbar">
 <% if @videos.count == 0 %>
   <h1 class="text-center">Click me to record your first video!</h1>
+  <div class="hidden-xs">
   <%= render 'bee' %>
+  </div>
+  <div class="hidden-sm hidden-md hidden-lg camera-icon">
+  <%= link_to new_video_path do %>
+    <i class="fa fa-camera-retro fa-5x"></i>
+    <% end %>
+  </div>
 <% end %>
 
   <div class="container">
