@@ -1,7 +1,7 @@
 <div class="fixed-navbar">
   <div class="container hidden-xs hidden-sm">
     <div class="content">
-      <div id="video-player">
+      <div id="video-player" style="<%= ('margin-left: 80px;' if !user_signed_in? )%>">
         <ziggeoplayer ziggeo-video='<%= @video.url %>'
           ziggeo-responsive=true>
         </ziggeoplayer>
