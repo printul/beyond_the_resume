@@ -44,3 +44,10 @@ a {
 #video-bg {
   width: 100%;
 }
+
+@media(max-width:768px){
+  #banner {
+    background-image: url('beyond-mobile.png');
+    background-size: cover !important;
+  }
+}
