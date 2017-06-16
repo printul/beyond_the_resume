@@ -1,13 +1,13 @@
 <div id="banner">
   <div>
     <video autoplay loop id="video_bg" class="hidden-xs">
-      <source src="http://res.cloudinary.com/printul/video/upload/v1497277035/video_mtkgot.mp4">
+      <source src="http://res.cloudinary.com/printul/video/upload/v1497606890/video_background_sjoijb.mp4">
     </video>
   <div class="text-center" id="banner_overlay">
     <h1 id="title">Enhance your application through video</h1><br>
     <p id="tagline"> <strong>Stand out</strong> by showcasing your personality or skills.</p>
     <br><br>
-    <%= link_to "Try it now", new_video_path, class: "btn btn-warning btn-lg"%>
+    <%= link_to "Try it now", new_video_path, class: "btn btn-warning btn-lg", id: "btn-try"%>
   </div>
   <div class="button-container-down">
     <a href="#how-to" id="button-down"><%= image_tag "down-arrow.png"%></a>
@@ -75,7 +75,7 @@
   </div>
 </div>
 
-<div class="wrapper-white padded">
+<div class="wrapper-white padded hidden-xs hidden-sm">
   <div class="container">
     <h3 class="text-center">Feeling creative? Showcase what you're good at and use it to apply!</h3><br><br>
     <div class="row justify-content">

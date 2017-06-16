@@ -7,6 +7,10 @@
   //   margin-left: 0px;
   // }
 
+  #btn-try {
+    font-size: 16px;
+  }
+
   .box {
     max-width: 100%;
   }
@@ -40,6 +44,11 @@
     min-width: 320px;
     min-height: 260px;
   }
+
+  #post-flex-video {
+    min-width: 320px;
+    min-height: 260px;
+  }
 }
 
 @media (min-width: 500px) {
@@ -51,6 +60,15 @@
   #ziggeo-container {
     max-width: 410px;
     max-height: 310px;
+  }
+
+  #post-flex-video {
+    max-width: 410px;
+    max-height: 310px;
+  }
+
+  #btn-try {
+    font-size: 20px;
   }
 }
 
@@ -83,6 +101,11 @@
     max-width: 550px;
     max-height: 430px;
   }
+
+  #post-flex-video {
+    min-width: 550px;
+    min-height: 430px;
+  }
 }
 
 @media (min-width: 990px) {
@@ -106,6 +129,11 @@
   #ziggeo-container {
     max-width: 750px;
     max-height: 563px;
+  }
+
+  #post-flex-video {
+    min-width: 750px;
+    min-height: 563px;
   }
 }
 
