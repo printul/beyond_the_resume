@@ -26,13 +26,13 @@
             <h4 id=<%= 'navbar-navigation-link-current-page' if current_page?(new_video_path) %>>Create a video</h4>
           <% end %>
         </li>
-        <li>
-          <%= link_to postings_path,
+        <!-- <li> -->
+          <%#= link_to postings_path,
           class: "navbar-navigation-link" do %>
-            <div class="navbar-nav-link-padding"></div>
-            <h4 id=<%= 'navbar-navigation-link-current-page' if current_page?(postings_path) || @posting %>>Jobs</h4>
-          <% end %>
-        </li>
+            <!-- <div class="navbar-nav-link-padding"></div> -->
+            <!-- <h4 id=<%#= 'navbar-navigation-link-current-page' if current_page?(postings_path) || @posting %>>Jobs</h4> -->
+          <%# end %>
+        <!-- </li> -->
     </ul>
     </div>
   <% end %>
