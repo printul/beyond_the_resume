@@ -6,9 +6,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         @user = User.find_for_oauth(env["omniauth.auth"], current_user)
 
         if @user.persisted?
+          @videos = Video.where(videoable_id: session[:guest_user_id])
+          @videos.each do |video|
+            video.update(videoable_id: @user.id)
+          end
           sign_in_and_redirect @user, event: :authentication
           set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
         else
+          if session[:guest_user_id]
+            User.find(session[:guest_user_id]).destroy
+          end
           session["devise.#{provider}_data"] = env["omniauth.auth"]
           redirect_to new_user_registration_url
         end
