@@ -99,7 +99,7 @@
         <li><%= link_to "Home", user_path(current_user) %> </li>
         <li><%= link_to "Your videos", videos_path %></li>
         <li><%= link_to "Create a video", new_video_path%></li>
-        <li><%= link_to "Jobs", postings_path %> </li>
+        <!-- <li><%#= link_to "Jobs", postings_path %> </li> -->
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path%></li>
