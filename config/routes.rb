@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'videos/:url', to: 'videos#show', as: :external
   delete 'videos/:url', to: 'videos#destroy', as: :delete_vid
 
+  get '/terms', to: 'pages#terms'
+
   resources :postings, only: [:index, :show] do
     resources :applications, only: [:new, :create]
   end
